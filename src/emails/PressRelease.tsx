@@ -107,8 +107,8 @@ export default function WeeklyNewsletter({
                          
                          <FooterDivider />
                     </Container>
-                </Container>
-               <Footer />
+                 <Footer />
+              </Container>
             </Body>
         </Html>
     );

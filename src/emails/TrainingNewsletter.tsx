@@ -200,10 +200,9 @@ export default function TrainingNewsletter({
                         <Cta ctaLabel={ctaLabel} ctaHref={ctaHref} />
 
                         <FooterDivider />
-                        
-                    </Container>
+                      </Container>
+                    <FooterTraining />
                 </Container>
-               <FooterTraining />
             </Body>
         </Html>
     );
