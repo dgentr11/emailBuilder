@@ -40,7 +40,7 @@ export type TrainingNewsletterProps = {
   headerImageUrl?: string;
   headerImageAlt?: string;
   publishDate?: string;             // raw
-  publishDateFormatted?: stri
+  publishDateFormatted?: string;
   title?: string;
   subtitle?: string;
   introHtml?: string;
