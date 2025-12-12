@@ -36,7 +36,7 @@ export default async function GenerateIndexPage() {
   );
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12 mt-24">
+    <main className="mx-auto max-w-6xl px-6 py-12 mt-24">
       <header className="text-center">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
           Generate HTML from recent content
@@ -73,7 +73,7 @@ export default async function GenerateIndexPage() {
 
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                          {title}
+                          {title}<br/>{formatted && formatted}
                         </h3>
 
                         {/* Status flag only for newsletterIssue/newsletterTraining */}

@@ -10,7 +10,12 @@ export function Footer() {
     return (
 
          <Section style={styles.footerLower}>
-            <table style={{ width: '100%', marginTop: '10px' }}>
+            <table 
+                align="center"
+                width="100%"
+                role="presentation"
+                style={{ width: '100%', marginTop: '10px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}
+            >
                 <tr style={{ }}>
                 <td align="center">
                     <Img

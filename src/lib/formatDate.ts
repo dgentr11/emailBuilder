@@ -13,9 +13,7 @@ export function formatPublishOrUpdatedDate(
   if (!preferred || !isValidDateString(preferred)) return '—';
   return new Date(preferred).toLocaleString(undefined, {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
   });
 }
