@@ -6,7 +6,7 @@ export const tokens = {
     brand: '#ff8200',
     primary: '#0078d4',
     white: '#ffffff',
-    smokey: '#000000ba',
+    smokey: '#222222',
     gray600: '#666',
     gray700: '#888',
     bg: '#f5f5f5',

@@ -198,7 +198,6 @@ export default function WeeklyNewsletter({
                     </Container>
                      <Footer />
                 </Container>
-                
             </Body>
         </Html>
     );
