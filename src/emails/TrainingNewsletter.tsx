@@ -56,7 +56,6 @@ type Props = {
 export default function TrainingNewsletter({
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
-    footerDividerUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-divider.jpg',
     headerImageUrl,
     headerImageAlt,
     title,
@@ -201,8 +200,9 @@ export default function TrainingNewsletter({
 
                         <FooterDivider />
                       </Container>
-                    <FooterTraining />
+                    
                 </Container>
+                <FooterTraining />
             </Body>
         </Html>
     );

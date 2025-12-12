@@ -1,8 +1,17 @@
 import { styles } from "@/emails/styles";
 import { Link, Column, Img, Row, Section, Text } from "@react-email/components";
 
+type SocialRowProps = {
+    facebookUrl?: string;
+    xUrl?: string;
+    instagramUrl?: string;
+};
 
-export function Footer() {
+export function Footer({
+  facebookUrl = "https://www.facebook.com/utfacilitiesservices",
+  xUrl = "https://twitter.com/utkfacserv",
+  instagramUrl = "https://instagram.com/utfacilities/",
+}: SocialRowProps) {
 
     const templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
     templateLogoReverseUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-reverse.png';
@@ -30,43 +39,46 @@ export function Footer() {
                     </td>
                 </tr>
                 <tr>
-                    <td align="center">
-                        <Row
-                        style={{
-                            display: 'table-cell',
-                            height: 44,
-                            width: 56,
-                            verticalAlign: 'bottom',
-                        }}
-                        >
-                        <Column style={{ paddingRight: 8 }}>
-                            <Link href="https://www.facebook.com/utfacilitiesservices">
-                            <Img
-                                alt="Facebook"
-                                height="auto"
-                                src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-facebook.png"
-                                width="25"
-                                style={{margin: '0 5px'}}
-                            />
-                            </Link>
-                        </Column>
-                        <Column style={{ paddingRight: 8 }}>
-                            <Link href="https://twitter.com/utkfacserv">
-                            <Img alt="X" height="auto" src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-x.png" width="25" style={{margin: '0 5px'}} />
-                            </Link>
-                        </Column>
-                        <Column>
-                            <Link href="https://instagram.com/utfacilities/">
-                            <Img
-                                alt="Instagram"
-                                height="auto"
-                                src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-fooer-instagram-1.png"
-                                width="25"
-                                style={{margin: '0 5px'}}
-                            />
-                            </Link>
-                        </Column>
-                        </Row>
+                    <td align="center"> 
+                        
+                        <table
+                            role="presentation"
+                            align="center"
+                            border={0}
+                            cellPadding={0}
+                            cellSpacing={0}
+                            style={{ borderCollapse: "collapse", margin: "auto" }}
+                            >
+                            <tbody>
+                                <tr>
+                                <td align="center" style={{ padding: "0 6px" }}>
+                                    <a href={facebookUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                                    <img
+                                        src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-facebook.png"
+                                        width="25"
+                                        height="25"
+                                        style={{padding: '0 8px'}}
+                                        />
+                                    </a>
+                                    <a href={xUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                                        <img
+                                        src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-x.png"
+                                        width="25"
+                                        height="25"
+                                        style={{padding: '0 8px'}} />
+                                    </a>
+                                    <a href={instagramUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                                    <img
+                                        src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-fooer-instagram-1.png"
+                                        width="25"
+                                        height="25"
+                                        style={{padding: '0 8px'}}
+                                        />
+                                    </a>
+                                </td>
+                                </tr>
+                            </tbody>
+                         </table>
                     </td>
                 </tr>
                 <tr>
