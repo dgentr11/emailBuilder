@@ -216,11 +216,11 @@ function formatDate(iso?: string): string {
         year: 'numeric',
     });
 }
-function formatMonthDay(dateString: string): string {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: 'long', 
-    day: 'numeric',
-    year: 'numeric'
-  });
+
+function formatMonthDay(date?: string): string {
+  if (!date) return '—';
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 }
+

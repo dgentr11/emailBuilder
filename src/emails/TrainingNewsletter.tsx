@@ -212,14 +212,10 @@ export default function TrainingNewsletter({
 
 /** ---- Helpers ---- **/
 
-function formatDate(iso?: string): string {
-    if (!iso) return '';
-    // Keep formatting simple and email-safe
-    const d = new Date(iso);
-    // e.g., "Dec 9, 2025"
-    return d.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-    });
+
+function formatMonthDay(date?: string): string {
+  if (!date) return '—';
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 }
