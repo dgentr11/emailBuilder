@@ -2,7 +2,17 @@ import { styles } from "@/emails/styles";
 import { Link, Column, Img, Row, Section, Text } from "@react-email/components";
 
 
-export  function FooterTraining() {
+type SocialRowProps = {
+    facebookUrl?: string;
+    xUrl?: string;
+    instagramUrl?: string;
+};
+
+export function FooterTraining({
+  facebookUrl = "https://www.facebook.com/utfacilitiesservices",
+  xUrl = "https://twitter.com/utkfacserv",
+  instagramUrl = "https://instagram.com/utfacilities/",
+}: SocialRowProps) {
 
     const templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
     templateLogoReverseUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-reverse.png';
