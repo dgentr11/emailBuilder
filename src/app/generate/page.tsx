@@ -57,7 +57,7 @@ export default async function GenerateIndexPage() {
               </p>
             ) : (
               <ul className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((doc) => {
+                {items.map((doc: Doc) => {
                  
                   const title = doc.title ?? `Issue #${doc.issueNumber ?? '—'}`;
                   
@@ -88,9 +88,7 @@ export default async function GenerateIndexPage() {
                         }
                       </div>
 
-
-                      {/* Publish/Updated date */}
-                      
+                      {/* Publish/Updated date */}                
                       {showPublishMeta ? (
                         <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
                           {hasValidPublishDate ? (
