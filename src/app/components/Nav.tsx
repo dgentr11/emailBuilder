@@ -16,7 +16,7 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Primary">
+    <nav aria-label="Primary" className=''>
       <ul className="flex gap-3 align-items-center">
         {links.map((l) => {
           const active =
@@ -29,8 +29,14 @@ export function Nav() {
               <Link
                 href={l.href}
                 className={clsx(
-                  'px-3 py-2 rounded-md text-sm font-medium text-white hover:text-gray-400 active:gray-400 hover:underline'
-                )}
+                  'px-3 py-2 rounded-md text-sm font-medium',
+                  'text-gray-900 dark:text-white',
+                  'hover:text-gray-700 dark:hover:text-gray-300',
+                  'active:text-gray-800 dark:active:text-gray-200',
+                  'hover:underline',
+                  'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+                  'focus-visible:ring-gray-400 dark:focus-visible:ring-gray-500',
+                  'focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900' )}
               >
                 {l.label}
               </Link>
