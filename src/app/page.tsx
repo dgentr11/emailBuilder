@@ -12,7 +12,7 @@ export default function HomePage() {
           </h1><br />
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
             Use the <span className="font-semibold">Studio</span> to build emails from existing email templates.<br />
-            Tthen
+            Then
             <span className="font-semibold"> Generate</span> and download or copy HTML for your newsletter blast.
           </p>
           <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
