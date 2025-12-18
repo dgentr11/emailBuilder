@@ -6,13 +6,13 @@ import { Img, Section, Heading,Text, Column, Row } from "@react-email/components
     templateLogoAlt?: string;
     headerImageUrl?: string;
     headerImageAlt?: string;
-    title?: string;
+    emailTitle?: string;
     publishDate?: string;
     formattedDate?: string;
     subtitle?: string;
 }
 
-export function Header({ templateLogoUrl, templateLogoAlt, title, publishDate, formattedDate, headerImageUrl, headerImageAlt, subtitle } : HeaderProps) {
+export function Header({ templateLogoUrl, templateLogoAlt, emailTitle, publishDate, formattedDate, headerImageUrl, headerImageAlt, subtitle } : HeaderProps) {
 
     return (
 
@@ -21,7 +21,7 @@ export function Header({ templateLogoUrl, templateLogoAlt, title, publishDate, f
                 {templateLogoUrl &&
                     <Img
                         src={templateLogoUrl}
-                        alt={templateLogoAlt || title}
+                        alt={templateLogoAlt || emailTitle}
                         width="150"
                         height="auto"
                         style={styles.templateLogo}
@@ -30,7 +30,7 @@ export function Header({ templateLogoUrl, templateLogoAlt, title, publishDate, f
             </Section>
             <Section style={styles.innerContainerTop}>
                 <Heading as="h1" style={styles.h1}>
-                    {title ? title : `Facilities Services Weekly`}
+                    {emailTitle ? emailTitle : `Facilities Services Weekly`}
                 </Heading>
                 {subtitle ? (
                     <Text style={styles.richTextCentered}>
@@ -50,7 +50,7 @@ export function Header({ templateLogoUrl, templateLogoAlt, title, publishDate, f
                         <Column style={styles.headerImageContainer}>
                             <Img
                                 src={headerImageUrl}
-                                alt={headerImageAlt || title}
+                                alt={headerImageAlt || emailTitle}
                                 width="600"
                                 height="auto"
                                 style={styles.headerImage}
