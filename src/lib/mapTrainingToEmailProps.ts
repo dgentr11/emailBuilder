@@ -25,6 +25,7 @@ export type TrainingDoc = {
   _type: 'trainingNewsletter';
   headerImage?: { asset?: { url?: string }; alt?: string } | null;
   publishDate?: string;
+  emailTitle?: string,
   title?: string;
   subtitle?: string;
   intro?: PTBlocks;
@@ -41,6 +42,7 @@ export type TrainingNewsletterProps = {
   headerImageAlt?: string;
   publishDate?: string;             // raw
   publishDateFormatted?: string;
+  emailTitle?: string,
   title?: string;
   subtitle?: string;
   introHtml?: string;
@@ -117,6 +119,7 @@ export function toTrainingEmailProps(doc: TrainingDoc): TrainingNewsletterProps 
   return {
     headerImageUrl: doc.headerImage?.asset?.url,
     headerImageAlt: doc.headerImage?.alt,
+    emailTitle: doc.emailTitle,
     title: doc.title,
     subtitle: doc.subtitle,
     introHtml,

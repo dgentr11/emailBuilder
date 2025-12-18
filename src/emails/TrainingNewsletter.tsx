@@ -41,7 +41,7 @@ type SectionItem = {
 type Props = {
     headerImageUrl?: string;
     headerImageAlt?: string;
-    title?: string;
+    emailTitle?: string;
     subtitle?: string;
     introHtml?: string;
     sections: SectionItem[];
@@ -59,7 +59,7 @@ export default function TrainingNewsletter({
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
     headerImageUrl,
     headerImageAlt,
-    title,
+    emailTitle,
     subtitle,
     introHtml,
     sections,
@@ -68,7 +68,7 @@ export default function TrainingNewsletter({
     ctaHref = '#',
 }: Props) {
     const previewText =
-        title || `Weekly FS Training Newsletter`;
+        emailTitle || `Weekly FS Training Newsletter`;
 
     return (
         <Html>
@@ -89,7 +89,7 @@ export default function TrainingNewsletter({
                     <Header 
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        title={title}
+                        emailTitle={emailTitle}
                         subtitle={subtitle}
                         headerImageUrl={headerImageUrl}
                         headerImageAlt={headerImageAlt}
@@ -214,7 +214,6 @@ export default function TrainingNewsletter({
         </Html>
     );
 }
-
 
 /** ---- Helpers ---- **/
 

@@ -8,6 +8,8 @@ export type PressReleaseDoc = {
   _type: 'pressRelease';
   _id: string;
   title?: string;
+  publishDate?: string; // Sanity 'datetime' resolves to ISO string
+  emailTitle?: string,
   subtitle?: string;
   content?: PTBlocks;
   contentRich?: PTBlocks | null;
@@ -17,6 +19,8 @@ export type PressReleaseDoc = {
 
 export type PressReleaseProps = {
   title?: string;
+  emailTitle?: string,
+  publishDate?: string;
   subtitle?: string;
   headerImageUrl?: string;
   headerImageAlt?: string;
@@ -37,6 +41,8 @@ export function toPressReleaseEmailProps(doc: PressReleaseDoc): PressReleaseProp
 
   return {
     title: doc.title,
+    emailTitle: doc.emailTitle,
+    publishDate: doc.publishDate,
     subtitle: doc.subtitle,
     headerImageUrl: doc.headerImage?.asset?.url,
     headerImageAlt: doc.headerImage?.alt,

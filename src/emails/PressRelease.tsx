@@ -23,7 +23,8 @@ import {
 type Props = {
     headerImageUrl?: string;
     headerImageAlt?: string;
-    title?: string;
+    publishDate?: string;
+    emailTitle?: string;
     subtitle?: string,
     contentHtml?: string;
     ctaLabel?: string;
@@ -37,17 +38,16 @@ type Props = {
 export default function WeeklyNewsletter({
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
-    footerDividerUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-divider.jpg',
     headerImageUrl,
     headerImageAlt,
-    title,
+    emailTitle,
     subtitle,
     contentHtml,
     ctaLabel = 'Learn more',
     ctaHref = '#',
 }: Props) {
     const previewText =
-        title || 'UT Facility Services Press Release';
+        emailTitle || 'UT Facility Services Press Release';
 
     return (
         <Html>
@@ -67,7 +67,7 @@ export default function WeeklyNewsletter({
                         {headerImageUrl &&
                             <Img
                                 src={templateLogoUrl}
-                                alt={templateLogoAlt || title}
+                                alt={templateLogoAlt || emailTitle}
                                 width="150"
                                 height="auto"
                                 style={styles.templateLogo}
@@ -80,7 +80,7 @@ export default function WeeklyNewsletter({
                                 <Column style={styles.headerImageContainer}>
                                     <Img
                                         src={headerImageUrl}
-                                        alt={headerImageAlt || title}
+                                        alt={headerImageAlt || emailTitle}
                                         width="600"
                                         height="auto"
                                         style={styles.headerImage}
@@ -91,7 +91,7 @@ export default function WeeklyNewsletter({
                     </Section>
                     <Container style={styles.innerContainer}>
                         <Heading as="h1" style={styles.h1Left}>
-                            {title ? title : `Facilities Press Release`}
+                            {emailTitle ? emailTitle : 'Facilities Services Newsletter'}
                         </Heading>
 
                         {/* Intro */}

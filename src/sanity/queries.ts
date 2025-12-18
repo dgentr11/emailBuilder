@@ -11,6 +11,7 @@ export const DOC_BY_ID = `
   _id,
   headerImage{asset->{url}, alt},
   title,
+  emailTitle,
   subtitle,
   cta{label, href},
   issueNumber,
@@ -52,6 +53,7 @@ export const LATEST_SCHEDULED = `
     alt
   },
   title,
+  emailTitle,
   issueNumber,
   publishDate,
   intro,

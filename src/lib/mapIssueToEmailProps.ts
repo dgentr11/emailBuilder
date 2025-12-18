@@ -31,7 +31,7 @@ export type NewsletterSection = {
 export type IssueDoc = {
   headerImage?: { asset?: { url?: string }; alt?: string } | null;
   title?: string;
-  issueNumber?: number;
+  emailTitle?: string;
   publishDate?: string; // Sanity 'datetime' resolves to ISO string
   intro?: PTBlocks;
   introRich?: PTBlocks | null;
@@ -62,7 +62,7 @@ export type WeeklyNewsletterProps = {
   headerImageUrl?: string;
   headerImageAlt?: string;
   title?: string;
-  issueNumber: number;
+  emailTitle?: string;
   publishDate?: string;
   introHtml?: string;
   sections: SectionView[];
@@ -133,6 +133,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
     headerImageUrl: doc.headerImage?.asset?.url,
     headerImageAlt: doc.headerImage?.alt,
     title: doc.title,
+    emailTitle: doc.emailTitle,
     issueNumber: doc.issueNumber ?? 0,
     publishDate: doc.publishDate,
     introHtml,

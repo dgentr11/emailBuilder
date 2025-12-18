@@ -15,7 +15,13 @@ export default defineType({
         name: 'title',
         title: 'Title',
         type: 'string',
-        description: 'Internal/display title for the newsletter issue',
+        description: 'Internal title for display in the Studio',
+    }),
+     defineField({
+        name: 'emailTitle',
+        title: 'Display Title',
+        type: 'string',
+        description: 'H1 title to be displayed on the email',
     }),
     defineField({
       name: 'subtitle',

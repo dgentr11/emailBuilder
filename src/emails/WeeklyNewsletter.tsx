@@ -42,8 +42,7 @@ type SectionItem = {
 type Props = {
     headerImageUrl?: string;
     headerImageAlt?: string;
-    title?: string;
-    issueNumber: number;
+    emailTitle?: string,
     publishDate?: string;
     introHtml?: string;
     sections: SectionItem[];
@@ -59,8 +58,7 @@ type Props = {
 export default function WeeklyNewsletter({
     headerImageUrl,
     headerImageAlt,
-    title,
-    issueNumber,
+    emailTitle,
     publishDate,
     introHtml,
     sections,
@@ -72,7 +70,7 @@ export default function WeeklyNewsletter({
 }: Props) {
     const formattedDate = formatMonthDay(publishDate);
     const previewText =
-        title || `Weekly Newsletter #${issueNumber}${publishDate ? ` • ${formatDate(publishDate)}` : ''}`;
+        emailTitle || 'Facilities Services Newsletter';
 
     return (
         <Html>
@@ -92,7 +90,7 @@ export default function WeeklyNewsletter({
                     <Header 
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        title={title}
+                        title={emailTitle}
                         publishDate={publishDate}
                         formattedDate={formattedDate}
                         headerImageUrl={headerImageUrl}

@@ -7,6 +7,17 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+        name: 'title',
+        title: 'Title',
+        type: 'string',
+        description: 'Internal title for display in the Studio',
+    }),
+    defineField({
+      name: 'publishDate',
+      title: 'Publish Date',
+      type: 'date'
+    }),
+    defineField({
       name: 'headerImage',
       title: 'Header Image',
       type: 'image',
@@ -15,11 +26,11 @@ export default defineType({
         defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
       ],
     }),
-    defineField({
-        name: 'title',
-        title: 'Title',
+     defineField({
+        name: 'emailTitle',
+        title: 'Display Title',
         type: 'string',
-        description: 'Internal/display title for the newsletter issue',
+        description: 'H1 title to be displayed on the email',
     }),
     defineField({
       name: 'subtitle',
@@ -40,6 +51,13 @@ export default defineType({
         defineField({ name: 'label', type: 'string', title: 'Button Text' }),
         defineField({ name: 'href', type: 'url', title: 'Button Link' }),
       ],
+    }),
+      defineField({
+      name: 'status',
+      title: 'Workflow Status',
+      type: 'string',
+      options: { list: ['draft', 'scheduled', 'sent'] },
+      initialValue: 'draft',
     }),
   ],
 });
