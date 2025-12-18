@@ -71,6 +71,10 @@ export const styles = {
   }),
   headerImage: withFont({
     borderBottom: `6px solid ${tokens.colors.brand}`,
+    fontSize: '0',
+    padding: '0',
+    margin: '0',
+    lineHeight: '0'
   }),
   headerImagePadBot: withFont({
     borderBottom: `6px solid ${tokens.colors.brand}`,
