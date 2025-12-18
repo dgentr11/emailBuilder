@@ -134,7 +134,6 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
     headerImageAlt: doc.headerImage?.alt,
     title: doc.title,
     emailTitle: doc.emailTitle,
-    issueNumber: doc.issueNumber ?? 0,
     publishDate: doc.publishDate,
     introHtml,
     sections,

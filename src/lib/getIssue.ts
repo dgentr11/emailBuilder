@@ -29,4 +29,3 @@ export async function getLatestByType(type: string, limit = 8) {
   `;
   return client.fetch(query, { type, limit });
 }
-

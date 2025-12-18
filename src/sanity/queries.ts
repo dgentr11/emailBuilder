@@ -1,6 +1,5 @@
 import { groq } from 'next-sanity';
 
-
 export const SCHEMA_TYPES = groq`
   array::unique(*[_type != null]._type) | order(@ desc)
 `;
