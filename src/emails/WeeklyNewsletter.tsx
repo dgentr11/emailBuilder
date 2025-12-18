@@ -90,7 +90,7 @@ export default function WeeklyNewsletter({
                     <Header 
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        title={emailTitle}
+                        emailTitle={emailTitle}
                         publishDate={publishDate}
                         formattedDate={formattedDate}
                         headerImageUrl={headerImageUrl}

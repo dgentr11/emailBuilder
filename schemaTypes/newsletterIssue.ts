@@ -18,7 +18,6 @@ export default defineType({
         type: 'string',
         description: 'H1 title to be displayed on the email',
     }),
-   
      defineField({
       name: 'publishDate',
       title: 'Publish Date',
