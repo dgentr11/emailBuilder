@@ -3,6 +3,8 @@
 import { styles } from './styles';
 import * as React from 'react';
 import { FooterTraining } from '@/app/components/FooterTraining';
+import { Conditional } from 'jsx-email';
+
 import {
     Html,
     Head,
@@ -11,7 +13,6 @@ import {
     Container,
     Section,
     Heading,
-    Text,
     Button,
     Img,
     Hr,
@@ -74,8 +75,14 @@ export default function TrainingNewsletter({
             <Head />
             <Preview>{previewText}</Preview>
             
+            <Conditional mso>
+                <style>
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
+                </style>
+            </Conditional>
+
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
-   
+
             <Body style={styles.body}>
                 <Container style={styles.container}>
                    
@@ -200,9 +207,9 @@ export default function TrainingNewsletter({
 
                         <FooterDivider />
                       </Container>
-                    
+                      <FooterTraining />
                 </Container>
-                <FooterTraining />
+
             </Body>
         </Html>
     );

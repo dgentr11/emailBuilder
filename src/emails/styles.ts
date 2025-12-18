@@ -12,7 +12,7 @@ export const tokens = {
     bg: '#f5f5f5',
   },
   fonts: {
-    base: '"Montserrat", Helvetica, Arial, sans-serif',
+    base: '"Montserrat", Arial, sans-serif',
   },
   spacing: {
     xs: 6,
@@ -40,12 +40,17 @@ export const styles = {
     margin: '0 auto',
     backgroundColor: tokens.colors.white,
     paddingTop: tokens.spacing.xl,
-    paddingBottom: tokens.spacing.xl,
+    paddingBottom: 0,
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
     padding: tokens.spacing.lg,
-    paddingTop: '0'
+    paddingTop: '0',
+    paddingBottom: tokens.spacing.xl
+  }),
+  outerContainer: withFont({
+    padding: 0,
+    maxWidth: tokens.widths.container,
   }),
   innerContainerTop: withFont({
     paddingBottom: tokens.spacing.md,
@@ -186,6 +191,7 @@ export const styles = {
   footer: withFont({
     padding: '30px 0',
     textAlign: 'center',
+    maxWidth: '600px'
   }),
   footerText: withFont({
     fontSize: 12,
@@ -207,7 +213,7 @@ export const styles = {
   footerLower: withFont({
     backgroundColor: tokens.colors.smokey,
     maxWidth: '600px',
-    margin: '0 auto',
+    width: '100%',
     paddingTop: tokens.spacing.md,
     paddingBottom: tokens.spacing.xl
   })

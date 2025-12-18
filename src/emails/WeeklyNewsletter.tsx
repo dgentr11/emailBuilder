@@ -3,6 +3,7 @@ import * as React from 'react';
 import { styles } from './styles';
 import { Footer } from '@/app/components/Footer';
 import { FooterDivider } from '@/app/components/FooterDivider';
+import { Conditional } from 'jsx-email';
 
 import {
     Html,
@@ -12,7 +13,6 @@ import {
     Container,
     Section,
     Heading,
-    Text,
     Button,
     Img,
     Hr,
@@ -78,7 +78,11 @@ export default function WeeklyNewsletter({
         <Html>
             <Head />
             <Preview>{previewText}</Preview>
-            
+            <Conditional mso>
+                <style>
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
+                </style>
+            </Conditional>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
             <Body style={styles.body}>
