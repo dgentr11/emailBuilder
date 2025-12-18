@@ -103,13 +103,7 @@ export default async function Page(
     html = '<p>Failed to render email HTML.</p>';
   }
 
-  // File base naming by type/issueNumber
-  const fileBase =
-    (doc._type === 'pressRelease' && doc.slug?.current)
-      ? `press-release-${doc.slug.current}`
-      : doc.issueNumber
-        ? `${doc._type}-${doc.issueNumber}`
-        : `${doc._type}-${id}`;
+   const formattedDate = formatDateMMDDYYYY()
 
   return (
     <main className="max-w-7xl mx-auto p-8 space-y-6">
@@ -117,7 +111,7 @@ export default async function Page(
 
       <div className="flex gap-3">
         <CopyButton html={html}  />
-        <DownloadButton html={html} title={doc.title + '-' + doc.publishDate} />
+        <DownloadButton html={html} title={doc.title + '-' + (doc.publishDate ? doc.publishDate : formattedDate) } />
       </div>
 
       <section>
@@ -131,4 +125,13 @@ export default async function Page(
       </section>
     </main>
   );
+}
+
+
+
+function formatDateMMDDYYYY(date: Date = new Date()): string {
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  const yyyy = date.getFullYear();
+  return `${mm}-${dd}-${yyyy}`;
 }

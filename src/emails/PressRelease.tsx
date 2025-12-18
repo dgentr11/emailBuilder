@@ -12,6 +12,8 @@ import {
     Body,
     Container,
     Section,
+    Row,
+    Column,
     Heading,
     Text,
     Img,
@@ -74,14 +76,18 @@ export default function WeeklyNewsletter({
                     </Section>
                     <Section style={styles.headerImagePadBot}>
                         {headerImageUrl &&
-                            <Img
-                                src={headerImageUrl}
-                                alt={headerImageAlt || title}
-                                width="600"
-                                height="auto"
-                                style={styles.image}
-                            />
-                        }
+                            <Row >
+                                <Column style={styles.headerImageContainer}>
+                                    <Img
+                                        src={headerImageUrl}
+                                        alt={headerImageAlt || title}
+                                        width="600"
+                                        height="auto"
+                                        style={styles.headerImage}
+                                    />
+                                </Column>
+                            </Row>
+                            }
                     </Section>
                     <Container style={styles.innerContainer}>
                         <Heading as="h1" style={styles.h1Left}>

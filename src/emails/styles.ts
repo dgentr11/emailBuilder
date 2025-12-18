@@ -69,12 +69,21 @@ export const styles = {
     textAlign: 'center',
     paddingBottom: tokens.spacing.lg,
   }),
-  headerImage: withFont({
-    borderBottom: `6px solid ${tokens.colors.brand}`,
+  headerImageContainer: withFont({
     fontSize: '0',
     padding: '0',
     margin: '0',
     lineHeight: '0'
+  }),
+  headerImage: withFont({
+    lineHeight: 1,
+    display: 'block',
+    height: 'auto',
+    padding: '0',
+    margin: '0',
+    borderBottom: `6px solid ${tokens.colors.brand}`,
+    textAlign: 'center',
+
   }),
   headerImagePadBot: withFont({
     borderBottom: `6px solid ${tokens.colors.brand}`,
