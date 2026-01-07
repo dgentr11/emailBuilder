@@ -13,6 +13,8 @@ export type TrainingSection = {
   url?: string | null;
   image?: { asset?: { url?: string }; alt?: string } | null;
   subsections?: Array<{
+    sectionImage?: { asset?: { url?: string }; alt?: string } | null;
+    sectionEyebrow?: string;
     title: string;
     summary?: PTBlocks;
     summaryRich?: PTBlocks | null;
@@ -53,6 +55,9 @@ export type TrainingNewsletterProps = {
     imageUrl?: string;
     imageAlt?: string;
     subsections?: Array<{
+      sectionImageUrl?: string;
+      sectionImageAlt?: string;
+      sectionEyebrow?: string;
       title: string;
       summaryHtml?: string;
       url?: string;
@@ -88,11 +93,12 @@ export function toTrainingEmailProps(doc: TrainingDoc): TrainingNewsletterProps 
           (ss.summaryRich && ss.summaryRich.length ? ss.summaryRich : ss.summary) ?? []
         );
         return {
+          sectionImageUrl: ss.sectionImage?.asset?.url,
+          sectionImageAlt: ss.sectionImage?.alt,
+          sectionEyebrow: ss.sectionEyebrow,
           title: ss.title,
           summaryHtml: subSummaryHtml,
           url: ss.url ?? undefined,
-          imageUrl: ss.image?.asset?.url,
-          imageAlt: ss.image?.alt,
         };
       }) || undefined;
 

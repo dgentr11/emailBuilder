@@ -25,16 +25,17 @@ type SubsectionItem = {
     title: string;
     summaryHtml?: string;
     url?: string;
-    imageUrl?: string;
-    imageAlt?: string;
+    sectionImageUrl?: string;
+    sectionImageAlt?: string;
+    sectionEyebrow?: string;
 };
 
 type SectionItem = {
     title: string;
     summaryHtml?: string;
     url?: string;
-    imageUrl?: string;
-    imageAlt?: string;
+    sectionImageUrl?: string;
+    sectionImageAlt?: string;
     subsections?: SubsectionItem[];
 };
 
@@ -117,76 +118,76 @@ export default function TrainingNewsletter({
 
                             return (
                                 <Section key={i} style={sectionStyle}>
-                                {s.imageUrl ? (
-                                    <Img
-                                    src={s.imageUrl}
-                                    alt={s.imageAlt || s.title}
-                                    width="100%"
-                                    height="auto"
-                                    style={styles.image}
-                                    />
-                                ) : null}
+                                    {s.sectionImageUrl ? (
+                                        <Img
+                                        src={s.sectionImageUrl}
+                                        alt={s.sectionImageAlt || s.title}
+                                        width="100%"
+                                        height="auto"
+                                        style={styles.image}
+                                        />
+                                    ) : null}
 
-                                <Heading as="h2" style={styles.h2Centered}>
-                                    {s.title}
-                                </Heading>
+                                    <Heading as="h2" style={styles.h2Centered}>
+                                        {s.title}
+                                    </Heading>
 
-                                {s.summaryHtml ? (
-                                    <div
-                                    dangerouslySetInnerHTML={{ __html: s.summaryHtml }}
-                                    style={styles.richTextCentered}
-                                    />
-                                ) : null}
+                                    {s.summaryHtml ? (
+                                        <div
+                                        dangerouslySetInnerHTML={{ __html: s.summaryHtml }}
+                                        style={styles.richTextCentered}
+                                        />
+                                    ) : null}
 
-                                {s.url ? (
-                                    <Button href={s.url} style={styles.primaryButton}>
-                                    Read more
-                                    </Button>
-                                ) : null}
+                                    {s.url ? (
+                                        <Button href={s.url} style={styles.primaryButton}>
+                                        Read more
+                                        </Button>
+                                    ) : null}
 
-                                {/* Nested subsections */}
-                                {s.subsections && s.subsections.length > 0 ? (
-                                    <Section style={styles.subsectionsWrapper}>
-                                    {s.subsections.map((ss, j) => {
-                                        const isLastSubsection = j === s.subsections!.length - 1;
+                                    {/* Nested subsections */}
+                                    {s.subsections && s.subsections.length > 0 ? (
+                                        <Section style={styles.subsectionsWrapper}>
+                                        {s.subsections.map((ss, j) => {
+                                            const isLastSubsection = j === s.subsections!.length - 1;
 
-                                        return (
-                                        <React.Fragment key={j}>
-                                            <Section style={styles.subsection}>
-                                            {ss.imageUrl ? (
-                                                <Img
-                                                src={ss.imageUrl}
-                                                alt={ss.imageAlt || ss.title}
-                                                width="600"
-                                                height="auto"
-                                                style={styles.image}
-                                                />
-                                            ) : null}
+                                            return (
+                                            <React.Fragment key={j}>
+                                                <Section style={styles.subsection}>
+                                                {ss.sectionImageUrl ? (
+                                                    <Img
+                                                    src={ss.sectionImageUrl}
+                                                    alt={ss.sectionImageAlt || ss.title}
+                                                    width="100%"
+                                                    height="150"
+                                                    style={styles.imageCover}
+                                                    />
+                                                ) : null}
 
-                                            <Heading as="h3" style={styles.h3}>
-                                                {ss.title}
-                                            </Heading>
+                                                <Heading as="h3" style={styles.h3}>
+                                                    {ss.title}
+                                                </Heading>
 
-                                            {ss.summaryHtml ? (
-                                                <div
-                                                dangerouslySetInnerHTML={{ __html: ss.summaryHtml }}
-                                                style={styles.richText}
-                                                />
-                                            ) : null}
+                                                {ss.summaryHtml ? (
+                                                    <div
+                                                    dangerouslySetInnerHTML={{ __html: ss.summaryHtml }}
+                                                    style={styles.richText}
+                                                    />
+                                                ) : null}
 
-                                            {ss.url ? (
-                                                <Button href={ss.url} style={styles.secondaryButton}>
-                                                Read more
-                                                </Button>
-                                            ) : null}
-                                            </Section>
+                                                {ss.url ? (
+                                                    <Button href={ss.url} style={styles.secondaryButton}>
+                                                    Read more
+                                                    </Button>
+                                                ) : null}
+                                                </Section>
 
-                                            {!isLastSubsection ? <Hr style={styles.hr} /> : null}
-                                        </React.Fragment>
-                                        );
-                                    })}
-                                    </Section>
-                                ) : null}
+                                                {!isLastSubsection ? <Hr style={styles.hr} /> : null}
+                                            </React.Fragment>
+                                            );
+                                        })}
+                                        </Section>
+                                    ) : null}
                                 </Section>
                             );
                             })}

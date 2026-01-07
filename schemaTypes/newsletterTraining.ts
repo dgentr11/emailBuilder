@@ -46,8 +46,7 @@ export default defineType({
     defineField({
       name: 'sections',
       title: 'Sections',
-      type: 'array',
-      of: [{ type: 'newsletterSection' }],
+      type: 'newsletterSections',
     }),
     defineField({
       name: 'outro',

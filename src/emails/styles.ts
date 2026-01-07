@@ -45,9 +45,10 @@ export const styles = {
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
-    padding: tokens.spacing.lg,
+    paddingLeft: tokens.spacing.lg,
+    paddingRight: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
-    paddingBottom: tokens.spacing.xl
   }),
   outerContainer: withFont({
     padding: 0,
@@ -64,31 +65,17 @@ export const styles = {
     maxWidth: '150px',
     width: '100%',
     margin: '0 auto',
-
   }),
   header: withFont({
     textAlign: 'center',
-    paddingBottom: tokens.spacing.lg,
+    paddingBottom: 0,
+    paddingTop: tokens.spacing.lg
   }),
   headerImageContainer: withFont({
     fontSize: '0',
     padding: '0',
     margin: '0',
     lineHeight: '0'
-  }),
-  headerImage: withFont({
-    lineHeight: 1,
-    display: 'block',
-    height: 'auto',
-    padding: '0',
-    margin: '0',
-    borderBottom: `6px solid ${tokens.colors.brand}`,
-    textAlign: 'center',
-
-  }),
-  headerImagePadBot: withFont({
-    borderBottom: `6px solid ${tokens.colors.brand}`,
-    marginBottom: tokens.spacing.xl
   }),
   h1: withFont({
     fontSize: 30,
@@ -102,27 +89,11 @@ export const styles = {
     lineHeight: '28px',
     textAlign: 'left',
   }),
-  meta: withFont({
-    fontSize: 14,
-    color: tokens.colors.gray600,
-    margin: '0',
-    textAlign: 'center'
-  }),
   section: withFont({
-    borderBottom: `6px solid ${tokens.colors.brand}`,
-    paddingTop: tokens.spacing.xl,
-    paddingBottom: tokens.spacing.xl,
-  }),
-  sectionLast: withFont({
-    paddingTop: tokens.spacing.xl,
-    paddingBottom: tokens.spacing.xl,
-  }),
-  sectionLastNoPadTop: withFont({
-    paddingTop: '0',
-    paddingBottom: tokens.spacing.xl,
+    paddingTop: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.lg,
   }),
    sectionCentered: withFont({
-    borderBottom: `6px solid ${tokens.colors.brand}`,
     paddingTop: tokens.spacing.xl,
     paddingBottom: tokens.spacing.xl,
     textAlign: 'center'
@@ -132,6 +103,13 @@ export const styles = {
     border: 0,
     margin: '0 auto',
     textAlign: 'center',
+  }),
+  imageCover: withFont({
+    display: 'block',
+    border: 0,
+    margin: '0 auto',
+    textAlign: 'center',
+    objectFit: 'cover'
   }),
   h2: withFont({
     fontSize: 24,

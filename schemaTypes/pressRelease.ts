@@ -3,7 +3,7 @@ import { defineType, defineField } from 'sanity';
 
 export default defineType({
   name: 'pressRelease',
-  title: 'Press Release / Blog Post',
+  title: 'Press Release',
   type: 'document',
   fields: [
     defineField({

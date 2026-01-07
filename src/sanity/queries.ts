@@ -19,17 +19,34 @@ export const DOC_BY_ID = `
   intro,
   introRich,
   sections[]{
+    _type,
+    image{asset->{url}, alt},
+    eyebrow,
     title,
     summary,
-    summaryRich,
     url,
-    image{asset->{url}, alt},
-    subsections[]{
-      title,
-      summary,
-      summaryRich,
-      url,
-      image{asset->{url}, alt}
+    urlText,
+    dividerToggle,
+    header,
+    listItems[]{
+      itemImage{asset->{url}, alt},
+      itemTitle,
+      itemSummary
+    },
+    paragraphItems[]{
+      itemImage{asset->{url}, alt},
+      paragraphItemTitle,
+      paragraphItemSummary
+    },
+    simpleListURL,
+    simpleListURLText,
+    imageItems[]{
+      image{
+        asset->{url},
+        alt,
+        caption,
+        attribution
+      }
     }
   },
   outro,
@@ -57,24 +74,33 @@ export const LATEST_SCHEDULED = `
   publishDate,
   intro,
   sections[]{
+    _type,
+    image{asset->{url}, alt},
+    eyebrow,
     title,
     summary,
     url,
-    image{
-      asset->{
-        url
-      },
-      alt
+    urlText,
+    dividerToggle,
+    header,
+    listItems[]{
+      itemImage{asset->{url}, alt},
+      itemTitle,
+      itemSummary
     },
-    subsections[]{
-      title,
-      summary,
-      url,
+    paragraphItems[]{
+      itemImage{asset->{url}, alt},
+      paragraphItemTitle,
+      paragraphItemSummary
+    },
+    simpleListURL,
+    simpleListURLText,
+    imageItems[]{
       image{
-        asset->{
-          url
-        },
-        alt
+        asset->{url},
+        alt,
+        caption,
+        attribution
       }
     }
   },

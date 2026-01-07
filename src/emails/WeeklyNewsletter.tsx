@@ -1,54 +1,23 @@
 
-import * as React from 'react';
 import { styles } from './styles';
 import { Footer } from '@/app/components/Footer';
 import { FooterDivider } from '@/app/components/FooterDivider';
 import { Conditional } from 'jsx-email';
-
 import {
     Html,
     Head,
     Preview,
     Body,
     Container,
-    Section,
-    Heading,
-    Button,
-    Img,
-    Hr,
 } from '@react-email/components';
 import { Cta } from '@/app/components/Cta';
 import { Outro } from '@/app/components/Outro';
 import { Header } from '@/app/components/Header';
 import { Intro } from '@/app/components/Intro';
+import { SectionRenderer } from '@/app/components/sections';
+import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
 
-type SubsectionItem = {
-    title: string;
-    summaryHtml?: string;
-    url?: string;
-    imageUrl?: string;
-    imageAlt?: string;
-};
-
-type SectionItem = {
-    title: string;
-    summaryHtml?: string;
-    url?: string;
-    imageUrl?: string;
-    imageAlt?: string;
-    subsections?: SubsectionItem[];
-};
-
-type Props = {
-    headerImageUrl?: string;
-    headerImageAlt?: string;
-    emailTitle?: string,
-    publishDate?: string;
-    introHtml?: string;
-    sections: SectionItem[];
-    outroHtml?: string;
-    ctaLabel?: string;
-    ctaHref?: string;
+type Props = WeeklyNewsletterProps & {
     templateLogoUrl?: string;
     templateLogoAlt?: string;
     templateLogoReverseUrl?: string;
@@ -106,87 +75,18 @@ export default function WeeklyNewsletter({
 
                         {sections && sections.length > 0 ? (
                             <>
-                                {sections.map((s, i) => {
-                                const isLastSection = i === sections.length - 1;
-                                const sectionStyle = isLastSection ? styles.sectionLast : styles.section;
-    
-                                return (
-                                    <Section key={i} style={sectionStyle}>
-                                    {s.imageUrl ? (
-                                        <Img
-                                        src={s.imageUrl}
-                                        alt={s.imageAlt || s.title}
-                                        width="100%"
-                                        height="auto"
-                                        style={styles.image}
+                                {sections.map((section, i) => {
+                                    const isLastSection = i === sections.length - 1;
+                                    return (
+                                        <SectionRenderer
+                                            key={i}
+                                            section={section}
+                                            isLast={isLastSection}
                                         />
-                                    ) : null}
-    
-                                    <Heading as="h2" style={styles.h2Centered}>
-                                        {s.title}
-                                    </Heading>
-    
-                                    {s.summaryHtml ? (
-                                        <div
-                                        dangerouslySetInnerHTML={{ __html: s.summaryHtml }}
-                                        style={styles.richTextCentered}
-                                        />
-                                    ) : null}
-    
-                                    {s.url ? (
-                                        <Button href={s.url} style={styles.primaryButton}>
-                                        Read more
-                                        </Button>
-                                    ) : null}
-    
-                                    {/* Nested subsections */}
-                                    {s.subsections && s.subsections.length > 0 ? (
-                                        <Section style={styles.subsectionsWrapper}>
-                                        {s.subsections.map((ss, j) => {
-                                            const isLastSubsection = j === s.subsections!.length - 1;
-    
-                                            return (
-                                            <React.Fragment key={j}>
-                                                <Section style={styles.subsection}>
-                                                {ss.imageUrl ? (
-                                                    <Img
-                                                    src={ss.imageUrl}
-                                                    alt={ss.imageAlt || ss.title}
-                                                    width="600"
-                                                    height="auto"
-                                                    style={styles.image}
-                                                    />
-                                                ) : null}
-    
-                                                <Heading as="h3" style={styles.h3}>
-                                                    {ss.title}
-                                                </Heading>
-    
-                                                {ss.summaryHtml ? (
-                                                    <div
-                                                    dangerouslySetInnerHTML={{ __html: ss.summaryHtml }}
-                                                    style={styles.richText}
-                                                    />
-                                                ) : null}
-    
-                                                {ss.url ? (
-                                                    <Button href={ss.url} style={styles.secondaryButton}>
-                                                    Read more
-                                                    </Button>
-                                                ) : null}
-                                                </Section>
-    
-                                                {!isLastSubsection ? <Hr style={styles.hr} /> : null}
-                                            </React.Fragment>
-                                            );
-                                        })}
-                                        </Section>
-                                    ) : null}
-                                    </Section>
-                                );
+                                    );
                                 })}
                             </>
-                            ) : null}
+                        ) : null}
 
 
                         {outroHtml ? (

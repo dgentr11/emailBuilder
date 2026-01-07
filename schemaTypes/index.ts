@@ -1,16 +1,17 @@
 
 import type { SchemaTypeDefinition } from 'sanity';
 
-import newsletterSection from './objects/newsletterSection';
+import newsletterSections from './objects/newsletterSections';
 import newsletterIssue from './newsletterIssue';
 import newsletterTraining from './newsletterTraining';
 import pressRelease from './pressRelease';
 
+
 const schemaTypes: SchemaTypeDefinition[] = [
-  newsletterSection,
+  newsletterSections,
   newsletterIssue,
   newsletterTraining,
-  pressRelease
+  pressRelease,
 ];
 
 export default schemaTypes;
