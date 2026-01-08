@@ -1,4 +1,4 @@
-import { Section } from '@react-email/components';
+import {  Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { RichTextView } from '@/lib/mapIssueToEmailProps';
 
@@ -8,10 +8,15 @@ export function RichText({ summaryHtml }: Props) {
   if (!summaryHtml) return null;
 
   return (
-    <div
+    <Row>
+      <Column>
+      <div
       dangerouslySetInnerHTML={{ __html: summaryHtml }}
-      style={styles.richText}
-    />
+      style={styles.richText}  />
+      </Column>
+    </Row>
+  
+   
   );
 }
 

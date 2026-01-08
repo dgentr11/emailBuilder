@@ -10,8 +10,6 @@ import {
     Body,
     Container,
 } from '@react-email/components';
-import { Cta } from '@/app/components/Cta';
-import { Outro } from '@/app/components/Outro';
 import { Header } from '@/app/components/Header';
 import { Intro } from '@/app/components/Intro';
 import { SectionRenderer } from '@/app/components/sections';
