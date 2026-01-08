@@ -42,11 +42,31 @@ export function ArticleWithImage({
 			/>
 			)}
 			{url && (
-				<div style={{ textAlign: 'center', marginTop: 12 }}>
-					<Button href={url} style={styles.primaryButton}>
-						{urlText || 'Read more'}
-					</Button>
-				</div>
+
+				<table role="presentation" border={0} cellPadding={0} cellSpacing={0} align="center" style={{ margin: "auto" }}>
+					<tbody>
+						<tr>
+						<td style={{ backgroundColor: "#ffffff", border: "3px solid #ff8200", borderRadius: '8px', padding: "12px 20px", textAlign: "center" }}>
+							<a
+							href={url}
+							target="_blank"
+							rel="noopener noreferrer"
+							style={{
+								fontFamily: "Arial, Helvetica, sans-serif",
+								fontSize: "16px",
+								fontWeight: "bold",
+								color: "#0078d4",
+								textDecoration: "none",
+								display: "inline-block",
+							}}
+							>
+							 <span style={{textDecoration: 'none', color: '#0078d4', fontWeight: 'bold'}}>{urlText}</span>
+							</a>
+						</td>
+						</tr>
+					</tbody>
+				</table>
+				
 			)}
 		</Section>
 	

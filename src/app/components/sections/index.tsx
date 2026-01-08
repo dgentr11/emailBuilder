@@ -49,7 +49,7 @@ export function SectionRenderer({ section, isLast }: SectionRendererProps) {
 
   // Divider doesn't need a Section wrapper
   if (section._type === 'divider') {
-    return <Section style={sectionStyle}>{renderSectionContent()}</Section>;
+    return <Section> {renderSectionContent()}</Section>;
   }
 
   return (

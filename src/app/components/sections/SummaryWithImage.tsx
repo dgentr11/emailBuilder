@@ -24,9 +24,9 @@ export function SummaryWithImage({
       )}
 
       {eyebrow && (
-        <p style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
+        <div style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', paddingBottom: 8, paddingTop: 16 }}>
           {eyebrow}
-        </p>
+        </div>
       )}
 
       {title && (

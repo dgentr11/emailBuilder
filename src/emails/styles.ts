@@ -93,6 +93,10 @@ export const styles = {
     paddingTop: tokens.spacing.lg,
     paddingBottom: tokens.spacing.lg,
   }),
+  sectionLast: withFont({
+    paddingTop: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.lg,
+  }),
    sectionCentered: withFont({
     paddingTop: tokens.spacing.xl,
     paddingBottom: tokens.spacing.xl,
@@ -110,6 +114,22 @@ export const styles = {
     margin: '0 auto',
     textAlign: 'center',
     objectFit: 'cover'
+  }),
+  imageCaption: withFont({
+    fontSize: '14px',
+    textAlign: 'center',
+    fontStyle: 'bold',
+    fontFamily: tokens.fonts.base,
+    marginBottom: '4px',
+    marginTop: '8px'
+  }), 
+  imageAttribution: withFont({
+    fontSize: '12px',
+    textAlign: 'center',
+    fontStyle: 'italic',
+    fontFamily: tokens.fonts.base,
+    marginTop: '4px',
+    marginBottom: '0'
   }),
   h2: withFont({
     fontSize: 24,
@@ -189,11 +209,18 @@ export const styles = {
     fontSize: 12,
     color: tokens.colors.gray700,
   }),
-  hr: withFont({
-    width: '180px',
-    marginTop: tokens.spacing.xl,
-    marginBottom: tokens.spacing.xl,
-    borderTop: `4px dotted ${tokens.colors.brand}`,
+  divider: withFont({
+    width: '200px',
+    maxWidth: '200px',
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: tokens.spacing.md,
+    paddingRight: tokens.spacing.md,
+    margin: '0 auto',
+    textAlign: 'center'
+  }),
+  dividerContainer: withFont({
+    textAlign: 'center'
   }),
   footerDivider: withFont({
     textAlign: 'center',

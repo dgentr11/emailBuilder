@@ -1,18 +1,30 @@
-import { Section, Heading, Img } from '@react-email/components';
+import { Section, Heading, Img, Row, Column, Text } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { HeaderFourParagraphsView } from '@/lib/mapIssueToEmailProps';
 
 type Props = HeaderFourParagraphsView;
+
+// Helper function to chunk array into groups of 2
+function chunkArray<T>(array: T[], chunkSize: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < array.length; i += chunkSize) {
+    chunks.push(array.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
 
 export function HeaderFourParagraphs({
   header,
   summaryHtml,
   paragraphItems,
 }: Props) {
+  // Chunk paragraph items into groups of 2
+  const itemPairs = paragraphItems ? chunkArray(paragraphItems, 2) : [];
+
   return (
     <>
       {header && (
-        <Heading as="h2" style={styles.h2Centered}>
+        <Heading as="h2" style={{...styles.h2Centered, marginTop: 0}}>
           {header}
         </Heading>
       )}
@@ -24,33 +36,72 @@ export function HeaderFourParagraphs({
         />
       )}
 
-      {paragraphItems && paragraphItems.length > 0 && (
-        <div style={{ marginTop: 20 }}>
-          {paragraphItems.map((item, index) => (
-            <div key={index} style={{ marginBottom: 24 }}>
-              {item.itemImageUrl && (
-                <Img
-                  src={item.itemImageUrl}
-                  alt={item.itemImageAlt || item.paragraphItemTitle || ''}
-                  width="100%"
-                  height="auto"
-                  style={styles.image}
+      {itemPairs.length > 0 && (
+        <>
+          {itemPairs.map((pair, pairIndex) => (
+            <Row key={pairIndex} style={{ marginTop: pairIndex === 0 ? 16 : 16 }}>
+              {pair.map((item, itemIndex) => (
+                <Column
+                  key={itemIndex}
+                  colSpan={1}
+                  style={{
+                    width: '50%',
+                    paddingRight: itemIndex === 0 ? 12 : 0,
+                    paddingLeft: itemIndex === 1 ? 12 : 0,
+                    verticalAlign: 'baseline',
+                  }}
+                >
+                  {item.itemImageUrl && (
+                    <Img
+                      alt={item.itemImageAlt || item.paragraphItemTitle || ''}
+                      height="48"
+                      src={item.itemImageUrl}
+                      width="48"
+                    />
+                  )}
+                  {item.paragraphItemTitle && (
+                    <Text
+                      style={{
+                        margin: '0px',
+                        marginTop: 0,
+                        marginBottom: 8,
+                        fontSize: 20,
+                        lineHeight: '28px',
+                        fontWeight: 600,
+                        color: 'rgb(17,24,39)',
+                      }}
+                    >
+                      {item.paragraphItemTitle}
+                    </Text>
+                  )}
+                  {item.paragraphItemSummaryHtml && (
+                    <div
+                      style={{
+                        marginBottom: '0px',
+                        marginTop: '0px',
+                        fontSize: 16,
+                        lineHeight: '24px',
+                        color: 'rgb(107,114,128)',
+                      }}
+                      dangerouslySetInnerHTML={{ __html: item.paragraphItemSummaryHtml }}
+                    />
+                  )}
+                </Column>
+              ))}
+              {/* If odd number of items, add empty column to maintain layout */}
+              {pair.length === 1 && (
+                <Column
+                  colSpan={1}
+                  style={{
+                    width: '50%',
+                    paddingLeft: 12,
+                    verticalAlign: 'baseline',
+                  }}
                 />
               )}
-              {item.paragraphItemTitle && (
-                <Heading as="h3" style={styles.h3}>
-                  {item.paragraphItemTitle}
-                </Heading>
-              )}
-              {item.paragraphItemSummaryHtml && (
-                <div
-                  dangerouslySetInnerHTML={{ __html: item.paragraphItemSummaryHtml }}
-                  style={styles.richText}
-                />
-              )}
-            </div>
+            </Row>
           ))}
-        </div>
+        </>
       )}
     </>
   );

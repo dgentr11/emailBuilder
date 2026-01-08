@@ -49,7 +49,9 @@ export default function WeeklyNewsletter({
                 <style>
                     {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
                 </style>
+                
             </Conditional>
+           
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
             <Body style={styles.body}>
@@ -88,13 +90,6 @@ export default function WeeklyNewsletter({
                             </>
                         ) : null}
 
-
-                        {outroHtml ? (
-                            <Outro outroHtml={outroHtml} />
-                        ) : null}
-
-                        <Cta ctaLabel={ctaLabel} ctaHref={ctaHref} />
-
                         <FooterDivider />
                         
                     </Container>
@@ -106,18 +101,6 @@ export default function WeeklyNewsletter({
 }
 
 /** ---- Helpers ---- **/
-
-function formatDate(iso?: string): string {
-    if (!iso) return '';
-    // Keep formatting simple and email-safe
-    const d = new Date(iso);
-    // e.g., "Dec 9, 2025"
-    return d.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-    });
-}
 
 function formatMonthDay(date?: string): string {
   if (!date) return '—';

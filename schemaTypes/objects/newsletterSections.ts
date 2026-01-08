@@ -144,10 +144,11 @@ export default defineType({
 		})
 	  ],
 	  preview: {
-		select: { title: 'title'},
-		prepare(selection) {
+		select: { title: 'title', media: 'image'},
+		prepare(  selection ) {
 			return {
-			  title: 'Checkerboard Divider'
+			  title: 'Checkerboard Divider',
+			  media: 'https://facilities.utk.edu/wp-content/uploads/2025/02/4132f2ac-de6d-454f-a908-812dea0a4179.png'
 		  }
 		}
 	  }
@@ -172,6 +173,7 @@ export default defineType({
 			name: 'paragraphItems',
 			title: 'Paragraph Items',
 			type: 'array',
+			validation: Rule => Rule.min(1).max(4).error('Paragraph Items must have between 1 and 4 items'),
 			of: [ 
 			  {
 				  type: 'object',
@@ -331,6 +333,7 @@ export default defineType({
 				name: 'imageItems',
 				title: 'Image Items',
 				type: 'array',
+				validation: Rule => Rule.min(1).max(3).error('Image Items must have between 1 and 3 items'),
 				of: [ 
 				  {
 					  type: 'object',

@@ -1,4 +1,4 @@
-import { Section, Heading, Img } from '@react-email/components';
+import { Section, Heading, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImagesOnVerticalGridView } from '@/lib/mapIssueToEmailProps';
 
@@ -10,12 +10,51 @@ export function ImagesOnVerticalGrid({
   summaryHtml,
   imageItems,
 }: Props) {
+  // Calculate column width and padding based on number of items
+  const itemCount = imageItems?.length || 0;
+  
+  const getColumnStyle = (index: number, total: number) => {
+    const isLast = index === total - 1;
+    const isFirst = index === 0;
+    
+    if (total === 1) {
+      return {
+        width: '100%',
+        paddingRight: 0,
+        paddingLeft: 0,
+      };
+    }
+    
+    if (total === 2) {
+      return {
+        width: '50%',
+        paddingRight:  12,
+        paddingLeft:  12,
+      };
+    }
+    
+    if (total === 3) {
+      return {
+        width: '33.33%',
+        paddingRight:  8,
+        paddingLeft:  8,
+      };
+    }
+    
+    // Fallback
+    return {
+      width: '33.33%',
+      paddingRight:  8,
+      paddingLeft:  8,
+    };
+  };
+
   return (
     <>
       {eyebrow && (
-        <p style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
+        <div style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', paddingBottom: 8, paddingTop: 0 }}>
           {eyebrow}
-        </p>
+        </div>
       )}
 
       {title && (
@@ -32,31 +71,38 @@ export function ImagesOnVerticalGrid({
       )}
 
       {imageItems && imageItems.length > 0 && (
-        <div style={{ marginTop: 20 }}>
+        <Row style={{ marginTop: 20 }}>
           {imageItems.map((item, index) => (
-            <div key={index} style={{ marginBottom: 20 }}>
-              {item.imageUrl && (
-                <Img
-                  src={item.imageUrl}
-                  alt={item.imageAlt || item.caption || ''}
-                  width="100%"
-                  height="auto"
-                  style={styles.image}
-                />
-              )}
-              {item.caption && (
-                <p style={{ ...styles.richText, fontStyle: 'italic', marginTop: 8, textAlign: 'center' }}>
-                  {item.caption}
-                </p>
-              )}
-              {item.attribution && (
-                <p style={{ ...styles.richText, fontSize: 12, marginTop: 4, textAlign: 'center', color: '#666' }}>
-                  {item.attribution}
-                </p>
-              )}
-            </div>
+              <Column
+                key={index}
+                colSpan={1}
+                style={{
+                  ...getColumnStyle(index, itemCount),
+                  verticalAlign: 'top',
+                }}
+              >
+                {item.imageUrl && (
+                  <Img
+                    src={item.imageUrl}
+                    alt={item.imageAlt || item.caption || ''}
+                    width="100%"
+                    height="auto"
+                    style={styles.image}
+                  />
+                )}
+                {item.caption && (
+                  <p style={styles.imageCaption}>
+                    {item.caption}
+                  </p>
+                )}
+                {item.attribution && (
+                  <p style={styles.imageAttribution}>
+                    {item.attribution}
+                  </p>
+                )}
+              </Column>
           ))}
-        </div>
+        </Row>
       )}
     </>
   );
