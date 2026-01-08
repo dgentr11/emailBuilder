@@ -14,7 +14,7 @@ export function ArticleWithImage({
   urlText,
 }: Props) {
   return (
-	<Section style={styles.section}>
+	<>
 		{imageUrl && (
 			<Img
 			src={imageUrl}
@@ -70,7 +70,7 @@ export function ArticleWithImage({
 			)}
 		</Section>
 	
-	</Section>
+	</>
   );
 }
 

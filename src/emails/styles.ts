@@ -68,7 +68,7 @@ export const styles = {
   }),
   header: withFont({
     textAlign: 'center',
-    paddingBottom: 0,
+    paddingBottom: tokens.spacing.lg,
     paddingTop: tokens.spacing.lg
   }),
   headerImageContainer: withFont({
