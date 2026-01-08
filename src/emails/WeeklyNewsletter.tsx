@@ -29,9 +29,6 @@ export default function WeeklyNewsletter({
     publishDate,
     introHtml,
     sections,
-    outroHtml,
-    ctaLabel = 'Learn more',
-    ctaHref = '#',
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
