@@ -144,11 +144,11 @@ export default defineType({
 		})
 	  ],
 	  preview: {
-		select: { title: 'title', media: 'image'},
+		select: { title: 'title'},
 		prepare(  selection ) {
 			return {
 			  title: 'Checkerboard Divider',
-			  media: 'https://facilities.utk.edu/wp-content/uploads/2025/02/4132f2ac-de6d-454f-a908-812dea0a4179.png'
+
 		  }
 		}
 	  }

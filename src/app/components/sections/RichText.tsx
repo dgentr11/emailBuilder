@@ -15,8 +15,6 @@ export function RichText({ summaryHtml }: Props) {
       style={styles.richText}  />
       </Column>
     </Row>
-  
-   
   );
 }
 
