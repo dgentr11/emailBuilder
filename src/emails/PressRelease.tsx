@@ -74,7 +74,7 @@ export default function WeeklyNewsletter({
                             />
                         }
                     </Section>
-                    <Section style={styles.headerImagePadBot}>
+                    <Section style={styles.headerPadBot}>
                         {headerImageUrl &&
                             <Row >
                                 <Column style={styles.headerImageContainer}>

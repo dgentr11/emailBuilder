@@ -77,6 +77,15 @@ export const styles = {
     margin: '0',
     lineHeight: '0'
   }),
+  headerImage: withFont({
+    display: 'block',
+    margin: '0 auto'
+  }),
+  headerPadBot: withFont({
+    textAlign: 'center',
+    paddingBottom: tokens.spacing.lg,
+    paddingTop: tokens.spacing.lg
+  }),
   h1: withFont({
     fontSize: 30,
     margin: '10px 0 4px',
