@@ -123,7 +123,7 @@ export default defineType({
 			},
 			prepare({ title, firstItemTitle, media }) {
 				return {
-					title: title || 'List with Image on Left',
+					title: 'List with Image on Left',
 					subtitle: firstItemTitle || 'First item',
 					media, 
 				}
@@ -421,6 +421,66 @@ export default defineType({
 				const { media } = selection
 				return {
 				  title: 'Simple Image',
+				  media: media
+			  }
+			}
+		  }
+	  },
+	  {
+		type: 'object',
+		name: 'imageSummaryTwoImages',
+		title: 'Image with Summary plus Two Images',
+		fields: [
+			defineField({
+				name: 'image',
+				title: 'Image',
+				type: 'image',
+				options: { hotspot: true },
+				fields: [
+				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+				],
+			}),
+			defineField({
+				name: 'title',
+				title: 'Title',
+				type: 'string',
+			}),
+			defineField({
+				name: 'summary',
+				title: 'Summary',
+				type: 'string',
+			}),
+			defineField({
+				name: 'imageItems',
+				title: 'Two Image Items',
+				type: 'array',
+				validation: Rule => Rule.min(0).max(2).error('Image items cannot exceed 2'),
+				of: [ 
+				  {
+					  type: 'object',
+					  name: 'imageItem',
+					  title: 'Image Item',
+					  fields: [
+						defineField({
+							name: 'image',
+							title: 'Image',
+							type: 'image',
+							options: { hotspot: true },
+							fields: [
+								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+							],
+						}),
+					  ], 
+					}
+				],
+			}),
+		],
+		preview: {
+			select: { title: 'Image with Summary plus Two Images', media: 'image'},
+			prepare(selection) {
+				const { media } = selection
+				return {
+				  title: 'Image with Summary plus Two Images',
 				  media: media
 			  }
 			}

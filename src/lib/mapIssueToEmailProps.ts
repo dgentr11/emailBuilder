@@ -85,6 +85,16 @@ export type SimpleImageSection = {
   image?: { asset?: { url?: string }; alt?: string } | null;
 };
 
+export type ImageSummaryTwoImages = {
+  _type: 'imageSummaryTwoImages';
+  image?: {  asset?: { url?: string }; alt?: string } | null;
+  title?: string;
+  summary?: string;
+  imageItems?: Array<{
+    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string } | null;
+  }>;
+}
+
 export type NewsletterSection = 
   | ArticleWithImageSection
   | ListImageLeftSection
@@ -94,7 +104,8 @@ export type NewsletterSection =
   | SimpleListSection
   | ImagesOnVerticalGridSection
   | RichTextSection
-  | SimpleImageSection;
+  | SimpleImageSection
+  | ImageSummaryTwoImages;
 
 export type IssueDoc = {
   headerImage?: { asset?: { url?: string }; alt?: string } | null;
@@ -193,6 +204,18 @@ export type SimpleImageView = {
   imageAlt?: string;
 };
 
+export type ImageSummaryTwoImagesView = {
+  _type: 'imageSummaryTwoImages';
+  imageUrl?: string;
+  imageAlt?: string;
+  title?: string;
+  summary?: string;
+  imageItems?: Array<{
+    imageUrl?: string;
+    imageAlt?: string;
+  }>;
+};
+
 export type SectionView = 
   | ArticleWithImageView
   | ListImageLeftView
@@ -202,7 +225,8 @@ export type SectionView =
   | SimpleListView
   | ImagesOnVerticalGridView
   | RichTextView
-  | SimpleImageView;
+  | SimpleImageView
+  | ImageSummaryTwoImagesView;
 
 // Final props passed to WeeklyNewsletter
 export type WeeklyNewsletterProps = {
@@ -333,6 +357,21 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           _type: 'simpleImage',
           imageUrl: s.image?.asset?.url,
           imageAlt: s.image?.alt,
+        };
+      }
+      case 'imageSummaryTwoImages': {
+        return {
+          _type: 'imageSummaryTwoImages',
+          imageAlt: s.image?.alt,
+          imageUrl: s.image?.asset?.url,
+          title: s.title,
+          summary: s.summary,
+          imageItems: s.imageItems?.map(item => ({
+            imageUrl: item.image?.asset?.url,
+            imageAlt: item.image?.alt,
+            caption: item.image?.caption,
+            attribution: item.image?.attribution,
+          })),
         };
       }
       default: {

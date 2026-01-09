@@ -225,6 +225,7 @@ export const styles = {
   footerDivider: withFont({
     textAlign: 'center',
     paddingTop: tokens.spacing.lg,
+    paddingBottom: tokens.spacing.md,
   }),
   footerDividerIcon: withFont({
     margin: '0 auto'

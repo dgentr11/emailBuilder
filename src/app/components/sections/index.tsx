@@ -10,6 +10,7 @@ import { SimpleList } from './SimpleList';
 import { ImagesOnVerticalGrid } from './ImagesOnVerticalGrid';
 import { RichText } from './RichText';
 import { SimpleImage } from './SimpleImage';
+import { ImageSummaryTwoImages } from './ImageSummaryTwoImages';
 
 type SectionRendererProps = {
   section: SectionView;
@@ -39,6 +40,8 @@ export function SectionRenderer({ section, isLast }: SectionRendererProps) {
         return <RichText {...section} />;
       case 'simpleImage':
         return <SimpleImage {...section} />;
+      case 'imageSummaryTwoImages':
+        return <ImageSummaryTwoImages {...section} />
       default: {
         const _exhaustive: never = section;
         console.warn(`Unknown section type: ${(_exhaustive as any)._type}`);
