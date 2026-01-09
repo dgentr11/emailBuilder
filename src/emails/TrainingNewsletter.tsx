@@ -182,7 +182,7 @@ export default function TrainingNewsletter({
                                                 ) : null}
                                                 </Section>
 
-                                                {!isLastSubsection ? <Hr style={styles.hr} /> : null}
+                                                {!isLastSubsection ? <Hr style={styles.divider} /> : null}
                                             </React.Fragment>
                                             );
                                         })}
