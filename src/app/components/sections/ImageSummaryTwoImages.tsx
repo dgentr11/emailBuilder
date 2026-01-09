@@ -89,7 +89,7 @@ export function ImageSummaryTwoImages({
                 {item.imageUrl && (
                   <Img
                     src={item.imageUrl}
-                    alt={item.imageAlt || item.caption || ''}
+                    alt={item.imageAlt || ''}
                     width="100%"
                     height="auto"
                     style={styles.image}
