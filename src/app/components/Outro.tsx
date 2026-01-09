@@ -12,7 +12,7 @@ export function Outro({ outroHtml } : OutroProps) {
     }
 
     return (
-        <Section style={{ ...styles.sectionLastNoPadTop }}>
+        <Section style={{ ...styles.section }}>
             <div
                 dangerouslySetInnerHTML={{ __html: outroHtml }}
                 style={styles.richText}
