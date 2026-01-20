@@ -3,8 +3,6 @@
 import { notFound } from 'next/navigation';
 import { getIssueById } from '@/lib/getIssue';
 import { toEmailProps } from '@/lib/mapIssueToEmailProps';
-import { toTrainingEmailProps } from '@/lib/mapTrainingToEmailProps';
-import { toPressReleaseProps } from '@/lib/mapPressReleaseToEmailProps';
 import WeeklyNewsletter from '@/emails/WeeklyNewsletter';
 import TrainingNewsletter from '@/emails/TrainingNewsletter';
 import PressRelease from '@/emails/PressRelease';
