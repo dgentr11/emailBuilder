@@ -32,6 +32,8 @@ export const DOC_BY_ID = `
       itemImage{asset->{url}, alt},
       itemTitle,
       itemSummary,
+      itemLinkURL,
+      itemLinkText,
       itemDivider
     },
     paragraphItems[]{
@@ -87,7 +89,10 @@ export const LATEST_SCHEDULED = `
     listItems[]{
       itemImage{asset->{url}, alt},
       itemTitle,
-      itemSummary
+      itemSummary,
+      itemLinkURL,
+      itemLinkText,
+      itemDivider
     },
     paragraphItems[]{
       itemImage{asset->{url}, alt},

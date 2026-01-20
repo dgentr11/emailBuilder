@@ -28,6 +28,8 @@ export type ListImageLeftSection = {
     itemImage?: { asset?: { url?: string }; alt?: string } | null;
     itemTitle?: string;
     itemSummary?: PTBlocks;
+    itemLinkURL?: string;
+    itemLinkText?: string;
     itemDivider?: boolean;
   }>;
 };
@@ -143,6 +145,8 @@ export type ListImageLeftView = {
     itemImageAlt?: string;
     itemTitle?: string;
     itemSummaryHtml?: string;
+    itemLinkURL?: string;
+    itemLinkText?: string;
     itemDivider?: boolean;
   }>;
 };
@@ -293,6 +297,8 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
             itemImageAlt: item.itemImage?.alt,
             itemTitle: item.itemTitle,
             itemSummaryHtml: ptToHtml(item.itemSummary),
+            itemLinkURL: item.itemLinkURL,
+            itemLinkText: item.itemLinkText,
             itemDivider: item.itemDivider ?? false,
           })),
         };

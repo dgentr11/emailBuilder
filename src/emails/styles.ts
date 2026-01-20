@@ -54,6 +54,7 @@ export const styles = {
   }),
   container: withFont({
     maxWidth: tokens.widths.container,
+    width: '100%',
     margin: '0 auto',
     backgroundColor: tokens.colors.white,
     paddingTop: tokens.spacing.xl,
@@ -65,6 +66,7 @@ export const styles = {
     paddingRight: tokens.spacing.xl,
     paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
+    width: '100%',
   }),
   outerContainer: withFont({
     padding: 0,
@@ -221,6 +223,14 @@ export const styles = {
     textDecoration: 'none',
     borderRadius: 0,
     display: 'inline-block',
+  }),
+  listItemLink: withFont({
+    fontSize: tokens.fontSizes.sm,
+    color: tokens.colors.primary,
+    marginTop: '16px',
+    fontWeight: '700',
+    lineHeight: tokens.lineHeight.sm,
+    textTransform: 'uppercase'
   }),
   footerCta: withFont({
     textAlign: 'center',

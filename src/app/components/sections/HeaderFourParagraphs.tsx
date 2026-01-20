@@ -78,7 +78,7 @@ export function HeaderFourParagraphs({
                     <div
                       style={{
                         marginBottom: '0px',
-                        marginTop: '0px',
+                        marginTop: '8px',
                         fontSize: 14,
                         lineHeight: '1.5',
                         color: '#000000',

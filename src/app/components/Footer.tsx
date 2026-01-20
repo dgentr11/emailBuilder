@@ -34,11 +34,11 @@ export function Footer({
                         <table
                             role="presentation"
                             align="center"
-                            width={600}
                             border={0}
+                            width="100%"
                             cellPadding={0}
                             cellSpacing={0}
-                            style={{ width: 600, borderCollapse: 'collapse' }}
+                            style={{ maxWidth: 600, borderCollapse: 'collapse' }}
                         >
                             <tr>
                                 <td style={{ backgroundColor: smokey, fontFamily: "'Montserrat', Arial, sans-serif" }} >

@@ -111,6 +111,16 @@ export default defineType({
 						title: 'List Item Summary'
 					}),
 					defineField({
+						name: 'itemLinkURL',
+						type: 'url',
+						title: 'Item Link URL',
+					  }),
+					  defineField({
+						name: 'itemLinkText',
+						type: 'string',
+						title: 'Item Link Text',
+					  }),
+					defineField({
 						name: 'itemDivider',
 						type: 'boolean',
 						title: 'Show Divider after item?',
