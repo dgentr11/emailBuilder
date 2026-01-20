@@ -15,10 +15,16 @@ import { ImageSummaryTwoImages } from './ImageSummaryTwoImages';
 type SectionRendererProps = {
   section: SectionView;
   isLast: boolean;
+  template?: "pressRelease" | "newsletter" | "training";
 };
 
-export function SectionRenderer({ section, isLast }: SectionRendererProps) {
-  const sectionStyle = isLast ? styles.sectionLast : styles.section;
+export function SectionRenderer({ section, isLast, template }: SectionRendererProps) {
+  let sectionStyle = isLast ? styles.sectionLast : styles.section;
+  
+ if (template === "pressRelease") {
+  sectionStyle = { ...sectionStyle, textAlign: 'left' };
+}
+
 
   const renderSectionContent = () => {
     switch (section._type) {

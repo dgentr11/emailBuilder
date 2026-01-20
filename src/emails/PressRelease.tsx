@@ -72,6 +72,7 @@ export default function PressRelease({
                                             key={i}
                                             section={section}
                                             isLast={isLastSection}
+                                            template="pressRelease"
                                         />
                                     );
                                 })}
