@@ -110,6 +110,12 @@ export default defineType({
 						of: [{ type: 'block' }],
 						title: 'List Item Summary'
 					}),
+					defineField({
+						name: 'itemDivider',
+						type: 'boolean',
+						title: 'Show Divider after item?',
+						initialValue: false
+					}),
 				]
 			}
 		   ],
@@ -284,6 +290,12 @@ export default defineType({
 						  of: [{ type: 'block' }],
 						  title: 'List Item Summary'
 					  }),
+					  defineField({
+						name: 'itemDivider',
+						type: 'boolean',
+						title: 'Show Divider after item?',
+						initialValue: false
+					}),
 				  ]
 			  }
 			 ],
@@ -469,8 +481,22 @@ export default defineType({
 							fields: [
 								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
 							],
+							
 						}),
 					  ], 
+						preview: {
+							select: {
+							image: 'image',
+							asset: 'image.asset',
+							title: 'image.alt'
+							},
+								prepare({ image, asset, title }) {
+								return {
+									title: title || 'Image item',
+									media: image || asset
+								}
+							}
+						}
 					}
 				],
 			}),

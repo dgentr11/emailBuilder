@@ -11,7 +11,6 @@ import {
     Container,
 } from '@react-email/components';
 import { Header } from '@/app/components/Header';
-import { Intro } from '@/app/components/Intro';
 import { SectionRenderer } from '@/app/components/sections';
 import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
 
@@ -27,7 +26,6 @@ export default function WeeklyNewsletter({
     headerImageAlt,
     emailTitle,
     publishDate,
-    introHtml,
     sections,
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
@@ -64,11 +62,6 @@ export default function WeeklyNewsletter({
                     />
 
                     <Container style={styles.innerContainer}>
-
-                        {/* Intro */}
-                        {introHtml ? (
-                            <Intro introHtml={introHtml} />
-                        ) : null}
 
                         {sections && sections.length > 0 ? (
                             <>

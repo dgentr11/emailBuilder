@@ -7,7 +7,7 @@ export const tokens = {
     brand: '#ff8200',
     primary: '#0078d4',
     white: '#ffffff',
-    smokey: '#222222',
+    smokey: '#4b4b4b',
     gray600: '#666',
     gray700: '#888',
     bg: '#f5f5f5',
@@ -45,8 +45,8 @@ export const styles = {
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
-    paddingLeft: tokens.spacing.lg,
-    paddingRight: tokens.spacing.lg,
+    paddingLeft: tokens.spacing.xl,
+    paddingRight: tokens.spacing.xl,
     paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
   }),
@@ -62,7 +62,7 @@ export const styles = {
   templateLogo: withFont({
     textAlign: 'center',
     display: 'block',
-    maxWidth: '150px',
+    maxWidth: '180px',
     width: '100%',
     margin: '0 auto',
   }),
@@ -89,13 +89,13 @@ export const styles = {
   h1: withFont({
     fontSize: 30,
     margin: '10px 0 4px',
-    lineHeight: '28px',
+    lineHeight: '36px',
     textAlign: 'center',
   }),
    h1Left: withFont({
     fontSize: 30,
     margin: '10px 0 4px',
-    lineHeight: '28px',
+    lineHeight: '36px',
     textAlign: 'left',
   }),
   section: withFont({
@@ -143,12 +143,12 @@ export const styles = {
   h2: withFont({
     fontSize: 24,
     margin: '12px 0',
-    lineHeight: '24px',
+    lineHeight: '30px',
   }),
   h2Centered: withFont({
     fontSize: 24,
     margin: '12px 0 0',
-    lineHeight: '24px',
+    lineHeight: '30px',
     textAlign: 'center',
     fontWeight: 'bold',
   }),
@@ -157,12 +157,12 @@ export const styles = {
     lineHeight: '22px',
   }),
    richTextCentered: withFont({
-    fontSize: 16,
+    fontSize: 14,
     textAlign: 'center',
     lineHeight: '22px',
   }),
   richTextLeft: withFont({
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '700',
     textAlign: 'left',
     marginBottom: '0',
@@ -184,7 +184,7 @@ export const styles = {
   h3: withFont({
     fontSize: 18,
     margin: '8px 0 6px',
-    lineHeight: '22px',
+    lineHeight: '1.5',
   }),
   secondaryButton: withFont({
     marginTop: tokens.spacing.xs,
@@ -230,6 +230,11 @@ export const styles = {
   }),
   dividerContainer: withFont({
     textAlign: 'center'
+  }),
+  itemDivider: withFont({
+    marginTop: '10px',
+    marginBottom: '10px',
+    borderTop: '1px solid #000000'
   }),
   footerDivider: withFont({
     textAlign: 'center',

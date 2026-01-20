@@ -28,6 +28,7 @@ export type ListImageLeftSection = {
     itemImage?: { asset?: { url?: string }; alt?: string } | null;
     itemTitle?: string;
     itemSummary?: PTBlocks;
+    itemDivider?: boolean;
   }>;
 };
 
@@ -60,6 +61,7 @@ export type SimpleListSection = {
   listItems?: Array<{
     itemTitle?: string;
     itemSummary?: PTBlocks;
+    itemDivider?: boolean;
   }>;
   simpleListURL?: string;
   simpleListURLText?: string;
@@ -141,6 +143,7 @@ export type ListImageLeftView = {
     itemImageAlt?: string;
     itemTitle?: string;
     itemSummaryHtml?: string;
+    itemDivider?: boolean;
   }>;
 };
 
@@ -175,6 +178,7 @@ export type SimpleListView = {
   listItems?: Array<{
     itemTitle?: string;
     itemSummaryHtml?: string;
+    itemDivider?: boolean;
   }>;
   simpleListURL?: string;
   simpleListURLText?: string;
@@ -289,6 +293,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
             itemImageAlt: item.itemImage?.alt,
             itemTitle: item.itemTitle,
             itemSummaryHtml: ptToHtml(item.itemSummary),
+            itemDivider: item.itemDivider ?? false,
           })),
         };
       }
@@ -327,6 +332,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           listItems: s.listItems?.map(item => ({
             itemTitle: item.itemTitle,
             itemSummaryHtml: ptToHtml(item.itemSummary),
+            itemDivider: item.itemDivider ?? false
           })),
           simpleListURL: s.simpleListURL,
           simpleListURLText: s.simpleListURLText,

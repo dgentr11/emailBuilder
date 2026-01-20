@@ -31,7 +31,8 @@ export const DOC_BY_ID = `
     listItems[]{
       itemImage{asset->{url}, alt},
       itemTitle,
-      itemSummary
+      itemSummary,
+      itemDivider
     },
     paragraphItems[]{
       itemImage{asset->{url}, alt},

@@ -57,71 +57,65 @@ export function FooterTraining({
                                         </tr>
                                     </table>
 
-                                    <table
-                                        role="presentation"
-                                        align="center"
-                                        border={0}
-                                        cellPadding={0}
-                                        cellSpacing={0}
-                                        style={{ borderCollapse: 'collapse', margin: '0 auto' }}
-                                    >
-                                        <tbody>
-                                            <tr>
-                                                <td align="center" style={{ padding: "10px 8px 0" }}>
-                                                    <a href={facebookUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-                                                        <img
-                                                            src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-facebook.png"
-                                                            width="25"
-                                                            height="25"
-                                                            style={{padding: '0'}}
-                                                        />
-                                                    </a>
-                                                </td>
-                                                <td align="center" style={{ padding: "10px 8px 0" }}>
-                                                    <a href={xUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-                                                        <img
-                                                        src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-x.png"
-                                                        width="25"
-                                                        height="25"
-                                                        style={{padding: '0'}} />
-                                                    </a>
-                                                </td>
-                                                <td align="center" style={{ padding: "10px 8px 0" }}>
-                                                    <a href={instagramUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
-                                                    <img
-                                                        src="https://facilities.utk.edu/wp-content/uploads/2025/12/email-fooer-instagram-1.png"
-                                                        width="25"
-                                                        height="25"
-                                                        style={{padding: '0'}}
-                                                        />
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    
                                 </td>
                             </tr>
                         </table>
 
                         <table role="presentation" width="100%" border={0} cellPadding={0} cellSpacing={0}>
                             <tr>
-                                <td align="center" style={{ padding: '8px 16px' }}>
+                                <td align="center" style={{ padding: '24px 16px 8px 16px' }}>
+                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: 12, lineHeight: '1.5', color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style={{ padding: '4px 16px' }}>
                                     <Text
                                         style={{
                                             margin: 0,
-                                            marginTop: 16,
+                                            marginTop: 0,
                                             marginBottom: 8,
                                             fontSize: 12,
                                             lineHeight: '1.5',
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}
-                                    >
-                                        2040 Sutherland Avenue<br />
-                                        Knoxville, TN 37921<br />
-                                        <Link href="tel:865-946-7777"  style={{ fontSize: 12, lineHeight: '1.5', color: '#ffffff'}}>865-946-7777</Link>
-                                        <br />
-                                        <Link href="mailto:adminfs@utk.edu"  style={{ fontSize: 12, lineHeight: '1.5', color: '#ffffff'}}>adminfs@utk.edu</Link>
+                                    > 
+                                        Facilities Services - The University of Tennessee, Knoxville     
+                                        </Text>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style={{ padding: '4px 16px' }}>
+                                    <Text
+                                        style={{
+                                            margin: 0,
+                                            marginTop: 0,
+                                            marginBottom: 8,
+                                            fontSize: 12,
+                                            lineHeight: '1.5',
+                                            fontWeight: 500,
+                                            color: '#ffffff',
+                                        }}
+                                    > 
+                                        Facilities Services Complex   
+                                        </Text>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" style={{ padding: '4px 16px' }}>
+                                    <Text
+                                        style={{
+                                            margin: 0,
+                                            marginTop: 0,
+                                            marginBottom: 8,
+                                            fontSize: 12,
+                                            lineHeight: '1.5',
+                                            fontWeight: 500,
+                                            color: '#ffffff',
+                                        }}
+                                    > 
+                                        2040 Sutherland Ave. Knoxville, TN 37996-3010  
                                         </Text>
                                 </td>
                             </tr>

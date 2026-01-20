@@ -4,6 +4,7 @@ import { defineType, defineField } from 'sanity';
 export default defineType({
   name: 'newsletterTraining',
   title: 'Training Newsletter',
+  description: 'A general newsletter template with many section options',
   type: 'document',
   fields: [
     defineField({

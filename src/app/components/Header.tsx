@@ -12,7 +12,7 @@ import { Img, Section, Heading,Text, Column, Row } from "@react-email/components
     subtitle?: string;
 }
 
-export function Header({ templateLogoUrl, templateLogoAlt, emailTitle, publishDate, formattedDate, headerImageUrl, headerImageAlt, subtitle } : HeaderProps) {
+export function Header({ templateLogoUrl, templateLogoAlt, emailTitle } : HeaderProps) {
 
     return (
 
@@ -22,7 +22,7 @@ export function Header({ templateLogoUrl, templateLogoAlt, emailTitle, publishDa
                     <Img
                         src={templateLogoUrl}
                         alt={templateLogoAlt || emailTitle}
-                        width="150"
+                        width="180"
                         height="auto"
                         style={styles.templateLogo}
                     />

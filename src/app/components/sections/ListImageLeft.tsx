@@ -1,4 +1,4 @@
-import { Section, Heading, Img, Row, Column } from '@react-email/components';
+import { Section, Heading, Img, Row, Column, Hr } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ListImageLeftView } from '@/lib/mapIssueToEmailProps';
 
@@ -27,31 +27,39 @@ export function ListImageLeft({
 	  {listItems && listItems.length > 0 && (
 		<Section style={{ marginTop: 20, verticalAlign: 'top' }} >
 		  {listItems.map((item, index) => (
+			
 			<Row key={index} >
-			  {item.itemImageUrl && (
-				<Column width="30%" style={{ width: '30%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }}>
-				  <Img
-					src={item.itemImageUrl}
-					alt={item.itemImageAlt || item.itemTitle || ''}
-					width="100%"
-					height="auto"
-					style={styles.image}
-				  />
-				</Column>
-			  )}
-			  <Column width="70%" valign="top" style={{ width: '70%', paddingRight: '12px', verticalAlign: 'top', paddingBottom: '8px', paddingTop: '8px' }}>
-				{item.itemTitle && (
-				  <Heading as="h3" style={{...styles.h3, marginTop: 0}}>
-					{item.itemTitle}
-				  </Heading>
+				<div>
+					{item.itemImageUrl && (
+						<Column width="30%" style={{ width: '30%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }}>
+						<Img
+							src={item.itemImageUrl}
+							alt={item.itemImageAlt || item.itemTitle || ''}
+							width="100%"
+							height="auto"
+							style={styles.image}
+						/>
+						</Column>
+					)}
+					<Column width="70%" valign="top" style={{ width: '70%', paddingRight: '12px', verticalAlign: 'top', paddingBottom: '8px', paddingTop: '8px' }}>
+						{item.itemTitle && (
+						<Heading as="h3" style={{...styles.h3, marginTop: 0}}>
+							{item.itemTitle}
+						</Heading>
+						)}
+						{item.itemSummaryHtml && (
+						<div
+							dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
+							style={styles.richText}
+						/>
+						)}
+						
+					</Column>
+				</div>
+				{item.itemDivider && (
+					<Hr style={{...styles.itemDivider}} />
 				)}
-				{item.itemSummaryHtml && (
-				  <div
-					dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
-					style={styles.richText}
-				  />
-				)}
-			  </Column>
+				
 			</Row>
 		  ))}
 		</Section>

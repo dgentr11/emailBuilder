@@ -65,8 +65,8 @@ export function HeaderFourParagraphs({
                         margin: '0px',
                         marginTop: 0,
                         marginBottom: 8,
-                        fontSize: 20,
-                        lineHeight: '28px',
+                        fontSize: 18,
+                        lineHeight: '26px',
                         fontWeight: 600,
                         color: 'rgb(17,24,39)',
                       }}
@@ -79,9 +79,9 @@ export function HeaderFourParagraphs({
                       style={{
                         marginBottom: '0px',
                         marginTop: '0px',
-                        fontSize: 16,
-                        lineHeight: '24px',
-                        color: 'rgb(107,114,128)',
+                        fontSize: 14,
+                        lineHeight: '1.5',
+                        color: '#000000',
                       }}
                       dangerouslySetInnerHTML={{ __html: item.paragraphItemSummaryHtml }}
                     />

@@ -1,4 +1,4 @@
-import { Section, Heading, Button } from '@react-email/components';
+import { Section, Heading, Row, Hr, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { SimpleListView } from '@/lib/mapIssueToEmailProps';
 
@@ -12,23 +12,28 @@ export function SimpleList({
 	return (
 		<>
 			{listItems && listItems.length > 0 && (
-				<div>
+				<Section>
 					{listItems.map((item, index) => (
-						<div key={index} style={{ marginBottom: 16 }}>
-							{item.itemTitle && (
-								<Heading as="h3" style={styles.h3}>
-									{item.itemTitle}
-								</Heading>
+						<Row key={index}>
+							<Column key={index} style={{ marginBottom: 16 }}>
+								{item.itemTitle && (
+									<Heading as="h3" style={styles.h3}>
+										{item.itemTitle}
+									</Heading>
+								)}
+								{item.itemSummaryHtml && (
+									<div
+										dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
+										style={styles.richText}
+									/>
+								)}
+							</Column>
+							{item.itemDivider && (
+								<Hr style={{...styles.itemDivider}} />
 							)}
-							{item.itemSummaryHtml && (
-								<div
-									dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
-									style={styles.richText}
-								/>
-							)}
-						</div>
+						</Row>
 					))}
-				</div>
+				</Section>
 			)}
 
 			{simpleListURL && (
