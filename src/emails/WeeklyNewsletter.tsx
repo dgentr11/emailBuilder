@@ -24,15 +24,13 @@ type Props = WeeklyNewsletterProps & {
 export default function WeeklyNewsletter({
     headerImageUrl,
     headerImageAlt,
-    emailTitle,
     publishDate,
     sections,
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
     const formattedDate = formatMonthDay(publishDate);
-    const previewText =
-        emailTitle || 'Facilities Services Newsletter';
+    const previewText = 'Facilities Services Newsletter';
 
     return (
         <Html>
@@ -54,7 +52,6 @@ export default function WeeklyNewsletter({
                     <Header 
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        emailTitle={emailTitle}
                         publishDate={publishDate}
                         formattedDate={formattedDate}
                         headerImageUrl={headerImageUrl}

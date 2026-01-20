@@ -1,8 +1,9 @@
 
+// emails/TrainingNewsletter.tsx
 import { styles } from './styles';
-import { Footer } from '@/app/components/Footer';
 import { FooterDivider } from '@/app/components/FooterDivider';
-import { Cta } from '@/app/components/Cta';
+import { Footer } from '@/app/components/Footer';
+import { Header } from '@/app/components/Header';
 import { Conditional } from 'jsx-email';
 
 import {
@@ -11,43 +12,28 @@ import {
     Preview,
     Body,
     Container,
-    Section,
-    Row,
-    Column,
-    Heading,
-    Text,
-    Img,
 } from '@react-email/components';
+import { SectionRenderer } from '@/app/components/sections';
+import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
 
-
-type Props = {
-    headerImageUrl?: string;
-    headerImageAlt?: string;
-    publishDate?: string;
-    emailTitle?: string;
-    subtitle?: string,
-    contentHtml?: string;
-    ctaLabel?: string;
-    ctaHref?: string;
+type Props = WeeklyNewsletterProps & {
     templateLogoUrl?: string;
     templateLogoAlt?: string;
     templateLogoReverseUrl?: string;
     footerDividerUrl?: string;
 };
 
-export default function WeeklyNewsletter({
-    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
-    templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
+export default function PressRelease({
     headerImageUrl,
     headerImageAlt,
-    emailTitle,
-    subtitle,
-    contentHtml,
-    ctaLabel = 'Learn more',
-    ctaHref = '#',
+    publishDate,
+    sections,
+    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
+    templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
-    const previewText =
-        emailTitle || 'UT Facility Services Press Release';
+    const formattedDate = formatMonthDay(publishDate);
+    const previewText = 'Facilities Services News';
+    
 
     return (
         <Html>
@@ -57,63 +43,43 @@ export default function WeeklyNewsletter({
                 <style>
                     {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
                 </style>
+                
             </Conditional>
+           
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
             <Body style={styles.body}>
+
                 <Container style={styles.container}>
 
-                   <Section style={styles.header}>
-                        {headerImageUrl &&
-                            <Img
-                                src={templateLogoUrl}
-                                alt={templateLogoAlt || emailTitle}
-                                width="150"
-                                height="auto"
-                                style={styles.templateLogo}
-                            />
-                        }
-                    </Section>
-                    <Section style={styles.headerPadBot}>
-                        {headerImageUrl &&
-                            <Row >
-                                <Column style={styles.headerImageContainer}>
-                                    <Img
-                                        src={headerImageUrl}
-                                        alt={headerImageAlt || emailTitle}
-                                        width="600"
-                                        height="auto"
-                                        style={styles.headerImage}
-                                    />
-                                </Column>
-                            </Row>
-                            }
-                    </Section>
+                    <Header 
+                        templateLogoAlt={templateLogoAlt}
+                        templateLogoUrl={templateLogoUrl}
+                        publishDate={publishDate}
+                        formattedDate={formattedDate}
+                        headerImageUrl={headerImageUrl}
+                        headerImageAlt={headerImageAlt}
+                    />
+
                     <Container style={styles.innerContainer}>
-                        <Heading as="h1" style={styles.h1Left}>
-                            {emailTitle ? emailTitle : 'Facilities Services Newsletter'}
-                        </Heading>
 
-                        {/* Intro */}
-                        {subtitle ? (
-                            <Text  style={styles.richTextLeft}>
-                                {subtitle}
-                            </Text>
+                        {sections && sections.length > 0 ? (
+                            <>
+                                {sections.map((section, i) => {
+                                    const isLastSection = i === sections.length - 1;
+                                    return (
+                                        <SectionRenderer
+                                            key={i}
+                                            section={section}
+                                            isLast={isLastSection}
+                                        />
+                                    );
+                                })}
+                            </>
                         ) : null}
 
-                        {/* Content */}
-                        {contentHtml ? (
-                            <Section style={{ ...styles.sectionLast }}>
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: contentHtml }}
-                                    style={styles.richText}
-                                />
-                            </Section>
-                        ) : null}
-                       
-                        <Cta ctaLabel={ctaLabel} ctaHref={ctaHref} />
-                         
-                         <FooterDivider />
+                        <FooterDivider />
+                        
                     </Container>
                     <Footer />
                 </Container>
@@ -121,3 +87,13 @@ export default function WeeklyNewsletter({
         </Html>
     );
 }
+
+/** ---- Helpers ---- **/
+
+function formatMonthDay(date?: string): string {
+  if (!date) return '—';
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return '—';
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+}
+

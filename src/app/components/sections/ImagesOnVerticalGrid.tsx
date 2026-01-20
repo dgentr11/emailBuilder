@@ -91,14 +91,14 @@ export function ImagesOnVerticalGrid({
                   />
                 )}
                 {item.caption && (
-                  <p style={styles.imageCaption}>
+                  <div style={styles.imageCaption}>
                     {item.caption}
-                  </p>
+                  </div>
                 )}
                 {item.attribution && (
-                  <p style={styles.imageAttribution}>
+                  <div style={styles.imageAttribution}>
                     {item.attribution}
-                  </p>
+                  </div>
                 )}
               </Column>
           ))}

@@ -80,7 +80,7 @@ export const styles = {
   templateLogo: withFont({
     textAlign: 'center',
     display: 'block',
-    maxWidth: '180px',
+    maxWidth: '150px',
     width: '100%',
     margin: '0 auto',
   }),
@@ -171,6 +171,14 @@ export const styles = {
     textAlign: 'center',
     fontWeight: 'bold',
   }),
+  h2CenteredUpper: withFont({
+    fontSize: 24,
+    margin: '12px 0 0',
+    lineHeight: '30px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
+  }),
   richText: withFont({
     fontSize: 14,
     lineHeight: '21px',
@@ -188,11 +196,11 @@ export const styles = {
     lineHeight: '21px',
   }),
   eyebrowCentered: withFont({
-    fontSize: tokens.fontSizes.sm,
+    fontSize: tokens.fontSizes.md,
+    fontFamily: tokens.fonts.base,
     textAlign: 'center',
-    lineHeight: tokens.lineHeight.xs,
+    lineHeight: tokens.lineHeight.sm,
     fontWeight: 'bold',
-    textTransform: 'uppercase',
     marginBottom: '0',
     letterSpacing: '1.1px',
     color: tokens.colors.primary

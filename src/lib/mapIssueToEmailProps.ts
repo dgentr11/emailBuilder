@@ -119,8 +119,6 @@ export type IssueDoc = {
   intro?: PTBlocks;
   introRich?: PTBlocks | null;
   sections?: NewsletterSection[];
-  outro?: PTBlocks;
-  cta?: { label?: string; href?: string } | null;
   status?: 'draft' | 'scheduled' | 'sent';
 };
 
@@ -241,13 +239,9 @@ export type WeeklyNewsletterProps = {
   headerImageUrl?: string;
   headerImageAlt?: string;
   title?: string;
-  emailTitle?: string;
   publishDate?: string;
   introHtml?: string;
   sections: SectionView[];
-  outroHtml?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
   status?: 'draft' | 'scheduled' | 'sent';
 };
 
@@ -267,10 +261,6 @@ function ptToHtml(blocks?: PTBlocks | null): string | undefined {
  * - Converts Portable Text to HTML for all rich text fields
  */
 export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
-  // Intro: prefer introRich if present; else intro
-  const introHtml = ptToHtml(
-    (doc.introRich && doc.introRich.length ? doc.introRich : doc.intro) ?? []
-  );
 
   // Map sections based on their _type
   const sections: SectionView[] = (doc.sections ?? []).map((s): SectionView => {
@@ -394,20 +384,13 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
     }
   });
 
-  // Outro
-  const outroHtml = ptToHtml(doc.outro ?? []);
 
   return {
     headerImageUrl: doc.headerImage?.asset?.url,
     headerImageAlt: doc.headerImage?.alt,
     title: doc.title,
-    emailTitle: doc.emailTitle,
     publishDate: doc.publishDate,
-    introHtml,
     sections,
-    outroHtml,
-    ctaLabel: doc.cta?.label ?? undefined,
-    ctaHref: doc.cta?.href ?? undefined,
     status: doc.status,
   };
 }

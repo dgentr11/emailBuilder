@@ -34,11 +34,11 @@ export function FooterTraining({
                         <table
                             role="presentation"
                             align="center"
-                            width={600}
+                            width="100%"
                             border={0}
                             cellPadding={0}
                             cellSpacing={0}
-                            style={{ width: 600, borderCollapse: 'collapse' }}
+                            style={{ maxWidth: 600, borderCollapse: 'collapse' }}
                         >
                             <tr>
                                 <td style={{ backgroundColor: smokey, fontFamily: "'Montserrat', Arial, sans-serif" }} >
@@ -63,7 +63,7 @@ export function FooterTraining({
                         <table role="presentation" width="100%" border={0} cellPadding={0} cellSpacing={0}>
                             <tr>
                                 <td align="center" style={{ padding: '16px 16px 8px 16px' }}>
-                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: tokens.fontSizes.xs, lineHeight: tokens.lineHeight.xs, color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
+                                    <Link href="mailto:FSTraining@utk.edu"  style={{ fontSize: tokens.fontSizes.xs, lineHeight: tokens.lineHeight.xs, color: '#ffffff'}}>FSTraining@utk.edu</Link>   
                                 </td>
                             </tr>
                             <tr>
@@ -72,7 +72,7 @@ export function FooterTraining({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
@@ -89,7 +89,7 @@ export function FooterTraining({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
@@ -106,7 +106,7 @@ export function FooterTraining({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,

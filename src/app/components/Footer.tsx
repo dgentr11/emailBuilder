@@ -72,7 +72,7 @@ export function Footer({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
@@ -89,7 +89,7 @@ export function Footer({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
@@ -106,7 +106,7 @@ export function Footer({
                                         style={{
                                             margin: 0,
                                             marginTop: 0,
-                                            marginBottom: 8,
+                                            marginBottom: 0,
                                             fontSize: tokens.fontSizes.xs,
                                             lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,

@@ -31,7 +31,7 @@ export function ArticleWithImage({
 			</Text>
 			)}
 
-			<Heading as="h2" style={styles.h2Centered}>
+			<Heading as="h2" style={styles.h2CenteredUpper}>
 			{title}
 			</Heading>
 

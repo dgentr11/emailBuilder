@@ -22,7 +22,7 @@ export function Header({ templateLogoUrl, templateLogoAlt, emailTitle } : Header
                     <Img
                         src={templateLogoUrl}
                         alt={templateLogoAlt || emailTitle}
-                        width="180"
+                        width="150"
                         height="auto"
                         style={styles.templateLogo}
                     />

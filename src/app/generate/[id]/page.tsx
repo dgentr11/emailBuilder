@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getIssueById } from '@/lib/getIssue';
 import { toEmailProps } from '@/lib/mapIssueToEmailProps';
 import { toTrainingEmailProps } from '@/lib/mapTrainingToEmailProps';
-import { toPressReleaseEmailProps } from '@/lib/mapPressReleaseToEmailProps';
+import { toPressReleaseProps } from '@/lib/mapPressReleaseToEmailProps';
 import WeeklyNewsletter from '@/emails/WeeklyNewsletter';
 import TrainingNewsletter from '@/emails/TrainingNewsletter';
 import PressRelease from '@/emails/PressRelease';
@@ -64,15 +64,14 @@ export default async function Page(
 
     case 'newsletterTraining':
       Component = TrainingNewsletter;
-      mapProps = toTrainingEmailProps;
+      mapProps = toEmailProps;
       defaultTitle = doc.title ?? `Training Newsletter ${id}`;
       break;
 
     case 'pressRelease':
       Component = PressRelease;
-      mapProps = toPressReleaseEmailProps;
+      mapProps = toEmailProps;
       defaultTitle = doc.title ?? `Press Release ${id}`;
-      defaultItems = [];
       break;
 
     default:
