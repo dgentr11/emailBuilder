@@ -15,6 +15,22 @@ export const tokens = {
   fonts: {
     base: '"Montserrat", Arial, sans-serif',
   },
+  fontSizes: {
+    xs: 11,
+    sm: 12,
+    md: 14,
+    lg: 18,
+    xl: 24,
+    xxl: 30,
+  },
+  lineHeight: {
+    xs: '16px',
+    sm: '18px',
+    md: '21px',
+    lg: '27px',
+    xl: '36px',
+    xxl: '45px',
+  },
   spacing: {
     xs: 6,
     sm: 8,
@@ -116,6 +132,7 @@ export const styles = {
     border: 0,
     margin: '0 auto',
     textAlign: 'center',
+    borderRadius: '8px'
   }),
   imageCover: withFont({
     display: 'block',
@@ -154,19 +171,29 @@ export const styles = {
   }),
   richText: withFont({
     fontSize: 14,
-    lineHeight: '22px',
+    lineHeight: '21px',
   }),
    richTextCentered: withFont({
     fontSize: 14,
     textAlign: 'center',
-    lineHeight: '22px',
+    lineHeight: '21px',
   }),
   richTextLeft: withFont({
     fontSize: 14,
     fontWeight: '700',
     textAlign: 'left',
     marginBottom: '0',
-    lineHeight: '22px',
+    lineHeight: '21px',
+  }),
+  eyebrowCentered: withFont({
+    fontSize: tokens.fontSizes.sm,
+    textAlign: 'center',
+    lineHeight: tokens.lineHeight.xs,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    marginBottom: '0',
+    letterSpacing: '1.1px',
+    color: tokens.colors.primary
   }),
   primaryButton: withFont({
     marginTop: tokens.spacing.sm,
@@ -184,7 +211,7 @@ export const styles = {
   h3: withFont({
     fontSize: 18,
     margin: '8px 0 6px',
-    lineHeight: '1.5',
+    lineHeight: '27px',
   }),
   secondaryButton: withFont({
     marginTop: tokens.spacing.xs,

@@ -10,9 +10,7 @@ type SocialRowProps = {
 };
 
 export function FooterTraining({
-  facebookUrl = "https://www.facebook.com/utfacilitiesservices",
-  xUrl = "https://twitter.com/utkfacserv",
-  instagramUrl = "https://instagram.com/utfacilities/",
+
 }: SocialRowProps) {
 
     const templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
@@ -22,7 +20,7 @@ export function FooterTraining({
 
         <Section style={{ backgroundColor: smokey }}>
 
-            <table
+<table
                 role="presentation"
                 align="center"
                 width="100%"
@@ -50,13 +48,13 @@ export function FooterTraining({
                                                 <Img
                                                     alt={templateLogoAlt}
                                                     src={templateLogoReverseUrl}
-                                                    width="120"
+                                                    width="180"
                                                     style={{ display: 'block', height: 'auto', border: 0, outline: 'none' }}
                                                 />
                                             </td>
                                         </tr>
                                     </table>
-
+                                    
                                     
                                 </td>
                             </tr>
@@ -64,8 +62,8 @@ export function FooterTraining({
 
                         <table role="presentation" width="100%" border={0} cellPadding={0} cellSpacing={0}>
                             <tr>
-                                <td align="center" style={{ padding: '24px 16px 8px 16px' }}>
-                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: 12, lineHeight: '1.5', color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
+                                <td align="center" style={{ padding: '16px 16px 8px 16px' }}>
+                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: tokens.fontSizes.xs, lineHeight: tokens.lineHeight.xs, color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
                                 </td>
                             </tr>
                             <tr>
@@ -75,8 +73,8 @@ export function FooterTraining({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 12,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}
@@ -92,8 +90,8 @@ export function FooterTraining({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 12,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}
@@ -109,8 +107,8 @@ export function FooterTraining({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 12,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}

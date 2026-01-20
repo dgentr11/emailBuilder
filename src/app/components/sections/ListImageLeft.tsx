@@ -28,8 +28,8 @@ export function ListImageLeft({
 		<Section style={{ marginTop: 20, verticalAlign: 'top' }} >
 		  {listItems.map((item, index) => (
 			
-			<Row key={index} >
-				<div>
+			<div key={index} >
+				<Row>
 					{item.itemImageUrl && (
 						<Column width="30%" style={{ width: '30%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }}>
 						<Img
@@ -55,12 +55,15 @@ export function ListImageLeft({
 						)}
 						
 					</Column>
-				</div>
+				</Row>
 				{item.itemDivider && (
-					<Hr style={{...styles.itemDivider}} />
+					<Row>
+						<Column>
+							<Hr style={{...styles.itemDivider}} />
+						</Column>
+					</Row>
 				)}
-				
-			</Row>
+			</div>
 		  ))}
 		</Section>
 	  )}

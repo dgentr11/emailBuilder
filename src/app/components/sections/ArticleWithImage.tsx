@@ -26,7 +26,7 @@ export function ArticleWithImage({
 		)}
 		<Section>
 			{eyebrow && (
-			<Text style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: 8 }}>
+			<Text style={styles.eyebrowCentered}>
 				{eyebrow}
 			</Text>
 			)}

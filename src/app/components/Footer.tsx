@@ -1,6 +1,6 @@
 
 import { Link, Img, Section, Text } from '@react-email/components';
-import { tokens } from '@/emails/styles';
+import { styles, tokens } from '@/emails/styles';
 
 const smokey = tokens.colors.smokey;
 
@@ -63,7 +63,7 @@ export function Footer({
                         <table role="presentation" width="100%" border={0} cellPadding={0} cellSpacing={0}>
                             <tr>
                                 <td align="center" style={{ padding: '16px 16px 8px 16px' }}>
-                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: 10, lineHeight: '1.5', color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
+                                    <Link href="mailto:sjones80@vols.utk.edu"  style={{ fontSize: tokens.fontSizes.xs, lineHeight: tokens.lineHeight.xs, color: '#ffffff'}}>sjones80@vols.utk.edu</Link>   
                                 </td>
                             </tr>
                             <tr>
@@ -73,8 +73,8 @@ export function Footer({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 11,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}
@@ -90,8 +90,8 @@ export function Footer({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 11,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}
@@ -107,8 +107,8 @@ export function Footer({
                                             margin: 0,
                                             marginTop: 0,
                                             marginBottom: 8,
-                                            fontSize: 11,
-                                            lineHeight: '1.5',
+                                            fontSize: tokens.fontSizes.xs,
+                                            lineHeight: tokens.lineHeight.xs,
                                             fontWeight: 500,
                                             color: '#ffffff',
                                         }}

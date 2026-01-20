@@ -14,24 +14,30 @@ export function SimpleList({
 			{listItems && listItems.length > 0 && (
 				<Section>
 					{listItems.map((item, index) => (
-						<Row key={index}>
-							<Column key={index} style={{ marginBottom: 16 }}>
-								{item.itemTitle && (
-									<Heading as="h3" style={styles.h3}>
-										{item.itemTitle}
-									</Heading>
-								)}
-								{item.itemSummaryHtml && (
-									<div
-										dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
-										style={styles.richText}
-									/>
-								)}
-							</Column>
-							{item.itemDivider && (
-								<Hr style={{...styles.itemDivider}} />
-							)}
-						</Row>
+						<div key={index}>
+							<Row>
+								<Column key={index} style={{ marginBottom: 16 }}>
+									{item.itemTitle && (
+										<Heading as="h3" style={styles.h3}>
+											{item.itemTitle}
+										</Heading>
+									)}
+									{item.itemSummaryHtml && (
+										<div
+											dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
+											style={styles.richText}
+										/>
+									)}
+								</Column>
+							</Row>
+						{item.itemDivider && (
+							<Row>
+								<Column>
+									<Hr style={{...styles.itemDivider}} />
+								</Column>
+							</Row>
+						)}
+						</div>
 					))}
 				</Section>
 			)}

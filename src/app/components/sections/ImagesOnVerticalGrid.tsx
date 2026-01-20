@@ -52,7 +52,7 @@ export function ImagesOnVerticalGrid({
   return (
     <>
       {eyebrow && (
-        <div style={{ ...styles.richTextCentered, fontSize: 12, textTransform: 'uppercase', letterSpacing: '1px', paddingBottom: 8, paddingTop: 0 }}>
+        <div style={styles.eyebrowCentered}>
           {eyebrow}
         </div>
       )}
