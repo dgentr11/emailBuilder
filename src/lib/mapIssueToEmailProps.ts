@@ -50,6 +50,17 @@ export type HeaderFourParagraphsSection = {
   }>;
 };
 
+export type HeaderThreeParagraphsSection = {
+  _type: 'headerThreeParagraphs';
+  header?: string;
+  summary?: PTBlocks;
+  paragraphItems?: Array<{
+    itemImage?: { asset?: { url?: string }; alt?: string } | null;
+    paragraphItemTitle?: string;
+    paragraphItemSummary?: PTBlocks;
+  }>;
+};
+
 export type SummaryWithImageSection = {
   _type: 'summaryWithImage';
   eyebrow?: string;
@@ -104,6 +115,7 @@ export type NewsletterSection =
   | ListImageLeftSection
   | DividerSection
   | HeaderFourParagraphsSection
+  | HeaderThreeParagraphsSection
   | SummaryWithImageSection
   | SimpleListSection
   | ImagesOnVerticalGridSection
@@ -156,6 +168,18 @@ export type DividerView = {
 
 export type HeaderFourParagraphsView = {
   _type: 'headerFourParagraphs';
+  header?: string;
+  summaryHtml?: string;
+  paragraphItems?: Array<{
+    itemImageUrl?: string;
+    itemImageAlt?: string;
+    paragraphItemTitle?: string;
+    paragraphItemSummaryHtml?: string;
+  }>;
+};
+
+export type HeaderThreeParagraphsView = {
+  _type: 'headerThreeParagraphs';
   header?: string;
   summaryHtml?: string;
   paragraphItems?: Array<{
@@ -227,6 +251,7 @@ export type SectionView =
   | ListImageLeftView
   | DividerView
   | HeaderFourParagraphsView
+  | HeaderThreeParagraphsView
   | SummaryWithImageView
   | SimpleListView
   | ImagesOnVerticalGridView
@@ -302,6 +327,19 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
       case 'headerFourParagraphs': {
         return {
           _type: 'headerFourParagraphs',
+          header: s.header,
+          summaryHtml: ptToHtml(s.summary),
+          paragraphItems: s.paragraphItems?.map(item => ({
+            itemImageUrl: item.itemImage?.asset?.url,
+            itemImageAlt: item.itemImage?.alt,
+            paragraphItemTitle: item.paragraphItemTitle,
+            paragraphItemSummaryHtml: ptToHtml(item.paragraphItemSummary),
+          })),
+        };
+      }
+      case 'headerThreeParagraphs': {
+        return {
+          _type: 'headerThreeParagraphs',
           header: s.header,
           summaryHtml: ptToHtml(s.summary),
           paragraphItems: s.paragraphItems?.map(item => ({

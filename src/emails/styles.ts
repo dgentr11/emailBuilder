@@ -62,8 +62,8 @@ export const styles = {
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
-    paddingLeft: tokens.spacing.xl,
-    paddingRight: tokens.spacing.xl,
+    paddingLeft: tokens.spacing.lg,
+    paddingRight: tokens.spacing.lg,
     paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
     width: '100%',
@@ -227,6 +227,13 @@ export const styles = {
     margin: '8px 0 0px',
     lineHeight: '20px',
     fontWeight: 'bold'
+  }),
+  h4: withFont({
+    fontSize: 14,
+    margin: '8px 0 0px',
+    lineHeight: '18px',
+    fontWeight: 'bold',
+    textAlign: 'center'
   }),
   secondaryButton: withFont({
     marginTop: tokens.spacing.xs,

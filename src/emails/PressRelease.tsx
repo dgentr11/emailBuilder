@@ -42,7 +42,7 @@ export default function PressRelease({
             <Preview>{previewText}</Preview>
             <Conditional mso>
                 <style>
-                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; }`}
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; } p, div, ol, li { font-size: 14px; }`}
                 </style>
                 
             </Conditional>

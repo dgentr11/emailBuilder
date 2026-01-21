@@ -11,6 +11,7 @@ import { ImagesOnVerticalGrid } from './ImagesOnVerticalGrid';
 import { RichText } from './RichText';
 import { SimpleImage } from './SimpleImage';
 import { ImageSummaryTwoImages } from './ImageSummaryTwoImages';
+import { HeaderThreeParagraphs } from './HeaderThreeParagraphs';
 
 type SectionRendererProps = {
   section: SectionView;
@@ -36,6 +37,8 @@ export function SectionRenderer({ section, isLast, template }: SectionRendererPr
         return <Divider {...section} />;
       case 'headerFourParagraphs':
         return <HeaderFourParagraphs {...section} />;
+      case 'headerThreeParagraphs':
+          return <HeaderThreeParagraphs {...section} />;
       case 'summaryWithImage':
         return <SummaryWithImage {...section} />;
       case 'simpleList':

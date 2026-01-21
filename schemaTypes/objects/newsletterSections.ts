@@ -234,6 +234,69 @@ export default defineType({
 	  },
 	  {
 		type: 'object',
+		name: 'headerThreeParagraphs',
+		title: 'Header and three centered paragraphs',
+		fields: [
+			defineField({
+				name: 'header',
+				type: 'string',
+				title: 'Header Title',
+			}),
+			defineField({
+				name: 'summary',
+				type: 'array',
+				of: [{ type: 'block' }],
+				title: 'Header Summary'
+			}),
+			defineField({
+				name: 'paragraphItems',
+				title: 'Paragraph Items',
+				type: 'array',
+				validation: Rule => Rule.min(1).max(4).error('Paragraph Items must have between 1 and 3 items'),
+				of: [ 
+				  {
+					  type: 'object',
+					  name: 'paragraphItem',
+					  title: 'Paragraph Item',
+					  fields: [
+						  defineField({
+							  name: 'itemImage',
+							  type: 'image',
+							  title: 'Paragraph Item Image',
+							  options: { hotspot: true },
+							  fields: [
+								  defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+							  ],
+						  }),
+						  defineField({
+							  name: 'paragraphItemTitle',
+							  type: 'string',
+							  title: 'Paragraph Item Title'
+						  }),
+						  defineField({
+							  name: 'paragraphItemSummary',
+							  type: 'array',
+							  of: [{ type: 'block' }],
+							  title: 'Paragraph Item Summary'
+						  }),
+					  ]
+				    }
+				],
+			}),
+		],
+		preview: {
+			select: { title: 'title', subtitle: 'title'},
+			prepare(selection) {
+				const {title} = selection
+				return {
+				  title: 'Header and three centered paragraphs',
+				  subtitle: title
+			  	}
+			}
+		}
+	  },
+	  {
+		type: 'object',
 		name: 'summaryWithImage',
 		title: 'Summary with Image',
 		fields: [
