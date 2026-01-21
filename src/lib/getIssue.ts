@@ -1,6 +1,6 @@
 
 import { client } from '@/sanity/client';
-import { LATEST_SCHEDULED, SCHEMA_TYPES, DOC_BY_ID  } from '@/sanity/queries';
+import { LATEST_SCHEDULED, SCHEMA_TYPES, DOC_BY_ID } from '@/sanity/queries';
 
 export async function getIssueById(id: string) {
   return client.fetch(DOC_BY_ID, { id }, { next: { revalidate: 0 } });

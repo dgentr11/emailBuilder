@@ -18,10 +18,60 @@ export default defineType({
 			type: 'date'
 		}),
 		defineField({
-			name: 'sections',
-			title: 'Sections',
-			type: 'newsletterSections',
-		  }),
+			type: 'object',
+			name: 'pressReleaseArticle',
+			title: 'Article with Image',
+			fields: [
+			  defineField({
+				name: 'image',
+				title: 'Image',
+				type: 'image',
+				options: { hotspot: true },
+				fields: [
+				  defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+				],
+			  }),
+			  defineField({
+				name: 'eyebrow',
+				type: 'string',
+				title: 'Eyebrow',
+			  }),
+			  defineField({
+				name: 'title',
+				type: 'string',
+				title: 'Title',
+			  }),
+			  defineField({
+				name: 'summary',
+				type: 'array',
+				of: [{ type: 'block' }],
+				title: 'Summary',
+			  }),
+			  defineField({
+				name: 'url',
+				type: 'url',
+				title: 'Link',
+				validation: Rule => Rule.uri({
+				  scheme: ['http', 'https', 'mailto', 'tel']
+				})
+			  }),
+			  defineField({
+				  name: 'urlText',
+				  type: 'string',
+				  title: 'Link Text',
+				}),
+			],
+			preview: {
+			  select: { title: 'title',  subtitle: 'title', media: 'image'},
+			  prepare({ title, media }) {
+				  return {
+					  title: 'Article with Image',
+					  subtitle: title || '',
+					  media, 
+				  }
+			  },
+			}
+		}),
 		defineField({
 			name: 'status',
 			title: 'Workflow Status',

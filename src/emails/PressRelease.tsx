@@ -12,36 +12,38 @@ import {
     Preview,
     Body,
     Container,
+    Link,
+    Text,
+    Img,
+    Section,
+    Row,
+    Column
 } from '@react-email/components';
-import { SectionRenderer } from '@/app/components/sections';
-import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
+import type { PressReleaseEmailProps } from "@/types/pressRelease";
 
-type Props = WeeklyNewsletterProps & {
-    templateLogoUrl?: string;
-    templateLogoAlt?: string;
-    templateLogoReverseUrl?: string;
-    footerDividerUrl?: string;
-};
 
 export default function PressRelease({
-    headerImageUrl,
-    headerImageAlt,
+    title,
+    emailTitle,
     publishDate,
-    sections,
-    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
-    templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
-}: Props) {
+    pressReleaseArticle,
+    templateLogoUrl = "https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png",
+    templateLogoAlt = "The University of Tennessee Knoxville Facilities Services",
+    }: PressReleaseEmailProps & {
+    templateLogoUrl?: string;
+    templateLogoAlt?: string;
+    }) {
     const formattedDate = formatMonthDay(publishDate);
-    const previewText = 'Facilities Services News';
-    
+    const previewText = emailTitle ?? title;
 
     return (
+
         <Html>
             <Head />
             <Preview>{previewText}</Preview>
             <Conditional mso>
                 <style>
-                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span { font-family: "Montserrat", Arial, sans-serif !important; }`}
                 </style>
                 
             </Conditional>
@@ -57,30 +59,61 @@ export default function PressRelease({
                         templateLogoUrl={templateLogoUrl}
                         publishDate={publishDate}
                         formattedDate={formattedDate}
-                        headerImageUrl={headerImageUrl}
-                        headerImageAlt={headerImageAlt}
                     />
 
-                    <Container style={styles.innerContainer}>
+                    <Container style={styles.innerContainer}>      
+                        <Section style={styles.section} >
+                            {/* Image */} 
+                            {pressReleaseArticle?.image?.asset?.url && (
+                                <Img
+                                    src={pressReleaseArticle.image.asset.url}
+                                    alt={pressReleaseArticle.image.alt || ""}
+                                    style={{ borderRadius: "8px", marginBottom: "32px" }}
+                                />
+                            )}
 
-                        {sections && sections.length > 0 ? (
-                            <>
-                                {sections.map((section, i) => {
-                                    const isLastSection = i === sections.length - 1;
-                                    return (
-                                        <SectionRenderer
-                                            key={i}
-                                            section={section}
-                                            isLast={isLastSection}
-                                            template="pressRelease"
-                                        />
-                                    );
-                                })}
-                            </>
-                        ) : null}
+                            {pressReleaseArticle?.eyebrow && (
+                                <Text style={{ ...styles.eyebrowCentered }}>
+                                    {pressReleaseArticle.eyebrow}
+                                </Text>
+                                )}
 
-                        <FooterDivider />
-                        
+                                {/* Title */}
+                                {pressReleaseArticle?.title && (
+                                <h1 style={{ ...styles.h1, textTransform: 'uppercase' }}>{pressReleaseArticle.title}</h1>
+                            )}
+                            
+                            {/* Summary (Portable Text) */}
+                            {pressReleaseArticle?.summary && (
+                                <div style={{ marginBottom: "24px" }}>
+                                    {pressReleaseArticle.summary.map((block: any, i: number) => {
+                                    if (block._type === "block") {
+                                        return (
+                                        <Text key={i} style={{ ...styles.richText }}>
+                                            {block.children?.map((c: any) => c.text).join("")}
+                                        </Text>
+                                        );
+                                    }
+                                    return null;
+                                    })}
+                                </div>
+                            )}
+
+                            {/* Button Link */}
+                            {pressReleaseArticle?.url && (
+                                <Row>
+                                    <Column style={{textAlign: "center"}}>
+                                    
+                                    <Link
+                                        href={pressReleaseArticle.url}
+                                        style={{...styles.footerButton, textAlign: 'center'}}
+                                    >
+                                        {pressReleaseArticle.urlText ?? "Read More"}
+                                    </Link>
+                                    </Column>
+                                </Row>
+                            )}
+                        </Section>
                     </Container>
                     <Footer />
                 </Container>

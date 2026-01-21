@@ -24,8 +24,6 @@ type Props = WeeklyNewsletterProps & {
 };
 
 export default function TrainingNewsletter({
-    headerImageUrl,
-    headerImageAlt,
     publishDate,
     sections,
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
@@ -40,7 +38,7 @@ export default function TrainingNewsletter({
             <Preview>{previewText}</Preview>
             <Conditional mso>
                 <style>
-                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a { font-family: Arial, sans-serif !important; }`}
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span { font-family: "Montserrat", Arial, sans-serif !important; }`}
                 </style>
                 
             </Conditional>
@@ -56,8 +54,6 @@ export default function TrainingNewsletter({
                         templateLogoUrl={templateLogoUrl}
                         publishDate={publishDate}
                         formattedDate={formattedDate}
-                        headerImageUrl={headerImageUrl}
-                        headerImageAlt={headerImageAlt}
                     />
 
                     <Container style={styles.innerContainer}>
