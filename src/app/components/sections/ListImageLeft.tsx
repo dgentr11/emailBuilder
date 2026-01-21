@@ -1,4 +1,4 @@
-import { Section, Heading, Img, Row, Column, Hr, Link } from '@react-email/components';
+import { Section, Text, Img, Row, Column, Hr, Link } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ListImageLeftView } from '@/lib/mapIssueToEmailProps';
 
@@ -12,9 +12,9 @@ export function ListImageLeft({
   return (
 	<>
 	  {title && (
-		<Heading as="h2" style={styles.h2Centered}>
+		<Text style={styles.h2Centered}>
 		  {title}
-		</Heading>
+		</Text>
 	  )}
 
 	  {summaryHtml && (
@@ -43,9 +43,9 @@ export function ListImageLeft({
 					)}
 					<Column width="75%" valign="top" style={{ width: '75%', paddingRight: '12px', verticalAlign: 'top', paddingBottom: '8px', paddingTop: '8px' }} >
 						{item.itemTitle && (
-						<Heading as="h3" style={{...styles.h3, marginTop: 0, marginBottom: 0}}>
+						<Text style={{...styles.h3, marginTop: 0, marginBottom: 0}}>
 							{item.itemTitle}
-						</Heading>
+						</Text>
 						)}
 						{item.itemSummaryHtml && (
 							<div

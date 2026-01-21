@@ -1,4 +1,4 @@
-import {  Text, Heading, Img, Row, Column } from '@react-email/components';
+import {  Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImageSummaryTwoImagesView } from '@/lib/mapIssueToEmailProps';
 
@@ -64,9 +64,9 @@ export function ImageSummaryTwoImages({
       )}
 
       {title && (
-        <Heading as="h2" style={styles.h2Centered}>
+        <Text style={styles.h2Centered}>
           {title}
-        </Heading>
+        </Text>
       )}
 
       {summary && (

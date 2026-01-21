@@ -1,15 +1,10 @@
 import { styles } from "@/emails/styles";
-import { Img, Section, Heading,Text, Column, Row } from "@react-email/components";
+import { Img, Section} from "@react-email/components";
 
  type HeaderProps = {
     templateLogoUrl?: string;
     templateLogoAlt?: string;
-    headerImageUrl?: string;
-    headerImageAlt?: string;
     emailTitle?: string;
-    publishDate?: string;
-    formattedDate?: string;
-    subtitle?: string;
 }
 
 export function Header({ templateLogoUrl, templateLogoAlt, emailTitle } : HeaderProps) {

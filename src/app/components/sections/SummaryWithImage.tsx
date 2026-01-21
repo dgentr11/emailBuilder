@@ -1,4 +1,4 @@
-import { Section, Heading, Img } from '@react-email/components';
+import {Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { SummaryWithImageView } from '@/lib/mapIssueToEmailProps';
 
@@ -23,16 +23,21 @@ export function SummaryWithImage({
         />
       )}
 
-      {eyebrow && (
-        <div style={{...styles.eyebrowCentered, marginTop: '24px'}}>
-          {eyebrow}
-        </div>
-      )}
+
+        {eyebrow && (
+          <Row>
+            <Column style={{paddingBottom: '10px', paddingTop: '32px'}}>
+              <Text style={styles.eyebrowCentered}>
+                {eyebrow}
+              </Text>
+            </Column>
+           </Row>
+        )}
 
       {title && (
-        <Heading as="h2" style={styles.h2Centered}>
+        <Text style={styles.h2Centered}>
           {title}
-        </Heading>
+        </Text>
       )}
 
       {summaryHtml && (

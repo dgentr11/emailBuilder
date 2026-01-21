@@ -1,4 +1,4 @@
-import { Section, Heading, Img, Row, Column } from '@react-email/components';
+import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImagesOnVerticalGridView } from '@/lib/mapIssueToEmailProps';
 
@@ -52,15 +52,19 @@ export function ImagesOnVerticalGrid({
   return (
     <>
       {eyebrow && (
-        <div style={styles.eyebrowCentered}>
-          {eyebrow}
-        </div>
+        <Row>
+          <Column style={{paddingBottom: '16px'}}>
+            <Text style={styles.eyebrowCentered}>
+              {eyebrow}
+            </Text>
+          </Column>
+        </Row>
       )}
 
       {title && (
-        <Heading as="h2" style={styles.h2Centered}>
+        <Text style={styles.h2Centered}>
           {title}
-        </Heading>
+        </Text>
       )}
 
       {summaryHtml && (
@@ -91,14 +95,14 @@ export function ImagesOnVerticalGrid({
                   />
                 )}
                 {item.caption && (
-                  <div style={styles.imageCaption}>
+                  <Text style={{...styles.imageCaption, marginBottom: '0px', lineHeight: '12px'}}>
                     {item.caption}
-                  </div>
+                  </Text>
                 )}
                 {item.attribution && (
-                  <div style={styles.imageAttribution}>
-                    {item.attribution}
-                  </div>
+                  <Text style={{...styles.imageAttribution, marginTop: '0px'}}>
+                    <em>{item.attribution}</em>
+                  </Text>
                 )}
               </Column>
           ))}

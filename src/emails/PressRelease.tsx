@@ -1,7 +1,6 @@
 
 // emails/TrainingNewsletter.tsx
 import { styles } from './styles';
-import { FooterDivider } from '@/app/components/FooterDivider';
 import { Footer } from '@/app/components/Footer';
 import { Header } from '@/app/components/Header';
 import { Conditional } from 'jsx-email';
@@ -10,10 +9,10 @@ import {
     Html,
     Head,
     Preview,
+    Text,
     Body,
     Container,
     Link,
-    Text,
     Img,
     Section,
     Row,
@@ -43,7 +42,7 @@ export default function PressRelease({
             <Preview>{previewText}</Preview>
             <Conditional mso>
                 <style>
-                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span { font-family: "Montserrat", Arial, sans-serif !important; }`}
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; }`}
                 </style>
                 
             </Conditional>
@@ -57,30 +56,36 @@ export default function PressRelease({
                     <Header 
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        publishDate={publishDate}
-                        formattedDate={formattedDate}
+                        emailTitle={emailTitle}
                     />
 
                     <Container style={styles.innerContainer}>      
                         <Section style={styles.section} >
                             {/* Image */} 
                             {pressReleaseArticle?.image?.asset?.url && (
-                                <Img
-                                    src={pressReleaseArticle.image.asset.url}
-                                    alt={pressReleaseArticle.image.alt || ""}
-                                    style={{ borderRadius: "8px", marginBottom: "32px" }}
-                                />
+                                <Row>
+                                    <Column style={{paddingBottom: "16px"}}>
+                                        <Img
+                                            src={pressReleaseArticle.image.asset.url}
+                                            alt={pressReleaseArticle.image.alt || ""}
+                                            style={{ borderRadius: "8px", marginBottom: "0px" }}
+                                        />
+                                    </Column>
+                                </Row>
+                                
                             )}
 
                             {pressReleaseArticle?.eyebrow && (
-                                <Text style={{ ...styles.eyebrowCentered }}>
+                                <Text style={{ ...styles.eyebrowCentered, marginBottom: '8px' }}>
                                     {pressReleaseArticle.eyebrow}
                                 </Text>
                                 )}
 
-                                {/* Title */}
-                                {pressReleaseArticle?.title && (
-                                <h1 style={{ ...styles.h1, textTransform: 'uppercase' }}>{pressReleaseArticle.title}</h1>
+                            {/* Title */}
+                            {pressReleaseArticle?.title && (
+                                <Text style={{...styles.h1, textTransform: "uppercase", marginTop: '0px'}}>
+                                    {pressReleaseArticle.title}
+                                </Text>
                             )}
                             
                             {/* Summary (Portable Text) */}

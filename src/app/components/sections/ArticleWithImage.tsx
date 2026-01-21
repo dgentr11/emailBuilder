@@ -1,4 +1,4 @@
-import { Section, Heading, Button, Img, Text } from '@react-email/components';
+import { Section, Img, Text, Column, Row } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ArticleWithImageView } from '@/lib/mapIssueToEmailProps';
 
@@ -16,30 +16,38 @@ export function ArticleWithImage({
   return (
 	<>
 		{imageUrl && (
-			<Img
-			src={imageUrl}
-			alt={imageAlt || title}
-			width="100%"
-			height="auto"
-			style={styles.image}
-			/>
+			 <Row>
+                <Column style={{paddingBottom: "16px"}}>
+					<Img
+						src={imageUrl}
+						alt={imageAlt || title}
+						width="100%"
+						height="auto"
+						style={styles.image}
+					/>
+				</Column>
+			</Row>
 		)}
 		<Section>
 			{eyebrow && (
-			<Text style={styles.eyebrowCentered}>
-				{eyebrow}
-			</Text>
+				<Row>
+					<Column style={{paddingBottom: '10px'}}>
+						<Text style={styles.eyebrowCentered}>
+							{eyebrow}
+						</Text>
+					</Column>
+			   </Row>
 			)}
 
-			<Heading as="h2" style={styles.h2CenteredUpper}>
-			{title}
-			</Heading>
+			<Text style={styles.h2CenteredUpper}>
+				{title}
+			</Text>
 
 			{summaryHtml && (
-			<div
-				dangerouslySetInnerHTML={{ __html: summaryHtml }}
-				style={styles.richTextCentered}
-			/>
+				<div
+					dangerouslySetInnerHTML={{ __html: summaryHtml }}
+					style={styles.richTextCentered}
+				/>
 			)}
 			{url && (
 

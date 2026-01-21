@@ -106,15 +106,17 @@ export const styles = {
   }),
   h1: withFont({
     fontSize: 30,
-    margin: '10px 0 4px',
+    margin: '4px 0 4px',
     lineHeight: '36px',
     textAlign: 'center',
+    fontWeight: 'bold'
   }),
    h1Left: withFont({
     fontSize: 30,
-    margin: '10px 0 4px',
+    margin: '4px 0 4px',
     lineHeight: '36px',
     textAlign: 'left',
+    fontWeight: 'bold'
   }),
   section: withFont({
     paddingTop: tokens.spacing.lg,
@@ -161,20 +163,21 @@ export const styles = {
   }),
   h2: withFont({
     fontSize: 24,
-    margin: '12px 0',
-    lineHeight: '30px',
+    margin: '0px 0px 0px 0px',
+    lineHeight: '24px',
+    fontWeight: 'bold'
   }),
   h2Centered: withFont({
     fontSize: 24,
-    margin: '12px 0 0',
-    lineHeight: '30px',
+    margin: '0px 0px 0px 0px',
+    lineHeight: '24px',
     textAlign: 'center',
     fontWeight: 'bold',
   }),
   h2CenteredUpper: withFont({
     fontSize: 24,
-    margin: '12px 0 0',
-    lineHeight: '30px',
+    margin: '0px 0px 0px 0px',
+    lineHeight: '24px',
     textAlign: 'center',
     fontWeight: 'bold',
     textTransform: 'uppercase'
@@ -202,6 +205,7 @@ export const styles = {
     lineHeight: tokens.lineHeight.sm,
     fontWeight: 'bold',
     marginBottom: '0',
+    marginTop: '0',
     letterSpacing: '1.1px',
     color: tokens.colors.primary
   }),
@@ -220,8 +224,9 @@ export const styles = {
   subsection: withFont({}),
   h3: withFont({
     fontSize: 18,
-    margin: '8px 0 6px',
-    lineHeight: '27px',
+    margin: '8px 0 0px',
+    lineHeight: '20px',
+    fontWeight: 'bold'
   }),
   secondaryButton: withFont({
     marginTop: tokens.spacing.xs,

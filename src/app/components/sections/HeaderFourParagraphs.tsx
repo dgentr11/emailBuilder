@@ -1,4 +1,4 @@
-import { Section, Heading, Img, Row, Column, Text } from '@react-email/components';
+import { Img, Row, Column, Text } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { HeaderFourParagraphsView } from '@/lib/mapIssueToEmailProps';
 
@@ -24,9 +24,9 @@ export function HeaderFourParagraphs({
   return (
     <>
       {header && (
-        <Heading as="h2" style={{...styles.h2Centered, marginTop: 0}}>
+        <Text style={{...styles.h2Centered, marginTop: 0}}>
           {header}
-        </Heading>
+        </Text>
       )}
 
       {summaryHtml && (
@@ -48,6 +48,8 @@ export function HeaderFourParagraphs({
                     width: '50%',
                     paddingRight: itemIndex === 0 ? 12 : 0,
                     paddingLeft: itemIndex === 1 ? 12 : 0,
+                    paddingTop: '8px',
+                    paddingBottom: '8px',
                     verticalAlign: 'baseline',
                   }}
                 >

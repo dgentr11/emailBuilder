@@ -24,12 +24,10 @@ type Props = WeeklyNewsletterProps & {
 };
 
 export default function TrainingNewsletter({
-    publishDate,
     sections,
     templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
-    const formattedDate = formatMonthDay(publishDate);
     const previewText = 'Facilities Services Newsletter';
 
     return (
@@ -38,7 +36,7 @@ export default function TrainingNewsletter({
             <Preview>{previewText}</Preview>
             <Conditional mso>
                 <style>
-                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span { font-family: "Montserrat", Arial, sans-serif !important; }`}
+                    {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; }`}
                 </style>
                 
             </Conditional>
@@ -52,8 +50,6 @@ export default function TrainingNewsletter({
                     <Header
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
-                        publishDate={publishDate}
-                        formattedDate={formattedDate}
                     />
 
                     <Container style={styles.innerContainer}>
