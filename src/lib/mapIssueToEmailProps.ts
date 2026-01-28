@@ -15,6 +15,7 @@ export type ArticleWithImageSection = {
   image?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
   eyebrow?: string;
   title: string;
+  headingToggle?: boolean;
   summary?: PTBlocks;
   url?: string;
   urlText?: string;
@@ -85,6 +86,7 @@ export type ImagesOnVerticalGridSection = {
   eyebrow?: string;
   title?: string;
   summary?: PTBlocks;
+  postSummary?: PTBlocks;
   imageItems?: Array<{
     image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; imageLink?: string } | null;
   }>;
@@ -108,6 +110,20 @@ export type ImageSummaryTwoImages = {
   imageItems?: Array<{
     image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; imageLink?: string } | null;
   }>;
+  postSummary?: PTBlocks;
+}
+
+export type ImageSummaryAlternatingText = {
+  _type: 'imageSummaryAlternatingText';
+  image?: {  asset?: { url?: string }; alt?: string, imageLink?: string } | null;
+  title?: string;
+  summary?: string;
+  alternatingTextItems?: Array<{
+    imageOnRight?: boolean;
+    imageItem?: { asset?: { url?: string }; alt?: string; imageLink?: string } | null;
+    textItem?: PTBlocks | null;
+  }>;
+  postSummary?: PTBlocks;
 }
 
 export type NewsletterSection = 
@@ -121,7 +137,8 @@ export type NewsletterSection =
   | ImagesOnVerticalGridSection
   | RichTextSection
   | SimpleImageSection
-  | ImageSummaryTwoImages;
+  | ImageSummaryTwoImages
+  | ImageSummaryAlternatingText;
 
 export type IssueDoc = {
   headerImage?: { asset?: { url?: string }; alt?: string } | null;
@@ -142,6 +159,7 @@ export type ArticleWithImageView = {
   imageLink?: string;
   eyebrow?: string;
   title: string;
+  headingToggle?: boolean;
   summaryHtml?: string;
   url?: string;
   urlText?: string;
@@ -220,6 +238,7 @@ export type ImagesOnVerticalGridView = {
   eyebrow?: string;
   title?: string;
   summaryHtml?: string;
+  postSummaryHtml?: string;
   imageItems?: Array<{
     imageUrl?: string;
     imageAlt?: string;
@@ -253,6 +272,24 @@ export type ImageSummaryTwoImagesView = {
     imageAlt?: string;
     imageLink?: string;
   }>;
+  postSummaryHtml?: string;
+};
+
+export type ImageSummaryAlternatingTextView = {
+  _type: 'imageSummaryAlternatingText';
+  imageUrl?: string;
+  imageAlt?: string;
+  imageLink?: string;
+  title?: string;
+  summary?: string;
+  alternatingTextItems?: Array<{
+    imageOnRight?: boolean;
+    imageItemUrl?: string;
+    imageItemAlt?: string;
+    imageItemLink?: string;
+    textItem?: string;
+  }>;
+  postSummaryHtml?: string;
 };
 
 export type SectionView = 
@@ -266,7 +303,8 @@ export type SectionView =
   | ImagesOnVerticalGridView
   | RichTextView
   | SimpleImageView
-  | ImageSummaryTwoImagesView;
+  | ImageSummaryTwoImagesView
+  | ImageSummaryAlternatingTextView;
 
 // Final props passed to WeeklyNewsletter
 export type WeeklyNewsletterProps = {
@@ -307,6 +345,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           imageLink: s.image?.imageLink,
           eyebrow: s.eyebrow,
           title: s.title,
+          headingToggle: s.headingToggle ?? false,
           summaryHtml: ptToHtml(s.summary),
           url: s.url ?? undefined,
           urlText: s.urlText,
@@ -392,6 +431,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           eyebrow: s.eyebrow,
           title: s.title,
           summaryHtml: ptToHtml(s.summary),
+          postSummaryHtml: ptToHtml(s.postSummary),
           imageItems: s.imageItems?.map(item => ({
             imageUrl: item.image?.asset?.url,
             imageAlt: item.image?.alt,
@@ -414,20 +454,39 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           imageAlt: s.image?.alt,
         };
       }
-      case 'imageSummaryTwoImages': {
+        case 'imageSummaryTwoImages': {
+          return {
+            _type: 'imageSummaryTwoImages',
+            imageAlt: s.image?.alt,
+            imageUrl: s.image?.asset?.url,
+            imageLink: s.image?.imageLink,
+            title: s.title,
+            summary: s.summary,
+            postSummaryHtml: ptToHtml(s.postSummary),
+            imageItems: s.imageItems?.map(item => ({
+              imageUrl: item.image?.asset?.url,
+              imageAlt: item.image?.alt,
+              imageLink: item.image?.imageLink,
+              caption: item.image?.caption,
+              attribution: item.image?.attribution,
+            })),
+          };
+        }
+      case 'imageSummaryAlternatingText': {
         return {
-          _type: 'imageSummaryTwoImages',
+          _type: 'imageSummaryAlternatingText',
           imageAlt: s.image?.alt,
           imageUrl: s.image?.asset?.url,
           imageLink: s.image?.imageLink,
           title: s.title,
           summary: s.summary,
-          imageItems: s.imageItems?.map(item => ({
-            imageUrl: item.image?.asset?.url,
-            imageAlt: item.image?.alt,
-            imageLink: item.image?.imageLink,
-            caption: item.image?.caption,
-            attribution: item.image?.attribution,
+          postSummaryHtml: ptToHtml(s.postSummary),
+          alternatingTextItems: s.alternatingTextItems?.map(item => ({
+            imageOnRight: item.imageOnRight ?? false,
+            imageItemUrl: item.imageItem?.asset?.url,
+            imageItemAlt: item.imageItem?.alt,
+            imageItemLink: item.imageItem?.imageLink,
+            textItem: ptToHtml(item.textItem),
           })),
         };
       }

@@ -1,6 +1,7 @@
 import { Section, Text, Img, Row, Column, Hr, Link } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ListImageLeftView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ListImageLeftView;
 
@@ -55,15 +56,15 @@ export function ListImageLeft({
 							</a>
 						</Column>
 					)}
-					<Column width="75%" valign="top" style={{ width: '75%', paddingRight: '12px', verticalAlign: 'top', paddingBottom: '8px', paddingTop: '8px' }} >
+					<Column width="75%" valign="top" style={{ width: '75%', paddingRight: '0', verticalAlign: 'top', paddingBottom: '20px', paddingTop: '8px' }} >
 						{item.itemTitle && (
-						<Text style={{...styles.h3, marginTop: 0, marginBottom: 0}}>
+						<Text style={{...styles.h3, marginTop: 0, marginBottom: '8px'}}>
 							{item.itemTitle}
 						</Text>
 						)}
 						{item.itemSummaryHtml && (
 							<div
-								dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
+								dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.itemSummaryHtml) }}
 								style={styles.richText}
 							/>
 						)}
@@ -72,7 +73,7 @@ export function ListImageLeft({
 								<Column 
 									align="left"
 									valign="middle"
-									style={{ verticalAlign: 'middle'}}
+									style={{ verticalAlign: 'middle', paddingTop: '8px'}}
 								>
 									<Link 
 										href={item.itemLinkURL}
@@ -82,8 +83,8 @@ export function ListImageLeft({
 										&nbsp;&nbsp;<Img
 											src={"https://facilities.utk.edu/wp-content/uploads/2026/01/Email-Arrow-Link.png"}
 											alt={'arrow'}
-											width="18px"
-											height="12px"
+											width="16px"
+											height="10px"
 											style={{display: 'inline', paddingLeft: '2px', paddingTop: '2px'}}
 										/>
 									</Link>

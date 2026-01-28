@@ -16,7 +16,7 @@ export function SimpleList({
 					{listItems.map((item, index) => (
 						<div key={index}>
 							<Row>
-								<Column key={index} style={{ paddingBottom: 16 }}>
+								<Column key={index} style={{ paddingBottom: 8, paddingTop: 8 }}>
 									{item.itemTitle && (
 										<Text style={{...styles.h3, marginTop: '0px'}}>
 											{item.itemTitle}

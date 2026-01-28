@@ -8,6 +8,7 @@ export function ImagesOnVerticalGrid({
   eyebrow,
   title,
   summaryHtml,
+  postSummaryHtml,
   imageItems,
 }: Props) {
   // Calculate column width and padding based on number of items
@@ -117,6 +118,16 @@ export function ImagesOnVerticalGrid({
                 )}
               </Column>
           ))}
+        </Row>
+      )}
+      {postSummaryHtml && (
+        <Row>
+          <Column style={{paddingTop: '10px', paddingBottom: '0px', textAlign: 'center'}}>
+            <div
+              dangerouslySetInnerHTML={{ __html: postSummaryHtml }}
+              style={styles.richText}
+            />
+          </Column>
         </Row>
       )}
     </>

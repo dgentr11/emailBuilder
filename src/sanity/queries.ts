@@ -17,7 +17,9 @@ export const DOC_BY_ID = `
     image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
+    headingToggle,
     summary,
+    postSummary,
     url,
     urlText,
     dividerToggle,
@@ -35,6 +37,16 @@ export const DOC_BY_ID = `
       paragraphItemTitle,
       paragraphItemSummary
     },
+    alternatingTextItems[]{
+      imageItem{
+        asset->{url},
+        alt,
+        imageLink,
+      },
+      textItem{
+        summary
+      }
+    },
     simpleListURL,
     simpleListURLText,
     imageItems[]{
@@ -45,7 +57,8 @@ export const DOC_BY_ID = `
         caption,
         attribution
       }
-    }
+    },
+    
   },
    pressReleaseArticle{
     image{asset->{url}, alt, imageLink},
@@ -73,7 +86,9 @@ export const LATEST_SCHEDULED = `
     image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
+    headingToggle,
     summary,
+    postSummary,
     url,
     urlText,
     dividerToggle,
@@ -85,6 +100,17 @@ export const LATEST_SCHEDULED = `
       itemLinkURL,
       itemLinkText,
       itemDivider
+    },
+    alternatingTextItems[]{
+      imageOnRight,
+      imageItem{
+        asset->{url},
+        alt,
+        imageLink,
+      },
+      textItem{
+        summary
+      }
     },
     paragraphItems[]{
       itemImage{asset->{url}, alt, imageLink},

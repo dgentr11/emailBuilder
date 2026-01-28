@@ -50,7 +50,7 @@ export function HeaderFourParagraphs({
                     paddingLeft: itemIndex === 1 ? 12 : 0,
                     paddingTop: '8px',
                     paddingBottom: '8px',
-                    verticalAlign: 'baseline',
+                    verticalAlign: 'top',
                   }}
                 >
                   {item.itemImageUrl && !item.itemImageLink && (
@@ -75,10 +75,10 @@ export function HeaderFourParagraphs({
                     <Text
                       style={{
                         margin: '0px',
-                        marginTop: 0,
-                        marginBottom: 8,
-                        fontSize: 18,
-                        lineHeight: '26px',
+                        marginTop: 4,
+                        marginBottom: 4,
+                        fontSize: 16,
+                        lineHeight: '20px',
                         fontWeight: 600,
                         color: 'rgb(17,24,39)',
                       }}
@@ -107,7 +107,7 @@ export function HeaderFourParagraphs({
                   style={{
                     width: '50%',
                     paddingLeft: 12,
-                    verticalAlign: 'baseline',
+                    verticalAlign: 'top',
                   }}
                 />
               )}

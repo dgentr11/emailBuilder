@@ -11,6 +11,7 @@ export function ImageSummaryTwoImages({
   title,
   summary,
   imageItems,
+  postSummaryHtml,
 }: Props) {
   // Calculate column width and padding based on number of items
   const itemCount = imageItems?.length || 0;
@@ -21,7 +22,7 @@ export function ImageSummaryTwoImages({
     
     if (total === 1) {
       return {
-        width: '100%',
+        width: 'auto',
         paddingRight: 0,
         paddingLeft: 0,
       };
@@ -30,24 +31,23 @@ export function ImageSummaryTwoImages({
     if (total === 2) {
       return {
         width: '50%',
-        paddingRight:  12,
-        paddingLeft:  12,
+        paddingRight: isFirst ? 8 : 0,
+        paddingLeft: isLast ? 8 : 0,
       };
     }
     
-    if (total === 3) {
+    if (total >= 3) {
       return {
         width: '33.33%',
-        paddingRight:  8,
-        paddingLeft:  8,
+        paddingRight: isLast ? 0 : 8,
+        paddingLeft: isFirst ? 0 : 8,
       };
     }
     
-    // Fallback
     return {
       width: '33.33%',
-      paddingRight:  8,
-      paddingLeft:  8,
+      paddingRight: isLast ? 0 : 8,
+      paddingLeft: isFirst ? 0 : 8,
     };
   };
   
@@ -55,25 +55,38 @@ export function ImageSummaryTwoImages({
   return (
     <>
       {imageUrl && !imageLink && (
+        <Row>
+        <Column
+        align="center"
+        style={{paddingBottom: '10px'}}
+        >
           <Img
             src={imageUrl}
             alt={imageAlt || ''}
-            width="100%"
+            width="auto"
             height="auto"
             style={styles.image}
           />
+          </Column></Row>
       )}
 
       {imageUrl && imageLink && (
-        <a href={imageLink} target="_blank" rel="noopener noreferrer">
-          <Img
-            src={imageUrl}
-            alt={imageAlt || ''}
-            width="100%"
-            height="auto"
-            style={styles.image}
-          />
-        </a>
+        <Row>
+        <Column
+        align="center"
+        style={{paddingBottom: '10px'}}
+        >
+          <a href={imageLink} target="_blank" rel="noopener noreferrer">
+            <Img
+              src={imageUrl}
+              alt={imageAlt || ''}
+              width="auto"
+              height="auto"
+              style={styles.image}
+            />
+          </a>
+        </Column>
+        </Row>
       )}
 
       {title && (
@@ -83,7 +96,7 @@ export function ImageSummaryTwoImages({
       )}
 
       {summary && (
-        <Text >
+        <Text style={styles.richTextCentered}>
           {summary}
         </Text>
       )}
@@ -92,6 +105,7 @@ export function ImageSummaryTwoImages({
         <Row style={{ marginTop: 20 }}>
           {imageItems.map((item, index) => (
               <Column
+                align="center"
                 key={index}
                 colSpan={1}
                 style={{
@@ -103,7 +117,7 @@ export function ImageSummaryTwoImages({
                   <Img
                     src={item.imageUrl}
                     alt={item.imageAlt || ''}
-                    width="100%"
+                    width="auto"
                     height="auto"
                     style={styles.image}
                   />
@@ -113,7 +127,7 @@ export function ImageSummaryTwoImages({
                     <Img
                       src={item.imageUrl}
                       alt={item.imageAlt || ''}
-                      width="100%"
+                      width="auto"
                       height="auto"
                       style={styles.image}
                     />
@@ -121,6 +135,16 @@ export function ImageSummaryTwoImages({
                 )}
               </Column>
           ))}
+        </Row>
+      )}
+      {postSummaryHtml && (
+        <Row>
+          <Column style={{paddingTop: '20px', paddingBottom: '20px', textAlign: 'center'}}>
+            <div
+              dangerouslySetInnerHTML={{ __html: postSummaryHtml }}
+              style={styles.richText}
+            />
+          </Column>
         </Row>
       )}
     </>

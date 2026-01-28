@@ -147,14 +147,17 @@ export const styles = {
   }),
   imageCaption: withFont({
     fontSize: '14px',
+    lineHeight: '20px',
     textAlign: 'center',
-    fontStyle: 'bold',
+    fontWeight: 'bold',
     fontFamily: tokens.fonts.base,
     marginBottom: '4px',
-    marginTop: '8px'
+    marginTop: '8px',
+    textTransform: 'uppercase'
   }), 
   imageAttribution: withFont({
     fontSize: '12px',
+    lineHeight: '16px',
     textAlign: 'center',
     fontStyle: 'italic',
     fontFamily: tokens.fonts.base,
@@ -178,6 +181,14 @@ export const styles = {
     fontSize: 24,
     margin: '0px 0px 0px 0px',
     lineHeight: '24px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
+  }),
+  h1CenteredUpper: withFont({
+    fontSize: 32,
+    margin: '0px 0px 0px 0px',
+    lineHeight: '32px',
     textAlign: 'center',
     fontWeight: 'bold',
     textTransform: 'uppercase'
@@ -223,7 +234,7 @@ export const styles = {
   }),
   subsection: withFont({}),
   h3: withFont({
-    fontSize: 18,
+    fontSize: 16,
     margin: '8px 0 0px',
     lineHeight: '20px',
     fontWeight: 'bold'

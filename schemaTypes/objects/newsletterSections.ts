@@ -35,6 +35,12 @@ export default defineType({
 		  title: 'Title',
 		}),
 		defineField({
+			name: 'headingToggle',
+			type: 'boolean',
+			title: 'Make Title H1?',
+			initialValue: false
+		}),	
+		defineField({
 		  name: 'summary',
 		  type: 'array',
 		  of: [{ type: 'block' }],
@@ -408,12 +414,12 @@ export default defineType({
 				type: 'string',
 				title: 'Eyebrow',
 				}),
-				defineField({
+			defineField({
 				name: 'title',
 				type: 'string',
 				title: 'Title',
 				}),
-				defineField({
+			defineField({
 				name: 'summary',
 				type: 'array',
 				of: [{ type: 'block' }],
@@ -451,8 +457,14 @@ export default defineType({
 						}
 					  }
 					}
-				  ],
-				}),
+				],
+			}),
+			defineField({
+				name: 'postSummary',
+				type: 'array',
+				of: [{ type: 'block' }],
+				title: 'Post Summary',
+			}),
 		],
 		preview: {
 			select: { 
@@ -582,6 +594,99 @@ export default defineType({
 					}
 				],
 			}),
+			defineField({
+				name: 'postSummary',
+				title: 'Post Summary',
+				type: 'array',
+				of: [{ type: 'block' }],
+			}),
+		],
+		preview: {
+			select: { title: 'Image with Summary plus Two Images', media: 'image'},
+			prepare(selection) {
+				const { media } = selection
+				return {
+				  title: 'Image with Summary plus Two Images',
+				  media: media
+			  }
+			}
+		  }
+	  },
+	  {
+		type: 'object',
+		name: 'imageSummaryWithAlternatingText',
+		title: 'Image with Summary plus 50/50 Image/Text Blocks',
+		fields: [
+			defineField({
+				name: 'image',
+				title: 'Image',
+				type: 'image',
+				options: { hotspot: true },
+				fields: [
+				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+				defineField({name: 'imageLink', type: 'url', title: 'Image Link'}),
+				],
+			}),
+			defineField({
+				name: 'title',
+				title: 'Title',
+				type: 'string',
+			}),
+			defineField({
+				name: 'summary',
+				title: 'Summary',
+				type: 'string',
+			}),
+			defineField({
+				name: 'alternatingTextItems',
+				title: 'Alternating Text/Image Items',
+				type: 'array',
+				of: [ 
+				  {
+					  type: 'object',
+					  name: 'imageTextItem',
+					  title: 'Image/Text Item',
+					  fields: [
+						defineField({
+							name: 'imageOnRight',
+							type: 'boolean',
+							title: 'Image on Right?',
+							initialValue: false
+						}),
+						defineField({
+							name: 'imageItem',
+							title: 'Image',
+							type: 'image',
+							options: { hotspot: true },
+							fields: [
+								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+								defineField({name: 'imageLink', type: 'url', title: 'Image Link'}),
+							],
+							
+						}),
+						defineField({
+							name: 'textItem',
+							title: 'Summary',
+							type: 'array',
+							of: [{ type: 'block' }],
+						})
+					  ], 
+						preview: {
+							select: {
+							image: 'image',
+							asset: 'image.asset',
+							title: 'image.alt'
+							},
+								prepare({ image, asset, title }) {
+								return {
+									title: title || 'Image item',
+									media: image || asset
+								}
+							}
+						}
+					}
+				],
+			})
 		],
 		preview: {
 			select: { title: 'Image with Summary plus Two Images', media: 'image'},

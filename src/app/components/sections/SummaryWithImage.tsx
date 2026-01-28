@@ -14,7 +14,31 @@ export function SummaryWithImage({
 }: Props) {
   return (
     <>
-      {imageUrl && !imageLink && (
+     
+
+        {eyebrow && (
+          <Row>
+            <Column style={{paddingBottom: '10px'}}>
+              <Text style={styles.eyebrowCentered}>
+                {eyebrow}
+              </Text>
+            </Column>
+           </Row>
+        )}
+
+      {title && (
+        <Text style={{...styles.h2Centered}}>
+          {title}
+        </Text>
+      )}
+
+      {summaryHtml && (
+        <div
+          dangerouslySetInnerHTML={{ __html: summaryHtml }}
+          style={styles.richTextCentered}
+        />
+      )}
+       {imageUrl && !imageLink && (
           <Img
             src={imageUrl}
             alt={imageAlt || title || ''}
@@ -34,30 +58,6 @@ export function SummaryWithImage({
             style={styles.image}
           />
         </a>
-      )}
-
-
-        {eyebrow && (
-          <Row>
-            <Column style={{paddingBottom: '10px', paddingTop: '32px'}}>
-              <Text style={styles.eyebrowCentered}>
-                {eyebrow}
-              </Text>
-            </Column>
-           </Row>
-        )}
-
-      {title && (
-        <Text style={styles.h2Centered}>
-          {title}
-        </Text>
-      )}
-
-      {summaryHtml && (
-        <div
-          dangerouslySetInnerHTML={{ __html: summaryHtml }}
-          style={styles.richTextCentered}
-        />
       )}
     </>
   );

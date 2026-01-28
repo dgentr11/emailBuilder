@@ -10,6 +10,7 @@ export function ArticleWithImage({
   imageLink,
   eyebrow,
   title,
+  headingToggle,
   summaryHtml,
   url,
   urlText,
@@ -54,7 +55,7 @@ export function ArticleWithImage({
 			   </Row>
 			)}
 
-			<Text style={styles.h2CenteredUpper}>
+			<Text style={headingToggle ? styles.h1CenteredUpper : styles.h2CenteredUpper}>
 				{title}
 			</Text>
 

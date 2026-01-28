@@ -44,7 +44,7 @@ export default function PressRelease({
                 <style>
                     {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; } p, div, ol, li { font-size: 14px; }`}
                 </style>
-                
+
             </Conditional>
            
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
