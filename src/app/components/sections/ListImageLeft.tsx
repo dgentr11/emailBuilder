@@ -30,7 +30,7 @@ export function ListImageLeft({
 			
 			<div key={index} >
 				<Row>
-					{item.itemImageUrl && (
+					{item.itemImageUrl && !item.itemImageLink && (
 						<Column width="25%" style={{ width: '25%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }} valign="top">
 						<Img
 							src={item.itemImageUrl}
@@ -39,6 +39,20 @@ export function ListImageLeft({
 							height="auto"
 							style={styles.image}
 						/>
+						</Column>
+						
+					)}
+					{item.itemImageUrl && item.itemImageLink && (
+						<Column width="25%" style={{ width: '25%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }} valign="top">
+							<a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+								<Img
+									src={item.itemImageUrl}
+									alt={item.itemImageAlt || item.itemTitle || ''}
+									width="100%"
+									height="auto"
+									style={styles.image}
+								/>
+							</a>
 						</Column>
 					)}
 					<Column width="75%" valign="top" style={{ width: '75%', paddingRight: '12px', verticalAlign: 'top', paddingBottom: '8px', paddingTop: '8px' }} >
@@ -54,11 +68,30 @@ export function ListImageLeft({
 							/>
 						)}
 						{item.itemLinkURL && (
-							<Link 
-								href={item.itemLinkURL}
-								target='_blank'
-								style={styles.listItemLink}
-							>{item.itemLinkText}</Link>
+							<Row>
+								<Column 
+									align="left"
+									valign="middle"
+									style={{ verticalAlign: 'middle'}}
+								>
+									<Link 
+										href={item.itemLinkURL}
+										target='_blank'
+										style={styles.listItemLink}
+									>{item.itemLinkText}
+										&nbsp;&nbsp;<Img
+											src={"https://facilities.utk.edu/wp-content/uploads/2026/01/Email-Arrow-Link.png"}
+											alt={'arrow'}
+											width="18px"
+											height="12px"
+											style={{display: 'inline', paddingLeft: '2px', paddingTop: '2px'}}
+										/>
+									</Link>
+								</Column>
+								
+									
+								
+							</Row>
 						)}
 					</Column>
 				</Row>

@@ -26,7 +26,7 @@ export default function PressRelease({
     emailTitle,
     publishDate,
     pressReleaseArticle,
-    templateLogoUrl = "https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png",
+    templateLogoUrl = "https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_logo.jpg",
     templateLogoAlt = "The University of Tennessee Knoxville Facilities Services",
     }: PressReleaseEmailProps & {
     templateLogoUrl?: string;

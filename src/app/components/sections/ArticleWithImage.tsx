@@ -7,6 +7,7 @@ type Props = ArticleWithImageView;
 export function ArticleWithImage({
   imageUrl,
   imageAlt,
+  imageLink,
   eyebrow,
   title,
   summaryHtml,
@@ -18,13 +19,27 @@ export function ArticleWithImage({
 		{imageUrl && (
 			 <Row>
                 <Column style={{paddingBottom: "16px"}}>
-					<Img
-						src={imageUrl}
-						alt={imageAlt || title}
-						width="100%"
-						height="auto"
-						style={styles.image}
-					/>
+				   {imageLink && (
+					<a href={imageLink} target="_blank" rel="noopener noreferrer">
+					
+						<Img
+							src={imageUrl}
+							alt={imageAlt || title}
+							width="100%"
+							height="auto"
+							style={styles.image}
+						/>
+					</a>
+					)}
+					{!imageLink && (
+						<Img
+							src={imageUrl}
+							alt={imageAlt || title}
+							width="100%"
+							height="auto"
+							style={styles.image}
+						/>
+					)}
 				</Column>
 			</Row>
 		)}

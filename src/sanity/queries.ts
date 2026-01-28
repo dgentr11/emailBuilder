@@ -14,7 +14,7 @@ export const DOC_BY_ID = `
   status,
   sections[]{
     _type,
-    image{asset->{url}, alt},
+    image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
     summary,
@@ -23,7 +23,7 @@ export const DOC_BY_ID = `
     dividerToggle,
     header,
     listItems[]{
-      itemImage{asset->{url}, alt},
+      itemImage{asset->{url}, alt, imageLink},
       itemTitle,
       itemSummary,
       itemLinkURL,
@@ -31,7 +31,7 @@ export const DOC_BY_ID = `
       itemDivider
     },
     paragraphItems[]{
-      itemImage{asset->{url}, alt},
+      itemImage{asset->{url}, alt, imageLink},
       paragraphItemTitle,
       paragraphItemSummary
     },
@@ -41,13 +41,14 @@ export const DOC_BY_ID = `
       image{
         asset->{url},
         alt,
+        imageLink,
         caption,
         attribution
       }
     }
   },
    pressReleaseArticle{
-    image{asset->{url}, alt},
+    image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
     summary,
@@ -69,7 +70,7 @@ export const LATEST_SCHEDULED = `
   publishDate,
   sections[]{
     _type,
-    image{asset->{url}, alt},
+    image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
     summary,
@@ -78,7 +79,7 @@ export const LATEST_SCHEDULED = `
     dividerToggle,
     header,
     listItems[]{
-      itemImage{asset->{url}, alt},
+      itemImage{asset->{url}, alt, imageLink},
       itemTitle,
       itemSummary,
       itemLinkURL,
@@ -86,7 +87,7 @@ export const LATEST_SCHEDULED = `
       itemDivider
     },
     paragraphItems[]{
-      itemImage{asset->{url}, alt},
+      itemImage{asset->{url}, alt, imageLink},
       paragraphItemTitle,
       paragraphItemSummary
     },
@@ -96,13 +97,14 @@ export const LATEST_SCHEDULED = `
       image{
         asset->{url},
         alt,
+        imageLink,
         caption,
         attribution
       }
     }
   },
   pressReleaseArticle[]{
-    image{asset->{url}, alt},
+    image{asset->{url}, alt, imageLink},
     eyebrow,
     title,
     summary,

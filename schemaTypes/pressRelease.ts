@@ -29,6 +29,7 @@ export default defineType({
 				options: { hotspot: true },
 				fields: [
 				  defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
+				  defineField({ name: 'imageLink', type: 'url', title: 'Image Link'}),
 				],
 			  }),
 			  defineField({

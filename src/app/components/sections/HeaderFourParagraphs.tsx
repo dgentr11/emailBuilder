@@ -53,13 +53,23 @@ export function HeaderFourParagraphs({
                     verticalAlign: 'baseline',
                   }}
                 >
-                  {item.itemImageUrl && (
+                  {item.itemImageUrl && !item.itemImageLink && (
                     <Img
                       alt={item.itemImageAlt || item.paragraphItemTitle || ''}
                       height="48"
                       src={item.itemImageUrl}
                       width="48"
                     />
+                  )}
+                  {item.itemImageUrl && item.itemImageLink && (
+                    <a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+                      <Img
+                        alt={item.itemImageAlt || item.paragraphItemTitle || ''}
+                        height="48"
+                        src={item.itemImageUrl}
+                        width="48"
+                      />
+                    </a>
                   )}
                   {item.paragraphItemTitle && (
                     <Text

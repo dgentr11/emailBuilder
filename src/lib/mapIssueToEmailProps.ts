@@ -12,7 +12,7 @@ type PTBlocks = any[];
 // Section type definitions matching the Sanity schema
 export type ArticleWithImageSection = {
   _type: 'articleWithImage';
-  image?: { asset?: { url?: string }; alt?: string } | null;
+  image?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
   eyebrow?: string;
   title: string;
   summary?: PTBlocks;
@@ -25,7 +25,7 @@ export type ListImageLeftSection = {
   title?: string;
   summary?: PTBlocks;
   listItems?: Array<{
-    itemImage?: { asset?: { url?: string }; alt?: string } | null;
+    itemImage?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
     itemTitle?: string;
     itemSummary?: PTBlocks;
     itemLinkURL?: string;
@@ -44,7 +44,7 @@ export type HeaderFourParagraphsSection = {
   header?: string;
   summary?: PTBlocks;
   paragraphItems?: Array<{
-    itemImage?: { asset?: { url?: string }; alt?: string } | null;
+    itemImage?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
     paragraphItemTitle?: string;
     paragraphItemSummary?: PTBlocks;
   }>;
@@ -55,7 +55,7 @@ export type HeaderThreeParagraphsSection = {
   header?: string;
   summary?: PTBlocks;
   paragraphItems?: Array<{
-    itemImage?: { asset?: { url?: string }; alt?: string } | null;
+    itemImage?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
     paragraphItemTitle?: string;
     paragraphItemSummary?: PTBlocks;
   }>;
@@ -66,7 +66,7 @@ export type SummaryWithImageSection = {
   eyebrow?: string;
   title?: string;
   summary?: PTBlocks;
-  image?: { asset?: { url?: string }; alt?: string } | null;
+  image?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
 };
 
 export type SimpleListSection = {
@@ -86,7 +86,7 @@ export type ImagesOnVerticalGridSection = {
   title?: string;
   summary?: PTBlocks;
   imageItems?: Array<{
-    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string } | null;
+    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; imageLink?: string } | null;
   }>;
 };
 
@@ -97,16 +97,16 @@ export type RichTextSection = {
 
 export type SimpleImageSection = {
   _type: 'simpleImage';
-  image?: { asset?: { url?: string }; alt?: string } | null;
+  image?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
 };
 
 export type ImageSummaryTwoImages = {
   _type: 'imageSummaryTwoImages';
-  image?: {  asset?: { url?: string }; alt?: string } | null;
+  image?: {  asset?: { url?: string }; alt?: string, imageLink?: string } | null;
   title?: string;
   summary?: string;
   imageItems?: Array<{
-    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string } | null;
+    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; imageLink?: string } | null;
   }>;
 }
 
@@ -139,6 +139,7 @@ export type ArticleWithImageView = {
   _type: 'articleWithImage';
   imageUrl?: string;
   imageAlt?: string;
+  imageLink?: string;
   eyebrow?: string;
   title: string;
   summaryHtml?: string;
@@ -153,6 +154,7 @@ export type ListImageLeftView = {
   listItems?: Array<{
     itemImageUrl?: string;
     itemImageAlt?: string;
+    itemImageLink?: string;
     itemTitle?: string;
     itemSummaryHtml?: string;
     itemLinkURL?: string;
@@ -173,6 +175,7 @@ export type HeaderFourParagraphsView = {
   paragraphItems?: Array<{
     itemImageUrl?: string;
     itemImageAlt?: string;
+    itemImageLink?: string;
     paragraphItemTitle?: string;
     paragraphItemSummaryHtml?: string;
   }>;
@@ -185,6 +188,7 @@ export type HeaderThreeParagraphsView = {
   paragraphItems?: Array<{
     itemImageUrl?: string;
     itemImageAlt?: string;
+    itemImageLink?: string;
     paragraphItemTitle?: string;
     paragraphItemSummaryHtml?: string;
   }>;
@@ -197,6 +201,7 @@ export type SummaryWithImageView = {
   summaryHtml?: string;
   imageUrl?: string;
   imageAlt?: string;
+  imageLink?: string;
 };
 
 export type SimpleListView = {
@@ -218,6 +223,7 @@ export type ImagesOnVerticalGridView = {
   imageItems?: Array<{
     imageUrl?: string;
     imageAlt?: string;
+    imageLink?: string;
     caption?: string;
     attribution?: string;
   }>;
@@ -232,17 +238,20 @@ export type SimpleImageView = {
   _type: 'simpleImage';
   imageUrl?: string;
   imageAlt?: string;
+  imageLink?: string;
 };
 
 export type ImageSummaryTwoImagesView = {
   _type: 'imageSummaryTwoImages';
   imageUrl?: string;
   imageAlt?: string;
+  imageLink?: string;
   title?: string;
   summary?: string;
   imageItems?: Array<{
     imageUrl?: string;
     imageAlt?: string;
+    imageLink?: string;
   }>;
 };
 
@@ -295,6 +304,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           _type: 'articleWithImage',
           imageUrl: s.image?.asset?.url,
           imageAlt: s.image?.alt,
+          imageLink: s.image?.imageLink,
           eyebrow: s.eyebrow,
           title: s.title,
           summaryHtml: ptToHtml(s.summary),
@@ -310,6 +320,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           listItems: s.listItems?.map(item => ({
             itemImageUrl: item.itemImage?.asset?.url,
             itemImageAlt: item.itemImage?.alt,
+            itemImageLink: item.itemImage?.imageLink,
             itemTitle: item.itemTitle,
             itemSummaryHtml: ptToHtml(item.itemSummary),
             itemLinkURL: item.itemLinkURL,
@@ -332,6 +343,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           paragraphItems: s.paragraphItems?.map(item => ({
             itemImageUrl: item.itemImage?.asset?.url,
             itemImageAlt: item.itemImage?.alt,
+            itemImageLink: item.itemImage?.imageLink,
             paragraphItemTitle: item.paragraphItemTitle,
             paragraphItemSummaryHtml: ptToHtml(item.paragraphItemSummary),
           })),
@@ -345,6 +357,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           paragraphItems: s.paragraphItems?.map(item => ({
             itemImageUrl: item.itemImage?.asset?.url,
             itemImageAlt: item.itemImage?.alt,
+            itemImageLink: item.itemImage?.imageLink,
             paragraphItemTitle: item.paragraphItemTitle,
             paragraphItemSummaryHtml: ptToHtml(item.paragraphItemSummary),
           })),
@@ -358,6 +371,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           summaryHtml: ptToHtml(s.summary),
           imageUrl: s.image?.asset?.url,
           imageAlt: s.image?.alt,
+          imageLink: s.image?.imageLink,
         };
       }
       case 'simpleList': {
@@ -381,6 +395,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           imageItems: s.imageItems?.map(item => ({
             imageUrl: item.image?.asset?.url,
             imageAlt: item.image?.alt,
+            imageLink: item.image?.imageLink,
             caption: item.image?.caption,
             attribution: item.image?.attribution,
           })),
@@ -404,11 +419,13 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           _type: 'imageSummaryTwoImages',
           imageAlt: s.image?.alt,
           imageUrl: s.image?.asset?.url,
+          imageLink: s.image?.imageLink,
           title: s.title,
           summary: s.summary,
           imageItems: s.imageItems?.map(item => ({
             imageUrl: item.image?.asset?.url,
             imageAlt: item.image?.alt,
+            imageLink: item.image?.imageLink,
             caption: item.image?.caption,
             attribution: item.image?.attribution,
           })),

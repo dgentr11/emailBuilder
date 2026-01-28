@@ -14,7 +14,8 @@ export function mapPressReleaseToEmailProps(doc: any): PressReleaseEmailProps {
                 asset: {
                   url: doc.pressReleaseArticle.image.asset?.url ?? ""
                 },
-                alt: doc.pressReleaseArticle.image.alt ?? ""
+                alt: doc.pressReleaseArticle.image.alt ?? "",
+                imageLink: doc.pressReleaseArticle.image.imageLink ?? ""
               }
             : undefined,
           eyebrow: doc.pressReleaseArticle.eyebrow ?? "",

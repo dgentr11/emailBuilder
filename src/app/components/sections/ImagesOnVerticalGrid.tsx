@@ -85,7 +85,7 @@ export function ImagesOnVerticalGrid({
                   verticalAlign: 'top',
                 }}
               >
-                {item.imageUrl && (
+                {item.imageUrl && !item.imageLink && (
                   <Img
                     src={item.imageUrl}
                     alt={item.imageAlt || item.caption || ''}
@@ -93,6 +93,17 @@ export function ImagesOnVerticalGrid({
                     height="auto"
                     style={styles.image}
                   />
+                )}
+                {item.imageUrl && item.imageLink && (
+                  <a href={item.imageLink} target="_blank" rel="noopener noreferrer">
+                    <Img
+                      src={item.imageUrl}
+                      alt={item.imageAlt || item.caption || ''}
+                      width="100%"
+                      height="auto"
+                      style={styles.image}
+                    />
+                  </a>
                 )}
                 {item.caption && (
                   <Text style={{...styles.imageCaption, marginBottom: '0px', lineHeight: '12px'}}>

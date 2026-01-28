@@ -8,6 +8,7 @@ export interface PressReleaseEmailProps {
       image?: {
         asset?: { url: string };
         alt?: string;
+        imageLink?: string;
       };
       eyebrow?: string;
       title?: string;

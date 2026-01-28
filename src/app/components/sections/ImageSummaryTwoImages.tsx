@@ -7,6 +7,7 @@ type Props = ImageSummaryTwoImagesView;
 export function ImageSummaryTwoImages({
   imageUrl,
   imageAlt,
+  imageLink,
   title,
   summary,
   imageItems,
@@ -53,7 +54,7 @@ export function ImageSummaryTwoImages({
  
   return (
     <>
-      {imageUrl && (
+      {imageUrl && !imageLink && (
           <Img
             src={imageUrl}
             alt={imageAlt || ''}
@@ -61,6 +62,18 @@ export function ImageSummaryTwoImages({
             height="auto"
             style={styles.image}
           />
+      )}
+
+      {imageUrl && imageLink && (
+        <a href={imageLink} target="_blank" rel="noopener noreferrer">
+          <Img
+            src={imageUrl}
+            alt={imageAlt || ''}
+            width="100%"
+            height="auto"
+            style={styles.image}
+          />
+        </a>
       )}
 
       {title && (
@@ -86,7 +99,7 @@ export function ImageSummaryTwoImages({
                   verticalAlign: 'top',
                 }}
               >
-                {item.imageUrl && (
+                {item.imageUrl && !item.imageLink && (
                   <Img
                     src={item.imageUrl}
                     alt={item.imageAlt || ''}
@@ -95,7 +108,17 @@ export function ImageSummaryTwoImages({
                     style={styles.image}
                   />
                 )}
-    
+                {item.imageUrl && item.imageLink && (
+                  <a href={item.imageLink} target="_blank" rel="noopener noreferrer">
+                    <Img
+                      src={item.imageUrl}
+                      alt={item.imageAlt || ''}
+                      width="100%"
+                      height="auto"
+                      style={styles.image}
+                    />
+                  </a>
+                )}
               </Column>
           ))}
         </Row>

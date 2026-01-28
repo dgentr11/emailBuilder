@@ -23,7 +23,7 @@ type Props = WeeklyNewsletterProps & {
 
 export default function WeeklyNewsletter({
     sections,
-    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-black.png',
+    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_logo.jpg',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
     const previewText = 'Facilities Services Newsletter';

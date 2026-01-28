@@ -14,7 +14,7 @@ export function FooterTraining({
 }: SocialRowProps) {
 
     const templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
-    templateLogoReverseUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-utfs-logo-reverse.png';
+    templateLogoReverseUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_Footer_logo.png';
 
     return (
 
@@ -48,7 +48,7 @@ export function FooterTraining({
                                                 <Img
                                                     alt={templateLogoAlt}
                                                     src={templateLogoReverseUrl}
-                                                    width="180"
+                                                    width="140"
                                                     style={{ display: 'block', height: 'auto', border: 0, outline: 'none' }}
                                                 />
                                             </td>

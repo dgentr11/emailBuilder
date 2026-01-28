@@ -62,11 +62,22 @@ export function HeaderThreeParagraphs({
                 {item.itemImageUrl && (
                   <Row>
                     <Column align="center">
-                    <Img
-                        src={item.itemImageUrl}
-                        alt={item.itemImageAlt || ''}
-                        style={styles.image}
-                      />
+                      {item.itemImageLink && (
+                        <a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+                          <Img
+                            src={item.itemImageUrl}
+                            alt={item.itemImageAlt || ''}
+                            style={styles.image}
+                          />
+                        </a>
+                      )}
+                      {!item.itemImageLink && (
+                        <Img
+                            src={item.itemImageUrl}
+                            alt={item.itemImageAlt || ''}
+                            style={styles.image}
+                          />
+                      )}
                     </Column>
                   </Row>
                   

@@ -10,17 +10,30 @@ export function SummaryWithImage({
   summaryHtml,
   imageUrl,
   imageAlt,
+  imageLink,
 }: Props) {
   return (
     <>
-      {imageUrl && (
-        <Img
-          src={imageUrl}
-          alt={imageAlt || title || ''}
-          width="100%"
-          height="auto"
-          style={styles.image}
-        />
+      {imageUrl && !imageLink && (
+          <Img
+            src={imageUrl}
+            alt={imageAlt || title || ''}
+            width="100%"
+            height="auto"
+            style={styles.image}
+          />
+      )}
+      
+      {imageUrl && imageLink && (
+        <a href={imageLink} target="_blank" rel="noopener noreferrer">
+          <Img
+            src={imageUrl}
+            alt={imageAlt || title || ''}
+            width="100%"
+            height="auto"
+            style={styles.image}
+          />
+        </a>
       )}
 
 
