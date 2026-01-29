@@ -111,33 +111,31 @@ export default function PressRelease({
 
                                     {/* Button Link */}
                                     {pressReleaseArticle?.url && (
-                                        <Row>
-                                            <Column style={{textAlign: "center", paddingTop: tokens.spacing.lg}}>
-                                                <table role="presentation" border={0} cellPadding={0} cellSpacing={0} align="center" style={{ margin: "auto" }}>
-                                                    <tbody>
-                                                        <tr>
-                                                        <td style={{ backgroundColor: "#ffffff", border: "3px solid #ff8200", borderRadius: '8px', padding: "12px 20px", textAlign: "center" }}>
-                                                            <a
-                                                            href={pressReleaseArticle.url}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            style={{
-                                                                fontFamily: "Arial, Helvetica, sans-serif",
-                                                                fontSize: "16px",
-                                                                fontWeight: "bold",
-                                                                color: "#0078d4",
-                                                                textDecoration: "none",
-                                                                display: "inline-block",
-                                                            }}
-                                                            >
-                                                            <span style={{textDecoration: 'none', color: '#0078d4', fontWeight: 'bold'}}>{pressReleaseArticle.urlText ?? "Read More"}</span>
-                                                            </a>
-                                                        </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </Column>
-                                        </Row>     
+                                     
+                                    <table role="presentation" border={0} cellPadding={0} cellSpacing={0} align="center" style={{ margin: "auto" }}>
+                                        <tbody>
+                                            <tr>
+                                            <td style={{ backgroundColor: "#ffffff", border: "3px solid #ff8200", borderRadius: '8px', padding: "12px 20px", textAlign: "center" }}>
+                                                <a
+                                                href={pressReleaseArticle.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{
+                                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                                    fontSize: "16px",
+                                                    fontWeight: "bold",
+                                                    color: "#0078d4",
+                                                    textDecoration: "none",
+                                                    display: "inline-block",
+                                                }}
+                                                >
+                                                <span style={{textDecoration: 'none', color: '#0078d4', fontWeight: 'bold'}}>{pressReleaseArticle.urlText ?? "Read More"}</span>
+                                                </a>
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                        
                                     )}
                             </Section>
                         </Column>
