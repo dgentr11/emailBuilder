@@ -9,10 +9,13 @@ import {
     Preview,
     Body,
     Container,
+    Row, 
+    Column
 } from '@react-email/components';
 import { Header } from '@/app/components/Header';
 import { SectionRenderer } from '@/app/components/sections';
 import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
+import { tokens } from './styles';
 
 type Props = WeeklyNewsletterProps & {
     templateLogoUrl?: string;
@@ -23,7 +26,7 @@ type Props = WeeklyNewsletterProps & {
 
 export default function WeeklyNewsletter({
     sections,
-    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_logo.jpg',
+    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/email-UTKF_logo.jpg',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
     const previewText = 'Facilities Services Newsletter';
@@ -38,6 +41,7 @@ export default function WeeklyNewsletter({
                 </style>
                
             </Conditional>
+            
            
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
@@ -51,8 +55,10 @@ export default function WeeklyNewsletter({
                     />
 
                     <Container style={styles.innerContainer}>
+                        <Row>
 
-                        {sections && sections.length > 0 ? (
+                            <Column style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
+                            {sections && sections.length > 0 ? (
                             <>
                                 {sections.map((section, i) => {
                                     const isLastSection = i === sections.length - 1;
@@ -66,6 +72,10 @@ export default function WeeklyNewsletter({
                                 })}
                             </>
                         ) : null}
+                            </Column>
+                        </Row>
+
+                        
 
                         <FooterDivider />
                         

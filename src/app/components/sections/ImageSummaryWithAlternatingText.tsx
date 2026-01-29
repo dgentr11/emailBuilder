@@ -1,7 +1,7 @@
-import React from 'react';
 import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImageSummaryAlternatingTextView } from '@/lib/mapIssueToEmailProps';
+import { tokens } from '@/emails/styles';
 import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ImageSummaryAlternatingTextView;
@@ -28,7 +28,7 @@ export function ImageSummaryWithAlternatingText({
 			<Img
 			  src={imageUrl}
 			  alt={imageAlt || ''}
-			  width="auto"
+			  width="100%"
 			  height="auto"
 			  style={styles.image}
 			/>
@@ -45,7 +45,7 @@ export function ImageSummaryWithAlternatingText({
 			  <Img
 				src={imageUrl}
 				alt={imageAlt || ''}
-				width="auto"
+				width="100%"
 				height="auto"
 				style={styles.image}
 			  />
@@ -67,25 +67,20 @@ export function ImageSummaryWithAlternatingText({
 	  )}
 
 	  {alternatingTextItems && alternatingTextItems.length > 0 && (
-		<Row style={{ marginTop: 20 }}>
+		<>
 		  {alternatingTextItems.map((item, index) => (
-			<React.Fragment key={index}>
-			  {!item.imageOnRight && (
+			<Row key={index} style={{ marginTop: index === 0 ? 20 : 16 }}>
+			  {!item.imageOnRight ? (
 				<>
 				  <Column
 					align="center"
-					key={index}
-					colSpan={1}
-					style={{
-					  width: '50%',
-					  verticalAlign: 'middle',
-					}}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.imageItemUrl && !item.imageItemLink && (
 					  <Img
 						src={item.imageItemUrl}
 						alt={item.imageItemAlt || ''}
-						width="auto"
+						width="100%"
 						height="auto"
 						style={styles.image}
 					  />
@@ -95,7 +90,7 @@ export function ImageSummaryWithAlternatingText({
 						<Img
 						  src={item.imageItemUrl}
 						  alt={item.imageItemAlt || ''}
-						  width="auto"
+						  width="100%"
 						  height="auto"
 						  style={styles.image}
 						/>
@@ -103,50 +98,37 @@ export function ImageSummaryWithAlternatingText({
 					)}
 				  </Column>
 				  <Column
-					style={{
-					  width: '50%',
-					  verticalAlign: 'middle',
-					}}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.textItem && (
 					  <div
-					  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
-					  style={styles.richText}
-					/>
+						dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
+						style={styles.richText}
+					  />
 					)}
 				  </Column>
 				</>
-			  )}
-			  {item.imageOnRight && (
+			  ) : (
 				<>
-
 				  <Column
-					style={{
-					  width: '50%',
-					  verticalAlign: 'middle',
-					}}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.textItem && (
 					  <div
-					  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
-					  style={styles.richText}
-					/>
+						dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
+						style={styles.richText}
+					  />
 					)}
 				  </Column>
 				  <Column
 					align="center"
-					key={index}
-					colSpan={1}
-					style={{
-					  width: '50%',
-					  verticalAlign: 'middle',
-					}}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.imageItemUrl && !item.imageItemLink && (
 					  <Img
 						src={item.imageItemUrl}
 						alt={item.imageItemAlt || ''}
-						width="auto"
+						width="100%"
 						height="auto"
 						style={styles.image}
 					  />
@@ -156,7 +138,7 @@ export function ImageSummaryWithAlternatingText({
 						<Img
 						  src={item.imageItemUrl}
 						  alt={item.imageItemAlt || ''}
-						  width="auto"
+						  width="100%"
 						  height="auto"
 						  style={styles.image}
 						/>
@@ -165,9 +147,9 @@ export function ImageSummaryWithAlternatingText({
 				  </Column>
 				</>
 			  )}
-			</React.Fragment>
-          ))}
-        </Row>
+			</Row>
+		  ))}
+		</>
 	  )}
 	  {postSummaryHtml && (
 		<Row>

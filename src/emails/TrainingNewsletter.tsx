@@ -5,6 +5,7 @@ import { FooterDivider } from '@/app/components/FooterDivider';
 import { FooterTraining } from '@/app/components/FooterTraining';
 import { Header } from '@/app/components/Header';
 import { Conditional } from 'jsx-email';
+import { tokens } from './styles';
 
 import {
     Html,
@@ -12,6 +13,8 @@ import {
     Preview,
     Body,
     Container,
+    Column,
+    Row
 } from '@react-email/components';
 import { SectionRenderer } from '@/app/components/sections';
 import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
@@ -25,7 +28,7 @@ type Props = WeeklyNewsletterProps & {
 
 export default function TrainingNewsletter({
     sections,
-    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_logo.jpg',
+    templateLogoUrl = 'https://facilities.utk.edu/wp-content/uploads/2026/01/email-UTKF_logo.jpg',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
     const previewText = 'Facilities Services Newsletter';
@@ -38,7 +41,9 @@ export default function TrainingNewsletter({
                 <style>
                     {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; } p, div, ol, li { font-size: 14px; }`}
                 </style>
+
             </Conditional>
+        
            
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
@@ -52,24 +57,27 @@ export default function TrainingNewsletter({
                     />
 
                     <Container style={styles.innerContainer}>
+                        <Row>
+                            <Column className="content-td" style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
 
-                        {sections && sections.length > 0 ? (
-                            <>
-                                {sections.map((section, i) => {
-                                    const isLastSection = i === sections.length - 1;
-                                    return (
-                                        <SectionRenderer
-                                            key={i}
-                                            section={section}
-                                            isLast={isLastSection}
-                                        />
-                                    );
-                                })}
-                            </>
-                        ) : null}
+                            {sections && sections.length > 0 ? (
+                                <>
+                                    {sections.map((section, i) => {
+                                        const isLastSection = i === sections.length - 1;
+                                        return (
+                                            <SectionRenderer
+                                                key={i}
+                                                section={section}
+                                                isLast={isLastSection}
+                                            />
+                                        );
+                                    })}
+                                </>
+                            ) : null}
+                            </Column>
+                            </Row>
 
-                        <FooterDivider />
-                        
+                            <FooterDivider />
                     </Container>
                     <FooterTraining />
                 </Container>

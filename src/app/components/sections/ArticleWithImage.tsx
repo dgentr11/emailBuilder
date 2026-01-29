@@ -1,6 +1,7 @@
 import { Section, Img, Text, Column, Row } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ArticleWithImageView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ArticleWithImageView;
 
@@ -61,7 +62,7 @@ export function ArticleWithImage({
 
 			{summaryHtml && (
 				<div
-					dangerouslySetInnerHTML={{ __html: summaryHtml }}
+					dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
 					style={styles.richTextCentered}
 				/>
 			)}

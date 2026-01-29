@@ -1,6 +1,7 @@
 import { Section, Text, Row, Hr, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { SimpleListView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = SimpleListView;
 
@@ -24,7 +25,7 @@ export function SimpleList({
 									)}
 									{item.itemSummaryHtml && (
 										<div
-											dangerouslySetInnerHTML={{ __html: item.itemSummaryHtml }}
+											dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.itemSummaryHtml) }}
 											style={styles.richText}
 										/>
 									)}

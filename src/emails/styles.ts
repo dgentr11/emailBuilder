@@ -37,6 +37,7 @@ export const tokens = {
     md: 12,
     lg: 20,
     xl: 30,
+    xxl: 40,
   },
   widths: {
     container: 600,
@@ -57,13 +58,11 @@ export const styles = {
     width: '100%',
     margin: '0 auto',
     backgroundColor: tokens.colors.white,
-    paddingTop: tokens.spacing.xl,
     paddingBottom: 0,
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
-    paddingLeft: tokens.spacing.lg,
-    paddingRight: tokens.spacing.lg,
+    
     paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
     width: '100%',
@@ -87,7 +86,7 @@ export const styles = {
   header: withFont({
     textAlign: 'center',
     paddingBottom: tokens.spacing.lg,
-    paddingTop: tokens.spacing.lg
+    paddingTop: tokens.spacing.xxl
   }),
   headerImageContainer: withFont({
     fontSize: '0',
@@ -121,10 +120,12 @@ export const styles = {
   section: withFont({
     paddingTop: tokens.spacing.lg,
     paddingBottom: tokens.spacing.lg,
+
   }),
   sectionLast: withFont({
     paddingTop: tokens.spacing.lg,
     paddingBottom: tokens.spacing.lg,
+
   }),
    sectionCentered: withFont({
     paddingTop: tokens.spacing.xl,
@@ -137,7 +138,6 @@ export const styles = {
     margin: '0 auto',
     textAlign: 'center',
     borderRadius: '8px',
-    maxWidth: '560px'
   }),
   imageCover: withFont({
     display: 'block',
@@ -157,7 +157,7 @@ export const styles = {
     textTransform: 'uppercase'
   }), 
   imageAttribution: withFont({
-    fontSize: '12px',
+    fontSize: '13px',
     lineHeight: '16px',
     textAlign: 'center',
     fontStyle: 'italic',
@@ -197,11 +197,13 @@ export const styles = {
   richText: withFont({
     fontSize: 14,
     lineHeight: '21px',
+    fontFamily: tokens.fonts.base,
   }),
    richTextCentered: withFont({
     fontSize: 14,
     textAlign: 'center',
     lineHeight: '21px',
+    fontFamily: tokens.fonts.base,
   }),
   richTextLeft: withFont({
     fontSize: 14,
@@ -209,6 +211,7 @@ export const styles = {
     textAlign: 'left',
     marginBottom: '0',
     lineHeight: '21px',
+    fontFamily: tokens.fonts.base,
   }),
   eyebrowCentered: withFont({
     fontSize: tokens.fontSizes.md,
@@ -240,6 +243,12 @@ export const styles = {
     lineHeight: '20px',
     fontWeight: 'bold'
   }),
+  h3NoMargin: withFont({
+    fontSize: 16,
+    margin: '0px 0px 0px 0px',
+    lineHeight: '20px',
+    fontWeight: 'bold'
+  }),
   h4: withFont({
     fontSize: 14,
     margin: '8px 0 0px',
@@ -257,12 +266,13 @@ export const styles = {
     display: 'inline-block',
   }),
   listItemLink: withFont({
-    fontSize: tokens.fontSizes.sm,
+    fontSize: tokens.fontSizes.md,
     color: tokens.colors.primary,
     marginTop: '0px',
     fontWeight: '700',
-    lineHeight: tokens.lineHeight.sm,
-    textTransform: 'uppercase'
+    lineHeight: tokens.lineHeight.md,
+    textTransform: 'uppercase',
+    textDecoration: 'none'
   }),
   footerCta: withFont({
     textAlign: 'center',
@@ -281,7 +291,6 @@ export const styles = {
   footer: withFont({
     padding: '30px 0',
     textAlign: 'center',
-    maxWidth: '600px'
   }),
   footerText: withFont({
     fontSize: 12,
@@ -315,7 +324,6 @@ export const styles = {
   }),
   footerLower: withFont({
     backgroundColor: tokens.colors.smokey,
-    maxWidth: '600px',
     width: '100%',
     paddingTop: tokens.spacing.md,
     paddingBottom: tokens.spacing.xl

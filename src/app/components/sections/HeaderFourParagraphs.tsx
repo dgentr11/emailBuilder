@@ -1,6 +1,7 @@
 import { Img, Row, Column, Text } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { HeaderFourParagraphsView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = HeaderFourParagraphsView;
 
@@ -46,58 +47,58 @@ export function HeaderFourParagraphs({
                   colSpan={1}
                   style={{
                     width: '50%',
+                    verticalAlign: 'top',
                     paddingRight: itemIndex === 0 ? 12 : 0,
                     paddingLeft: itemIndex === 1 ? 12 : 0,
                     paddingTop: '8px',
                     paddingBottom: '8px',
-                    verticalAlign: 'top',
                   }}
                 >
-                  {item.itemImageUrl && !item.itemImageLink && (
-                    <Img
-                      alt={item.itemImageAlt || item.paragraphItemTitle || ''}
-                      height="48"
-                      src={item.itemImageUrl}
-                      width="48"
-                    />
-                  )}
-                  {item.itemImageUrl && item.itemImageLink && (
-                    <a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+                    {item.itemImageUrl && !item.itemImageLink && (
                       <Img
                         alt={item.itemImageAlt || item.paragraphItemTitle || ''}
                         height="48"
                         src={item.itemImageUrl}
                         width="48"
                       />
-                    </a>
-                  )}
-                  {item.paragraphItemTitle && (
-                    <Text
-                      style={{
-                        margin: '0px',
-                        marginTop: 4,
-                        marginBottom: 4,
-                        fontSize: 16,
-                        lineHeight: '20px',
-                        fontWeight: 600,
-                        color: 'rgb(17,24,39)',
-                      }}
-                    >
-                      {item.paragraphItemTitle}
-                    </Text>
-                  )}
-                  {item.paragraphItemSummaryHtml && (
-                    <div
-                      style={{
-                        marginBottom: '0px',
-                        marginTop: '8px',
-                        fontSize: 14,
-                        lineHeight: '1.5',
-                        color: '#000000',
-                      }}
-                      dangerouslySetInnerHTML={{ __html: item.paragraphItemSummaryHtml }}
-                    />
-                  )}
+                    )}
+                    {item.itemImageUrl && item.itemImageLink && (
+                      <a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+                        <Img
+                          alt={item.itemImageAlt || item.paragraphItemTitle || ''}
+                          height="48"
+                          src={item.itemImageUrl}
+                          width="48"
+                        />
+                      </a>
+                    )}
+                    {item.paragraphItemTitle && (
+                      <Text
+                        style={{
+                          margin: '0px',
+                          marginTop: 4,
+                          marginBottom: 4,
+                          fontSize: 16,
+                          lineHeight: '20px',
+                          fontWeight: 600,
+                          color: 'rgb(17,24,39)',
+                        }}
+                      >
+                        {item.paragraphItemTitle}
+                      </Text>
+                    )}
+                    {item.paragraphItemSummaryHtml && (
+                      <div
+                        style={{
+                          marginBottom: '0px',
+                          marginTop: '8px',
+                          fontSize: 14,
+                          lineHeight: '1.5',
+                          color: '#000000',
+                        }}
+                        dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.paragraphItemSummaryHtml) }}
+                      />
+                    )}
                 </Column>
               ))}
               {/* If odd number of items, add empty column to maintain layout */}

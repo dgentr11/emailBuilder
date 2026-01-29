@@ -63,7 +63,7 @@ export function ImageSummaryTwoImages({
           <Img
             src={imageUrl}
             alt={imageAlt || ''}
-            width="auto"
+            width="100%"
             height="auto"
             style={styles.image}
           />
@@ -80,7 +80,7 @@ export function ImageSummaryTwoImages({
             <Img
               src={imageUrl}
               alt={imageAlt || ''}
-              width="auto"
+              width="100%"
               height="auto"
               style={styles.image}
             />
@@ -117,7 +117,7 @@ export function ImageSummaryTwoImages({
                   <Img
                     src={item.imageUrl}
                     alt={item.imageAlt || ''}
-                    width="auto"
+                    width="100%"
                     height="auto"
                     style={styles.image}
                   />
@@ -127,7 +127,7 @@ export function ImageSummaryTwoImages({
                     <Img
                       src={item.imageUrl}
                       alt={item.imageAlt || ''}
-                      width="auto"
+                      width="100%"
                       height="auto"
                       style={styles.image}
                     />
@@ -141,7 +141,7 @@ export function ImageSummaryTwoImages({
         <Row>
           <Column style={{paddingTop: '20px', paddingBottom: '20px', textAlign: 'center'}}>
             <div
-              dangerouslySetInnerHTML={{ __html: postSummaryHtml }}
+              dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(postSummaryHtml) }}
               style={styles.richText}
             />
           </Column>

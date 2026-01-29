@@ -1,6 +1,8 @@
 import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { HeaderThreeParagraphsView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
+
 type Props = HeaderThreeParagraphsView;
 
 export function HeaderThreeParagraphs({
@@ -42,7 +44,7 @@ export function HeaderThreeParagraphs({
 
       {summaryHtml && (
         <div
-          dangerouslySetInnerHTML={{ __html: summaryHtml }}
+          dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
           style={styles.richTextCentered}
         />
       )}
@@ -66,6 +68,7 @@ export function HeaderThreeParagraphs({
                           <Img
                             src={item.itemImageUrl}
                             alt={item.itemImageAlt || ''}
+                            width="100%"
                             style={styles.image}
                           />
                         </a>
@@ -74,6 +77,7 @@ export function HeaderThreeParagraphs({
                         <Img
                             src={item.itemImageUrl}
                             alt={item.itemImageAlt || ''}
+                            width="100%"
                             style={styles.image}
                           />
                       )}

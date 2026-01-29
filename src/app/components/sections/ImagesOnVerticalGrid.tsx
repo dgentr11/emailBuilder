@@ -1,6 +1,7 @@
 import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImagesOnVerticalGridView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ImagesOnVerticalGridView;
 
@@ -124,7 +125,7 @@ export function ImagesOnVerticalGrid({
         <Row>
           <Column style={{paddingTop: '10px', paddingBottom: '0px', textAlign: 'center'}}>
             <div
-              dangerouslySetInnerHTML={{ __html: postSummaryHtml }}
+              dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(postSummaryHtml) }}
               style={styles.richText}
             />
           </Column>

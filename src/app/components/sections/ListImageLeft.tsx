@@ -1,6 +1,7 @@
 import { Section, Text, Img, Row, Column, Hr, Link } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ListImageLeftView } from '@/lib/mapIssueToEmailProps';
+import { tokens } from '@/emails/styles';
 import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ListImageLeftView;
@@ -20,7 +21,7 @@ export function ListImageLeft({
 
 	  {summaryHtml && (
 		<div
-		  dangerouslySetInnerHTML={{ __html: summaryHtml }}
+		  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
 		  style={styles.richTextCentered}
 		/>
 	  )}
@@ -32,19 +33,19 @@ export function ListImageLeft({
 			<div key={index} >
 				<Row>
 					{item.itemImageUrl && !item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }} valign="top">
-						<Img
-							src={item.itemImageUrl}
-							alt={item.itemImageAlt || item.itemTitle || ''}
-							width="100%"
-							height="auto"
-							style={styles.image}
-						/>
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
+							<Img
+								src={item.itemImageUrl}
+								alt={item.itemImageAlt || item.itemTitle || ''}
+								width="100%"
+								height="auto"
+								style={styles.image}
+							/>
 						</Column>
 						
 					)}
 					{item.itemImageUrl && item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', paddingRight: '12px', paddingBottom: '8px', paddingTop: '8px' }} valign="top">
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
 							<a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
 								<Img
 									src={item.itemImageUrl}
@@ -56,41 +57,41 @@ export function ListImageLeft({
 							</a>
 						</Column>
 					)}
-					<Column width="75%" valign="top" style={{ width: '75%', paddingRight: '0', verticalAlign: 'top', paddingBottom: '20px', paddingTop: '8px' }} >
-						{item.itemTitle && (
-						<Text style={{...styles.h3, marginTop: 0, marginBottom: '8px'}}>
-							{item.itemTitle}
-						</Text>
-						)}
-						{item.itemSummaryHtml && (
-							<div
-								dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.itemSummaryHtml) }}
-								style={styles.richText}
-							/>
-						)}
-						{item.itemLinkURL && (
-							<Row>
-								<Column 
-									align="left"
-									valign="middle"
-									style={{ verticalAlign: 'middle', paddingTop: '8px'}}
-								>
-									<Link 
-										href={item.itemLinkURL}
-										target='_blank'
-										style={styles.listItemLink}
-									>{item.itemLinkText}
-										&nbsp;&nbsp;<Img
-											src={"https://facilities.utk.edu/wp-content/uploads/2026/01/Email-Arrow-Link.png"}
-											alt={'arrow'}
-											width="16px"
-											height="10px"
-											style={{display: 'inline', paddingLeft: '2px', paddingTop: '2px'}}
-										/>
-									</Link>
-								</Column>
-							</Row>
-						)}
+					<Column width="75%" valign="top" style={{ width: '75%', verticalAlign: 'top', fontFamily: tokens.fonts.base, paddingRight: '12px', paddingBottom: '12px', paddingTop: '8px' }} >
+							{item.itemTitle && (
+								<Text style={{...styles.h3NoMargin}}>
+									{item.itemTitle}
+								</Text>
+							)}
+							{item.itemSummaryHtml && (
+								<div
+									dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.itemSummaryHtml) }}
+									style={styles.richText}
+								/>
+							)}
+							{item.itemLinkURL && (
+								<Row>
+									<Column 
+										align="left"
+										valign="middle"
+										style={{ verticalAlign: 'middle', paddingTop: '4px'}}
+									>
+										<Link 
+											href={item.itemLinkURL}
+											target='_blank'
+											style={styles.listItemLink}
+										>{item.itemLinkText}
+											&nbsp;&nbsp;<Img
+												src={"https://facilities.utk.edu/wp-content/uploads/2026/01/Email-Arrow-Link.png"}
+												alt={'arrow'}
+												width="16px"
+												height="10px"
+												style={{display: 'inline', paddingLeft: '2px', paddingTop: '2px'}}
+											/>
+										</Link>
+									</Column>
+								</Row>
+							)}
 					</Column>
 				</Row>
 				{item.itemDivider && (

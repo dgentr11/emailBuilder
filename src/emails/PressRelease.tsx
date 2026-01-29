@@ -4,6 +4,7 @@ import { styles } from './styles';
 import { Footer } from '@/app/components/Footer';
 import { Header } from '@/app/components/Header';
 import { Conditional } from 'jsx-email';
+import { tokens } from './styles';
 
 import {
     Html,
@@ -26,7 +27,7 @@ export default function PressRelease({
     emailTitle,
     publishDate,
     pressReleaseArticle,
-    templateLogoUrl = "https://facilities.utk.edu/wp-content/uploads/2026/01/Email_UTKF_logo.jpg",
+    templateLogoUrl = "https://facilities.utk.edu/wp-content/uploads/2026/01/email-UTKF_logo.jpg",
     templateLogoAlt = "The University of Tennessee Knoxville Facilities Services",
     }: PressReleaseEmailProps & {
     templateLogoUrl?: string;
@@ -46,6 +47,7 @@ export default function PressRelease({
                 </style>
 
             </Conditional>
+        
            
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
    
@@ -60,65 +62,86 @@ export default function PressRelease({
                     />
 
                     <Container style={styles.innerContainer}>      
-                        <Section style={styles.section} >
-                            {/* Image */} 
-                            {pressReleaseArticle?.image?.asset?.url && (
-                                <Row>
-                                    <Column style={{paddingBottom: "16px"}}>
-                                        <Img
-                                            src={pressReleaseArticle.image.asset.url}
-                                            alt={pressReleaseArticle.image.alt || ""}
-                                            style={{ borderRadius: "8px", marginBottom: "0px" }}
-                                        />
-                                    </Column>
-                                </Row>
-                                
-                            )}
+                        <Row>
+                            <Column style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
+                                <Section style={styles.section} >
+                                    {/* Image */} 
+                                    {pressReleaseArticle?.image?.asset?.url && (
+                                        <Row>
+                                            <Column style={{paddingBottom: "16px"}}>
+                                                <Img
+                                                    src={pressReleaseArticle.image.asset.url}
+                                                    alt={pressReleaseArticle.image.alt || ""}
+                                                    width="100%"
+                                                    style={{ borderRadius: "8px", marginBottom: "0px" }}
+                                                />
+                                            </Column>
+                                        </Row>
+                                        
+                                    )}
 
-                            {pressReleaseArticle?.eyebrow && (
-                                <Text style={{ ...styles.eyebrowCentered, marginBottom: '8px' }}>
-                                    {pressReleaseArticle.eyebrow}
-                                </Text>
-                                )}
-
-                            {/* Title */}
-                            {pressReleaseArticle?.title && (
-                                <Text style={{...styles.h1, textTransform: "uppercase", marginTop: '0px'}}>
-                                    {pressReleaseArticle.title}
-                                </Text>
-                            )}
-                            
-                            {/* Summary (Portable Text) */}
-                            {pressReleaseArticle?.summary && (
-                                <div style={{ marginBottom: "24px" }}>
-                                    {pressReleaseArticle.summary.map((block: any, i: number) => {
-                                    if (block._type === "block") {
-                                        return (
-                                        <Text key={i} style={{ ...styles.richText }}>
-                                            {block.children?.map((c: any) => c.text).join("")}
+                                    {pressReleaseArticle?.eyebrow && (
+                                        <Text style={{ ...styles.eyebrowCentered, marginBottom: '8px' }}>
+                                            {pressReleaseArticle.eyebrow}
                                         </Text>
-                                        );
-                                    }
-                                    return null;
-                                    })}
-                                </div>
-                            )}
+                                        )}
 
-                            {/* Button Link */}
-                            {pressReleaseArticle?.url && (
-                                <Row>
-                                    <Column style={{textAlign: "center"}}>
+                                    {/* Title */}
+                                    {pressReleaseArticle?.title && (
+                                        <Text style={{...styles.h1, textTransform: "uppercase", marginTop: '0px'}}>
+                                            {pressReleaseArticle.title}
+                                        </Text>
+                                    )}
                                     
-                                    <Link
-                                        href={pressReleaseArticle.url}
-                                        style={{...styles.footerButton, textAlign: 'center'}}
-                                    >
-                                        {pressReleaseArticle.urlText ?? "Read More"}
-                                    </Link>
-                                    </Column>
-                                </Row>
-                            )}
-                        </Section>
+                                    {/* Summary (Portable Text) */}
+                                    {pressReleaseArticle?.summary && (
+                                        <div style={{ marginBottom: "24px" }}>
+                                            {pressReleaseArticle.summary.map((block: any, i: number) => {
+                                            if (block._type === "block") {
+                                                return (
+                                                <Text key={i} style={{ ...styles.richText }}>
+                                                    {block.children?.map((c: any) => c.text).join("")}
+                                                </Text>
+                                                );
+                                            }
+                                            return null;
+                                            })}
+                                        </div>
+                                    )}
+
+                                    {/* Button Link */}
+                                    {pressReleaseArticle?.url && (
+                                        <Row>
+                                            <Column style={{textAlign: "center", paddingTop: tokens.spacing.lg}}>
+                                                <table role="presentation" border={0} cellPadding={0} cellSpacing={0} align="center" style={{ margin: "auto" }}>
+                                                    <tbody>
+                                                        <tr>
+                                                        <td style={{ backgroundColor: "#ffffff", border: "3px solid #ff8200", borderRadius: '8px', padding: "12px 20px", textAlign: "center" }}>
+                                                            <a
+                                                            href={pressReleaseArticle.url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            style={{
+                                                                fontFamily: "Arial, Helvetica, sans-serif",
+                                                                fontSize: "16px",
+                                                                fontWeight: "bold",
+                                                                color: "#0078d4",
+                                                                textDecoration: "none",
+                                                                display: "inline-block",
+                                                            }}
+                                                            >
+                                                            <span style={{textDecoration: 'none', color: '#0078d4', fontWeight: 'bold'}}>{pressReleaseArticle.urlText ?? "Read More"}</span>
+                                                            </a>
+                                                        </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </Column>
+                                        </Row>     
+                                    )}
+                            </Section>
+                        </Column>
+                        </Row>
                     </Container>
                     <Footer />
                 </Container>

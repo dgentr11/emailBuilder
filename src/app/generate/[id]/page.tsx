@@ -92,9 +92,9 @@ export default async function Page(
     const raw = await render(<Component {...emailProps} />);
     try {
       html = await pretty(raw);
-    } catch (e) {
-      console.warn('pretty() failed, using raw output:', e);
-      html = raw;
+    } catch {
+      // Prettier can fail on large/complex HTML; un-minify so download is readable
+      html = raw.replace(/></g, '>\n<');
     }
   } catch (e) {
     console.error('render() failed:', e);
