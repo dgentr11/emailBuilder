@@ -1,7 +1,6 @@
 import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { HeaderThreeParagraphsView } from '@/lib/mapIssueToEmailProps';
-
 type Props = HeaderThreeParagraphsView;
 
 export function HeaderThreeParagraphs({
@@ -89,7 +88,6 @@ export function HeaderThreeParagraphs({
                 )}
                 {item.paragraphItemSummaryHtml && (
                   <div style={{...styles.richTextCentered, marginTop: '0px'}}
-                     dangerouslySetInnerHTML={{ __html: item.paragraphItemSummaryHtml }}
                   />
                 )}
               </Column>

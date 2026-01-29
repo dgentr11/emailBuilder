@@ -136,7 +136,8 @@ export const styles = {
     border: 0,
     margin: '0 auto',
     textAlign: 'center',
-    borderRadius: '8px'
+    borderRadius: '8px',
+    maxWidth: '560px'
   }),
   imageCover: withFont({
     display: 'block',
@@ -258,7 +259,7 @@ export const styles = {
   listItemLink: withFont({
     fontSize: tokens.fontSizes.sm,
     color: tokens.colors.primary,
-    marginTop: '16px',
+    marginTop: '0px',
     fontWeight: '700',
     lineHeight: tokens.lineHeight.sm,
     textTransform: 'uppercase'

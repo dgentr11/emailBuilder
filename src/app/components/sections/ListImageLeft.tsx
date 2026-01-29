@@ -89,9 +89,6 @@ export function ListImageLeft({
 										/>
 									</Link>
 								</Column>
-								
-									
-								
 							</Row>
 						)}
 					</Column>

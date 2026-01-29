@@ -165,14 +165,37 @@ export default defineType({
 			title: 'Divider Toggle',
 			initialValue: true,
 			description: 'Toggle to enable/disable divider',
+		}),
+		defineField({
+			name: 'previewImage',
+			type: 'image',
+			title: 'Preview Image',
+			hidden: true,
+			description: 'Internal field for preview - references checkerboard divider image',
+			options: {
+				accept: 'image/*'
+			}
 		})
 	  ],
 	  preview: {
-		select: { title: 'title'},
-		prepare(  selection ) {
+		select: { 
+			image: 'previewImage',
+			asset: 'previewImage.asset'
+		},
+		prepare(selection) {
+			const { image, asset } = selection;
+			// Fallback to hardcoded asset reference if previewImage is not set
+			const media = image || asset || {
+				_type: 'image',
+				asset: {
+					_type: 'reference',
+					_ref: 'image-35a6953400339f172fe89c59e24abec864d5e01f-300x34-jpg'
+				}
+			};
 			return {
 			  title: 'Checkerboard Divider',
-
+			  subtitle: 'Orange and white checkerboard pattern',
+			  media: media
 		  }
 		}
 	  }
@@ -231,12 +254,17 @@ export default defineType({
 		  }),
 		],
 		preview: {
-			select: { title: 'title', subtitle: 'title'},
+			select: { 
+				header: 'header',
+				firstItemImage: 'paragraphItems[0].itemImage',
+				firstItemAsset: 'paragraphItems[0].itemImage.asset'
+			},
 			prepare(selection) {
-				const {title} = selection
+				const {header, firstItemImage, firstItemAsset} = selection
 				return {
-				  title: 'Header and four paragraphs',
-				  subtitle: title
+				  title: header || 'Header and four paragraphs',
+				  subtitle: header ? 'Four paragraph items' : undefined,
+				  media: firstItemImage || firstItemAsset
 			  	}
 			}
 		}
@@ -338,12 +366,18 @@ export default defineType({
 			}),
 		],
 		preview: {
-			select: { title: 'title', subtitle: 'title'},
+			select: { 
+				title: 'title',
+				eyebrow: 'eyebrow',
+				image: 'image',
+				asset: 'image.asset'
+			},
 			prepare(selection) {
-				const {title} = selection
+				const {title, eyebrow, image, asset} = selection
 				return {
-				  title: 'Summary with Image',
-				  subtitle: title
+				  title: title || eyebrow || 'Summary with Image',
+				  subtitle: eyebrow && title ? eyebrow : undefined,
+				  media: image || asset
 			  	}
 			}
 		}
@@ -614,7 +648,7 @@ export default defineType({
 	  },
 	  {
 		type: 'object',
-		name: 'imageSummaryWithAlternatingText',
+		name: 'imageSummaryAlternatingText',
 		title: 'Image with Summary plus 50/50 Image/Text Blocks',
 		fields: [
 			defineField({
@@ -655,7 +689,7 @@ export default defineType({
 						}),
 						defineField({
 							name: 'imageItem',
-							title: 'Image',
+							title: 'Image Item',
 							type: 'image',
 							options: { hotspot: true },
 							fields: [
@@ -666,21 +700,41 @@ export default defineType({
 						}),
 						defineField({
 							name: 'textItem',
-							title: 'Summary',
+							title: 'Text Item',
 							type: 'array',
 							of: [{ type: 'block' }],
 						})
 					  ], 
 						preview: {
 							select: {
-							image: 'image',
-							asset: 'image.asset',
-							title: 'image.alt'
+								imageItem: 'imageItem',
+								asset: 'imageItem.asset',
+								alt: 'imageItem.alt',
+								textItem: 'textItem'
 							},
-								prepare({ image, asset, title }) {
+							prepare({ imageItem, asset, alt, textItem }) {
+								// Extract text from Portable Text array for title
+								const getTextFromBlocks = (blocks: any[]) => {
+									if (!blocks || !Array.isArray(blocks)) return '';
+									return blocks
+										.filter(block => block._type === 'block' && block.children)
+										.map(block => 
+											block.children
+												.filter((child: any) => child._type === 'span')
+												.map((child: any) => child.text)
+												.join('')
+										)
+										.join(' ')
+										.substring(0, 50) || '';
+								};
+								
+								const textPreview = getTextFromBlocks(textItem);
+								const title = textPreview || alt || 'Image/Text Item';
+								
 								return {
-									title: title || 'Image item',
-									media: image || asset
+									title: title,
+									subtitle: alt ? `Alt: ${alt}` : undefined,
+									media: imageItem || asset
 								}
 							}
 						}
@@ -693,7 +747,7 @@ export default defineType({
 			prepare(selection) {
 				const { media } = selection
 				return {
-				  title: 'Image with Summary plus Two Images',
+				  title: 'Image with Summary plus 50/50 Image/Text Blocks',
 				  media: media
 			  }
 			}

@@ -1,6 +1,8 @@
+import React from 'react';
 import { Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImageSummaryAlternatingTextView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ImageSummaryAlternatingTextView;
 
@@ -67,7 +69,7 @@ export function ImageSummaryWithAlternatingText({
 	  {alternatingTextItems && alternatingTextItems.length > 0 && (
 		<Row style={{ marginTop: 20 }}>
 		  {alternatingTextItems.map((item, index) => (
-			<>
+			<React.Fragment key={index}>
 			  {!item.imageOnRight && (
 				<>
 				  <Column
@@ -107,9 +109,10 @@ export function ImageSummaryWithAlternatingText({
 					}}
 				  >
 					{item.textItem && (
-					  <Text style={styles.richText}>
-						{item.textItem}
-					  </Text>
+					  <div
+					  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
+					  style={styles.richText}
+					/>
 					)}
 				  </Column>
 				</>
@@ -124,9 +127,10 @@ export function ImageSummaryWithAlternatingText({
 					}}
 				  >
 					{item.textItem && (
-					  <Text style={styles.richText}>
-						{item.textItem}
-					  </Text>
+					  <div
+					  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.textItem) }}
+					  style={styles.richText}
+					/>
 					)}
 				  </Column>
 				  <Column
@@ -161,7 +165,7 @@ export function ImageSummaryWithAlternatingText({
 				  </Column>
 				</>
 			  )}
-			</>
+			</React.Fragment>
           ))}
         </Row>
 	  )}
@@ -169,7 +173,7 @@ export function ImageSummaryWithAlternatingText({
 		<Row>
 		  <Column style={{ paddingTop: '20px', paddingBottom: '20px', textAlign: 'center' }}>
 			<div
-			  dangerouslySetInnerHTML={{ __html: postSummaryHtml }}
+			  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(postSummaryHtml) }}
 			  style={styles.richText}
 			/>
 		  </Column>

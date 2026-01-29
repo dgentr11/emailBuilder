@@ -38,14 +38,13 @@ export const DOC_BY_ID = `
       paragraphItemSummary
     },
     alternatingTextItems[]{
+      imageOnRight,
       imageItem{
         asset->{url},
         alt,
         imageLink,
       },
-      textItem{
-        summary
-      }
+      textItem
     },
     simpleListURL,
     simpleListURLText,
@@ -108,9 +107,7 @@ export const LATEST_SCHEDULED = `
         alt,
         imageLink,
       },
-      textItem{
-        summary
-      }
+      textItem
     },
     paragraphItems[]{
       itemImage{asset->{url}, alt, imageLink},

@@ -12,6 +12,7 @@ import { RichText } from './RichText';
 import { SimpleImage } from './SimpleImage';
 import { ImageSummaryTwoImages } from './ImageSummaryTwoImages';
 import { HeaderThreeParagraphs } from './HeaderThreeParagraphs';
+import { ImageSummaryWithAlternatingText } from './ImageSummaryWithAlternatingText';
 
 type SectionRendererProps = {
   section: SectionView;
@@ -25,7 +26,6 @@ export function SectionRenderer({ section, isLast, template }: SectionRendererPr
  if (template === "pressRelease") {
   sectionStyle = { ...sectionStyle, textAlign: 'left' };
 }
-
 
   const renderSectionContent = () => {
     switch (section._type) {
@@ -51,6 +51,8 @@ export function SectionRenderer({ section, isLast, template }: SectionRendererPr
         return <SimpleImage {...section} />;
       case 'imageSummaryTwoImages':
         return <ImageSummaryTwoImages {...section} />
+      case 'imageSummaryAlternatingText':
+        return <ImageSummaryWithAlternatingText {...section} />
       default: {
         const _exhaustive: never = section;
         console.warn(`Unknown section type: ${(_exhaustive as any)._type}`);
