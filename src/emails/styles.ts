@@ -62,7 +62,6 @@ export const styles = {
     marginTop: tokens.spacing.xl,
   }),
   innerContainer: withFont({
-    
     paddingBottom: tokens.spacing.xl,
     paddingTop: '0',
     width: '100%',

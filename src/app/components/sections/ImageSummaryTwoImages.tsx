@@ -1,6 +1,7 @@
 import {  Text, Img, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { ImageSummaryTwoImagesView } from '@/lib/mapIssueToEmailProps';
+import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ImageSummaryTwoImagesView;
 

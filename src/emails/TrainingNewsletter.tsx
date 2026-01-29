@@ -58,7 +58,7 @@ export default function TrainingNewsletter({
 
                     <Container style={styles.innerContainer}>
                         <Row>
-                            <Column className="content-td" style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
+                            <Column className="content-td" style={{ paddingLeft: tokens.spacing.xl, paddingRight: tokens.spacing.xl }}>
 
                             {sections && sections.length > 0 ? (
                                 <>
