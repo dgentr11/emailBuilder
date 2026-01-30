@@ -68,7 +68,8 @@ export function HeaderThreeParagraphs({
                           <Img
                             src={item.itemImageUrl}
                             alt={item.itemImageAlt || ''}
-                            width="100%"
+                            width="50px"
+                            height="50px"
                             style={styles.image}
                           />
                         </a>
@@ -77,7 +78,8 @@ export function HeaderThreeParagraphs({
                         <Img
                             src={item.itemImageUrl}
                             alt={item.itemImageAlt || ''}
-                            width="100%"
+                            width="50px"
+                            height="50px"
                             style={styles.image}
                           />
                       )}
@@ -92,6 +94,7 @@ export function HeaderThreeParagraphs({
                 )}
                 {item.paragraphItemSummaryHtml && (
                   <div style={{...styles.richTextCentered, marginTop: '0px'}}
+                    dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.paragraphItemSummaryHtml) }}
                   />
                 )}
               </Column>

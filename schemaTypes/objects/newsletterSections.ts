@@ -262,8 +262,8 @@ export default defineType({
 			prepare(selection) {
 				const {header, firstItemImage, firstItemAsset} = selection
 				return {
-				  title: header || 'Header and four paragraphs',
-				  subtitle: header ? 'Four paragraph items' : undefined,
+				  title: 'Header and Four Paragraphs',
+				  subtitle: header,
 				  media: firstItemImage || firstItemAsset
 			  	}
 			}
@@ -323,12 +323,17 @@ export default defineType({
 			}),
 		],
 		preview: {
-			select: { title: 'title', subtitle: 'title'},
+			select: { 
+				header: 'header',
+				firstItemImage: 'paragraphItems[0].itemImage',
+				firstItemAsset: 'paragraphItems[0].itemImage.asset'
+			},
 			prepare(selection) {
-				const {title} = selection
+				const {header, firstItemImage, firstItemAsset} = selection
 				return {
 				  title: 'Header and three centered paragraphs',
-				  subtitle: title
+				  subtitle: header,
+				  media: firstItemImage || firstItemAsset
 			  	}
 			}
 		}
@@ -373,10 +378,10 @@ export default defineType({
 				asset: 'image.asset'
 			},
 			prepare(selection) {
-				const {title, eyebrow, image, asset} = selection
+				const {title, image, asset} = selection
 				return {
-				  title: title || eyebrow || 'Summary with Image',
-				  subtitle: eyebrow && title ? eyebrow : undefined,
+				  title: 'Summary with Image',
+				  subtitle: title,
 				  media: image || asset
 			  	}
 			}
@@ -430,10 +435,12 @@ export default defineType({
 		  }),
 		],
 		preview: {
-			select: { title: 'title', subtitle: 'title'},
+			select: { firstItemTitle: 'listItems[0].itemTitle' },
 			prepare(selection) {
+				const { firstItemTitle } = selection
 				return {
 				  title: 'Simple List',
+				  subtitle: firstItemTitle
 			  	}
 			}
 		}
@@ -636,11 +643,12 @@ export default defineType({
 			}),
 		],
 		preview: {
-			select: { title: 'Image with Summary plus Two Images', media: 'image'},
+			select: { title: 'title', media: 'image' },
 			prepare(selection) {
-				const { media } = selection
+				const { title, media } = selection
 				return {
 				  title: 'Image with Summary plus Two Images',
+				  subtitle: title,
 				  media: media
 			  }
 			}
@@ -743,11 +751,12 @@ export default defineType({
 			})
 		],
 		preview: {
-			select: { title: 'Image with Summary plus Two Images', media: 'image'},
+			select: { title: 'title', media: 'image' },
 			prepare(selection) {
-				const { media } = selection
+				const { title, media } = selection
 				return {
 				  title: 'Image with Summary plus 50/50 Image/Text Blocks',
+				  subtitle: title,
 				  media: media
 			  }
 			}
