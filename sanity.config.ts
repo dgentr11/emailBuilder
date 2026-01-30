@@ -15,7 +15,7 @@ export default defineConfig({
         enabled: true,
         excludeSources: ['unsplash'],
       },
-      maximumUploadSize: 10_000_000, // 10MB
+      maximumUploadSize: 2_000_000, // 2MB
     }),
   ],
   schema: { types: schemaTypes },
