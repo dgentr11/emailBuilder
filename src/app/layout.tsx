@@ -10,7 +10,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
       <body style={{ margin: 0, fontFamily: 'system-ui, Arial, sans-serif' }}>
         <header className='fixed left-1/2 -translate-x-1/2 z-[999] flex items-center h-[60px] w-full max-w-[1920px] bg-white text-gray-800
     dark:bg-black dark:text-white'>
-          <div className='flex items-center'>   
+          <div className='flex items-center w-full px-4'>   
               <Nav />
           </div>
         </header>
