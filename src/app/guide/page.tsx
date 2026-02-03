@@ -1,15 +1,19 @@
+import { GuideSidebar } from './GuideSidebar';
+
 export default function GuidePage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12 mt-24">
+    <main className="mx-auto max-w-7xl px-6 py-12 mt-24">
       <header className="mb-12">
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
           FS Email Builder Documentation
         </h1>
       </header>
 
-      <div className="prose prose-slate dark:prose-invert max-w-none space-y-12">
+      <div className="flex gap-12">
+        <GuideSidebar />
+        <div className="prose prose-slate dark:prose-invert max-w-none space-y-12 min-w-0 flex-1 [&_[id]]:scroll-mt-28">
         {/* Overview */}
-        <section>
+        <section id="overview">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
             Overview
           </h2>
@@ -37,14 +41,14 @@ export default function GuidePage() {
           </h2>
 
           {/* Selecting Content Type and Duplicating or Creating a New Email Document */}
-          <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+          <div id="creating-new-document" className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
              Creating a New Email Document by Content Type
             </h3>
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>What it is:</strong> Creates a new email document by selecting a content type.
             </p>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
+            <div className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>How to use it:</strong>
               <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
                 <li>Click the <strong>New Document (+)</strong> button in the top left corner of the screen.
@@ -56,14 +60,43 @@ export default function GuidePage() {
                 </li>
                 <li>A new email document will be created with the content type selected.</li>
                 <li>You can now add details to the new email document (right hand side) such as the title, publish date, and sections.
-                  <img src="https://cdn.sanity.io/images/qzfk7kdf/production/63240029d0448638900e019672de6e5959903961-1878x1009.png" alt="New Email Document Details" className="w-3/4 my-8" />
+                  <img src="https://cdn.sanity.io/images/qzfk7kdf/production/63240029d0448638900e019672de6e5959903961-1878x1009.png" alt="New Email Document Details" className="w-full my-8" />
                 </li>
               </ul>
-            </p>
+            </div>
           </div>
           </section>
-          <section>
 
+             {/* Duplicating an Existing Email Document */}
+        <section id="duplicating">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6">
+            Duplicating an Existing Email Document
+          </h2>
+
+          {/* Selecting Content Type and Duplicating or Creating a New Email Document */}
+          <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+             Duplicate from an existing TEMPLATE or email document
+            </h3>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>What it is:</strong> Creates a new email document by duplicating an existing template or email document.
+              <br />
+              <strong>Why use it:</strong> If you want to create a new email document with similar or the same content as an existing template or email document.
+            </p>
+            <div className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>How to use it:</strong>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+                <li>Select the template or email document you want to duplicate from the list of available templates or email documents.</li>
+                <li>Click the Document Actions (three dots) menu item in the lower right hand corner, then click <strong>Duplicate</strong> to create a new email document with the same content as the template or email document selected.</li>
+                <img src="https://cdn.sanity.io/images/qzfk7kdf/production/b9df5afae91f9f8b5f935ba9501beec9e80595d2-1184x961.png" alt="Content Type Selection" className="w-full my-8" />
+                <li>Now, edit the new email document, replacinng content as needed.</li>
+                <li>Click <strong>Publish</strong> to save the new email document and make it available to export as HTML.</li>
+              </ul>
+            </div>
+          </div>
+          </section>
+
+          <section id="internal-fields">
             <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Internal Email Fields Explained</h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-8">
                 The following three fields (title, publish date, and workflow status) are used for internal organizational purposes. They have no bearing on exporting HTML content when ready to send.
@@ -127,7 +160,7 @@ export default function GuidePage() {
         </section>
 
         {/* Adding Sections */}
-        <section>
+        <section id="adding-sections">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
             Adding Sections
           </h2>
@@ -140,7 +173,7 @@ export default function GuidePage() {
         </section>
 
         {/* Section Types */}
-        <section>
+        <section id="section-types">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6">
             Section Types
           </h2>
@@ -149,7 +182,7 @@ export default function GuidePage() {
           </p>
 
           {/* Article with Image */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="article-with-image" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Article with Image
             </h3>
@@ -170,6 +203,8 @@ export default function GuidePage() {
               <li><strong>Link:</strong> Button Destination URL</li>
               <li><strong>Link Text:</strong> Text for the call-to-action Button (example: Read More)</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/c174e5744e023381037162041df5903b3fd10cf5-610x544.png" alt="Article with Image" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -180,7 +215,7 @@ export default function GuidePage() {
           </div>
 
           {/* List with Image on Left */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="list-with-image-left" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               List with Image on Left
             </h3>
@@ -200,6 +235,8 @@ export default function GuidePage() {
               </li>
               <li><strong>Show Divider after item?:</strong> Adds a visual divider below the item</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/f8274502e98f430f8e070a2fc8255a01836de441-595x613.png" alt="List with Image on Left" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -210,7 +247,7 @@ export default function GuidePage() {
           </div>
 
           {/* Divider */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="divider" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Divider
             </h3>
@@ -223,6 +260,8 @@ export default function GuidePage() {
             <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
               <li><strong>Divider Toggle:</strong> Turn the divider on or off (default is On)</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/c0cca87b2274a1137fc778f1607009815e644ae7-602x41.png" alt="Divider" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Notes:</strong>
             </p>
@@ -233,7 +272,7 @@ export default function GuidePage() {
           </div>
 
           {/* Header and Four Paragraphs */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="header-four-paragraphs" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Header and Four Paragraphs
             </h3>
@@ -253,6 +292,8 @@ export default function GuidePage() {
                 </ul>
               </li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/87361f66fa48cd8b652a6710e2d78d66972e0ecd-571x733.png" alt="Header and Four Paragraphs" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -263,7 +304,7 @@ export default function GuidePage() {
           </div>
 
           {/* Header and Three Centered Paragraphs */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="header-three-paragraphs" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Header and Three Centered Paragraphs
             </h3>
@@ -282,6 +323,8 @@ export default function GuidePage() {
                 </ul>
               </li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/4c30399ebe53b820837b6e8b29060e6725093b4f-599x329.png" alt="Header and Three Centered Paragraphs" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -292,7 +335,7 @@ export default function GuidePage() {
           </div>
 
           {/* Summary with Image */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="summary-with-image" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Summary with Image
             </h3>
@@ -308,13 +351,15 @@ export default function GuidePage() {
               <li><strong>Summary:</strong> Descriptive text</li>
               <li><strong>Image:</strong> Supporting image with optional link</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/bd23c9149e5ffb8e5e5fd0c1567a659194237308-602x565.png" alt="Summary with Image" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-600 dark:text-slate-400 text-sm italic">
               Note: This is a single image, not three. However, we can pre-design images in a grid style where needed.
             </p>
           </div>
 
           {/* Simple List */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="simple-list" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Simple List
             </h3>
@@ -330,6 +375,8 @@ export default function GuidePage() {
               <li><strong>Link href (URL):</strong> Single link applied to the section</li>
               <li><strong>Link Text:</strong> Button or link label</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/6e70ec03f260f1fd63a26a41a58d143a4813b943-601x565.png" alt="Simple List" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -339,7 +386,7 @@ export default function GuidePage() {
           </div>
 
           {/* Images on Vertical Grid */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="images-vertical-grid" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Images on Vertical Grid
             </h3>
@@ -356,6 +403,8 @@ export default function GuidePage() {
               <li><strong>Image Items:</strong> Each image can include a caption and attribution</li>
               <li><strong>Post Summary:</strong> Text shown after the image grid</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/23cf30a3c0d428251e98ffda8d71096de7eddef2-598x416.png" alt="Images on Vertical Grid" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -364,30 +413,8 @@ export default function GuidePage() {
             </ul>
           </div>
 
-          {/* Rich Text */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-              Rich Text
-            </h3>
-            <p className="text-slate-700 dark:text-slate-300 mb-4">
-              <strong>Purpose:</strong> Add freeform formatted text.
-            </p>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>Fields explained:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
-              <li><strong>Rich Text Content:</strong> Paragraphs, links, and formatting as needed</li>
-            </ul>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>Tips:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-              <li>Use sparingly to maintain readability</li>
-            </ul>
-          </div>
-
           {/* Simple Image */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="simple-image" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Simple Image
             </h3>
@@ -400,13 +427,15 @@ export default function GuidePage() {
             <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
               <li><strong>Image:</strong> Includes alt text and optional link</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/612a2480d3de383bf743288cc99a6f5d522064a1-631x497.png" alt="Simple Image" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-600 dark:text-slate-400 text-sm italic">
               Images will span full width of the email. We can add whitespace around the image during design to achieve a smaller image appearance.
             </p>
           </div>
 
           {/* Image with Summary plus Two Images */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="image-summary-two-images" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Image with Summary plus Two Images
             </h3>
@@ -423,13 +452,15 @@ export default function GuidePage() {
               <li><strong>Two Image Items:</strong> Optional secondary images</li>
               <li><strong>Post Summary:</strong> Additional text below</li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/463fe6b22c1195d1920ec744c4e9095a121bffbf-598x344.png" alt="Image with Summary plus Two Images" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-600 dark:text-slate-400 text-sm italic">
               Images will span full width of the email (best practice for mobile responsiveness). One or two images can be added below the summary. One will fill 100% width. Two will split 50/50.
             </p>
           </div>
 
           {/* Image with Summary plus 50/50 Image/Text Blocks */}
-          <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+          <div id="image-summary-50-50" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
               Image with Summary plus 50/50 Image/Text Blocks
             </h3>
@@ -450,6 +481,8 @@ export default function GuidePage() {
                 </ul>
               </li>
             </ul>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-2"><em>Example Block:</em></p>
+            <img src="https://cdn.sanity.io/images/qzfk7kdf/production/1cf76dabd2e2ca50523e82e7ff32dc3a13178cbb-598x365.png" alt="Image with Summary plus 50/50 Image/Text Blocks" className="w-3/4 mb-8 mr-auto" />
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>Tips:</strong>
             </p>
@@ -462,8 +495,30 @@ export default function GuidePage() {
           </div>
         </section>
 
+        {/* Rich Text */}
+        <div id="rich-text" className="mb-8 p-6 bg-slate-50 dark:bg-slate-800 rounded-lg">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+              Rich Text
+            </h3>
+            <p className="text-slate-700 dark:text-slate-300 mb-4">
+              <strong>Purpose:</strong> Add freeform formatted text.
+            </p>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>Fields explained:</strong>
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
+              <li><strong>Rich Text Content:</strong> Paragraphs, links, and formatting as needed</li>
+            </ul>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>Tips:</strong>
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+              <li>Use sparingly to maintain readability</li>
+            </ul>
+          </div>
+
         {/* General Best Practices */}
-        <section>
+        <section id="general-best-practices">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
             General Best Practices
           </h2>
@@ -477,7 +532,7 @@ export default function GuidePage() {
         </section>
 
         {/* Outlook Setup */}
-        <section>
+        <section id="outlook-setup">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
             How to Set Up Developer Tab in Outlook Classic
           </h2>
@@ -507,12 +562,13 @@ export default function GuidePage() {
             <li>Click <strong>OK</strong></li>
           </ol>
 
-          <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+          <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg mb-64">
             <p className="text-green-800 dark:text-green-200">
               <strong>Done!</strong> You should now be able to use the <strong>Attach File (Insert as text)</strong> option when creating an email, by navigating to <strong>Developer → Attach File</strong> in a New Email creation.
             </p>
           </div>
         </section>
+        </div>
       </div>
     </main>
   );
