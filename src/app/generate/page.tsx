@@ -64,6 +64,7 @@ export default async function GenerateIndexPage() {
                   
                   const showPublishMeta = SHOW_FIELDS_FOR.has(type as AllowedType);
                   const hasValidPublishDate = isValidDateString(doc.publishDate);
+                  const formattedUpdated = formatPublishOrUpdatedDate({ _updatedAt: doc._updatedAt });
                   const formatted = formatPublishOrUpdatedDate(doc);
 
                   return (
@@ -74,7 +75,7 @@ export default async function GenerateIndexPage() {
 
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-sm font-semibold text-slate-900 dark:text-white">
-                          {title}<br/>{formatted && formatted}
+                          {title}
                         </h3>
 
                         {/* Status flag only for newsletterIssue/newsletterTraining */}
@@ -92,15 +93,11 @@ export default async function GenerateIndexPage() {
                       {/* Publish/Updated date */}                
                       {showPublishMeta ? (
                         <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                          {hasValidPublishDate ? (
-                            <>Publish date: {formatted}</>
-                          ) : (
-                            <>Updated: {formatted}</>
-                          )}
+                          Updated: {formattedUpdated}
                         </p>
                       ) : (
                         <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">
-                          Updated: {new Date(doc._updatedAt ?? Date.now()).toLocaleString()}
+                          Updated: {hasValidPublishDate ? formatted : formattedUpdated}
                         </p>
                       )}
 
