@@ -45,7 +45,7 @@ export function Nav() {
             );
           })}
         </div>
-        <li className="ml-auto">
+        <li className="ml-auto flex items-center gap-2">
           <Link
             href="/guide"
             className={clsx(
@@ -59,6 +59,14 @@ export function Nav() {
           >
             Guide
           </Link>
+          {pathname !== '/login' && (
+            <a
+              href="/api/auth/logout"
+              className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:underline"
+            >
+              Log out
+            </a>
+          )}
         </li>
       </ul>
     </nav>
