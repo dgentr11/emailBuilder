@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react';
 
 const SECTIONS = [
   { id: 'overview', label: 'Overview' },
-  { id: 'creating-new-document', label: 'Creating New Document' },
-  { id: 'duplicating', label: 'Duplicating' },
-  { id: 'internal-fields', label: 'Internal Fields' },
+  { id: 'creating-new-document', label: 'Create an Email' },
+  { id: 'duplicating', label: 'Duplicate an Email' },
+  { id: 'internal-fields', label: 'Internal Fields Explained' },
+  { id: 'adding-sections', label: 'Adding Sections' },
   { id: 'section-types', label: 'Section Types' },
-  { id: 'general-best-practices', label: 'Best Practices' },
-  { id: 'outlook-setup', label: 'Outlook Setup' },
+  { id: 'general-best-practices', label: 'General Best Practices' },
+  { id: 'outlook-setup', label: 'Outlook Setup for Sending' },
 ];
 
 export function GuideSidebar() {

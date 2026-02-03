@@ -18,21 +18,23 @@ export default function GuidePage() {
             Overview
           </h2>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            This guide explains how to create a Newsletter using an Email Builder in Sanity Studio content management system (CMS).
+            This guide explains how to create an Email document using an Email Builder in Sanity Studio content management system (CMS).
           </p>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
             It is written for nontechnical users and focuses on what each section is for and how to fill out the form fields, not how the code works.
           </p>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            In the Sanity CMS, a Newsletter document is made up of <strong>Sections</strong> that you can add, remove, and reorder. Each section has a specific layout and purpose, and together they form the final email that can be exported as HTML and sent via Outlook or any email tool that supports HTML email sends.
+            In Sanity CMS, an Email document is made up of <strong>Sections</strong> that users can add, remove, and reorder. Each section has a specific layout and purpose, and together they form the final email that can be exported as HTML and sent via Outlook or any email tool that supports HTML email sends.
           </p>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            You can rearrange sections at any time by dragging them up or down.
+            Users can rearrange sections at any time by dragging them up or down.
           </p>
           <p className="text-slate-700 dark:text-slate-300">
             The final section walks users through setting up Outlook for attaching files as HTML (text) documents, which is vital for sending the HTML email.
           </p>
         </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
         {/* Creating a Newsletter */}
         <section>
@@ -55,7 +57,7 @@ export default function GuidePage() {
                   <img src="https://cdn.sanity.io/images/qzfk7kdf/production/1e56e5b856b81d6f4f776c8e06ce12fcf7fc7043-370x334.png" alt="New Document Button" className="w-1/2 mb-8" />
                 </li>
           
-                <li>Select the content type you want to create (e.g. <strong>Training Newsletter</strong>, <strong>Newsletter</strong> or <strong>Press Release</strong>).
+                <li>Select the content type you want to create (e.g. <strong> Newsletter</strong>, <strong>Training Newsletter</strong> or <strong>Press Release</strong>).
                   <img src="https://cdn.sanity.io/images/qzfk7kdf/production/2163b806c5ed7caeef66f13187c4c29793755205-370x334.png" alt="Content Type Selection" className="w-1/2 mb-8" />
                 </li>
                 <li>A new email document will be created with the content type selected.</li>
@@ -66,6 +68,8 @@ export default function GuidePage() {
             </div>
           </div>
           </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
              {/* Duplicating an Existing Email Document */}
         <section id="duplicating">
@@ -81,12 +85,12 @@ export default function GuidePage() {
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>What it is:</strong> Creates a new email document by duplicating an existing template or email document.
               <br />
-              <strong>Why use it:</strong> If you want to create a new email document with similar or the same content as an existing template or email document.
+              <strong>Why use it:</strong> A user might want to create a new email document with similar or the same content as an existing template or email document.
             </p>
             <div className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>How to use it:</strong>
               <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-                <li>Select the template or email document you want to duplicate from the list of available templates or email documents.</li>
+                <li>Select the template or email document to duplicate from the list of available templates or email documents.</li>
                 <li>Click the Document Actions (three dots) menu item in the lower right hand corner, then click <strong>Duplicate</strong> to create a new email document with the same content as the template or email document selected.</li>
                 <img src="https://cdn.sanity.io/images/qzfk7kdf/production/b9df5afae91f9f8b5f935ba9501beec9e80595d2-1184x961.png" alt="Content Type Selection" className="w-full my-8" />
                 <li>Now, edit the new email document, replacinng content as needed.</li>
@@ -95,6 +99,8 @@ export default function GuidePage() {
             </div>
           </div>
           </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
           <section id="internal-fields">
             <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Internal Email Fields Explained</h2>
@@ -156,8 +162,9 @@ export default function GuidePage() {
               </p>
              
             </div>
-
         </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
         {/* Adding Sections */}
         <section id="adding-sections">
@@ -165,12 +172,53 @@ export default function GuidePage() {
             Adding Sections
           </h2>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            The <strong>Sections</strong> area is where you build the newsletter content. Each section represents a different type of content layout. You may add as many sections as needed and reorder them freely.
+            The <strong>Sections</strong> area is where users build the newsletter content. Each section represents a different type of content layout. Users may add as many sections as needed and reorder them freely.
           </p>
           <p className="text-slate-600 dark:text-slate-400 italic">
-            Unless noted, all fields within each section are optional. If you don&apos;t fill in content, nothing will appear on the front end of the HTML email.
+            Unless noted, all fields within each section are optional. If users don&apos;t fill in content, nothing will appear on the front end of the HTML email.
           </p>
+          <div className="my-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+              Selecting a Section Type
+            </h3>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>What it is:</strong> A section type is a pre-defined layout for a section of the email.
+            </p>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>How to use it:</strong>
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+              <li>Select the "Add Item" button to see a list of available section types.
+
+                <img src="https://cdn.sanity.io/images/qzfk7kdf/production/81eb5469c5252c6a1c24416cb88927e3eb67ccc9-1176x1216.png" alt="New Document Button" className="w-3/4 my-8" />
+              </li>
+
+              <li>Select the section type you want to add to the email.</li>
+              <li>The section type will be added to the email in the order you selected.</li>
+            </ul>
+            </div>
+            <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 ">
+              Arranging Sections
+            </h3>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>What it is:</strong> A drag and drop interface for rearranging sections in the email.
+            </p>
+            <p className="text-slate-700 dark:text-slate-300 mb-2">
+              <strong>How to use it:</strong>
+            </p>
+            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+              <li>Click and hold the four dots on the left hand side of the section you want to move and drag it to the new position.
+
+                <img src="https://cdn.sanity.io/images/qzfk7kdf/production/8231cf5885800b982879de0fa09d66a342612c24-652x620.png" alt="New Document Button" className="w-3/4 my-8" />
+              </li>
+
+              <li>The section will be moved to the new position.</li>
+            </ul>
+          </div>
         </section>
+        
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
         {/* Section Types */}
         <section id="section-types">
@@ -517,6 +565,8 @@ export default function GuidePage() {
             </ul>
           </div>
 
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
+
         {/* General Best Practices */}
         <section id="general-best-practices">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
@@ -530,6 +580,8 @@ export default function GuidePage() {
             <li>Preview the email layout before scheduling in the Generate tab, and in Outlook to make sure nothing appears broken</li>
           </ul>
         </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
         {/* Outlook Setup */}
         <section id="outlook-setup">
