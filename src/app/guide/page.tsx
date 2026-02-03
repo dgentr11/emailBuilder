@@ -36,63 +36,94 @@ export default function GuidePage() {
             Creating a Newsletter
           </h2>
 
-          {/* Title */}
+          {/* Selecting Content Type and Duplicating or Creating a New Email Document */}
           <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-              Title
+             Creating a New Email Document by Content Type
             </h3>
             <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>What it is:</strong> An internal name for your newsletter.
+              <strong>What it is:</strong> Creates a new email document by selecting a content type.
             </p>
             <p className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>How to use it:</strong>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+                <li>Click the <strong>New Document (+)</strong> button in the top left corner of the screen.
+                  <img src="https://cdn.sanity.io/images/qzfk7kdf/production/1e56e5b856b81d6f4f776c8e06ce12fcf7fc7043-370x334.png" alt="New Document Button" className="w-1/2 mb-8" />
+                </li>
+          
+                <li>Select the content type you want to create (e.g. <strong>Training Newsletter</strong>, <strong>Newsletter</strong> or <strong>Press Release</strong>).
+                  <img src="https://cdn.sanity.io/images/qzfk7kdf/production/2163b806c5ed7caeef66f13187c4c29793755205-370x334.png" alt="Content Type Selection" className="w-1/2 mb-8" />
+                </li>
+                <li>A new email document will be created with the content type selected.</li>
+                <li>You can now add details to the new email document (right hand side) such as the title, publish date, and sections.
+                  <img src="https://cdn.sanity.io/images/qzfk7kdf/production/63240029d0448638900e019672de6e5959903961-1878x1009.png" alt="New Email Document Details" className="w-3/4 my-8" />
+                </li>
+              </ul>
             </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-              <li>This title is only used inside Sanity Studio.</li>
-              <li>Choose something that clearly identifies the issue (for example: <em>Training Newsletter | January 2026</em>).</li>
-            </ul>
           </div>
+          </section>
+          <section>
 
-          {/* Publish Date */}
-          <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-              Publish Date
-            </h3>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>What it is:</strong> The planned send date for the newsletter.
-            </p>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>How to use it:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-              <li>Select the date the newsletter is intended to go out.</li>
-              <li>This is mainly used internally for labeling and organization.</li>
-            </ul>
-          </div>
+            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">Internal Email Fields Explained</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-sm italic mb-8">
+                The following three fields (title, publish date, and workflow status) are used for internal organizational purposes. They have no bearing on exporting HTML content when ready to send.
+              </p>
+            {/* Title */}
+            <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                Title
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>What it is:</strong> An internal name for your newsletter.
+              </p>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>How to use it:</strong>
+              </p>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+                <li>This title is only used inside Sanity Studio.</li>
+                <li>Choose something that clearly identifies the issue (for example: <em>Training Newsletter | January 2026</em>).</li>
+              </ul>
+            </div>
 
-          {/* Workflow Status */}
-          <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
-            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
-              Workflow Status
-            </h3>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>What it is:</strong> The current stage of the newsletter.
-            </p>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>Options:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
-              <li><strong>Draft</strong> – Still being edited</li>
-              <li><strong>Scheduled</strong> – Approved and ready to send</li>
-              <li><strong>Sent</strong> – Already sent</li>
-            </ul>
-            <p className="text-slate-700 dark:text-slate-300 mb-2">
-              <strong>Best practice:</strong> Keep newsletters in Draft until content is final.
-            </p>
-            <p className="text-slate-600 dark:text-slate-400 text-sm italic">
-              This field is also used for internal organizational purposes. It has no bearing on exporting HTML content when ready to send.
-            </p>
-          </div>
+            {/* Publish Date */}
+            <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                Publish Date
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>What it is:</strong> The planned send date for the newsletter.
+              </p>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>How to use it:</strong>
+              </p>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
+                <li>Select the date the newsletter is intended to go out.</li>
+                <li>This is mainly used internally for labeling and organization.</li>
+              </ul>
+            </div>
+
+            {/* Workflow Status */}
+            <div className="mb-10 p-6 border border-slate-200 dark:border-slate-700 rounded-lg">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3">
+                Workflow Status
+              </h3>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>What it is:</strong> The current stage of the newsletter.
+              </p>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>Options:</strong>
+              </p>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 mb-4">
+                <li><strong>Draft</strong> – Still being edited</li>
+                <li><strong>Scheduled</strong> – Approved and ready to send</li>
+                <li><strong>Sent</strong> – Already sent</li>
+              </ul>
+              <p className="text-slate-700 dark:text-slate-300 mb-2">
+                <strong>Best practice:</strong> Keep newsletters in Draft until content is final.
+              </p>
+             
+            </div>
+
         </section>
 
         {/* Adding Sections */}
@@ -114,7 +145,7 @@ export default function GuidePage() {
             Section Types
           </h2>
           <p className="text-slate-700 dark:text-slate-300 mb-8">
-            Below is a guide to each available section, listed by name as it appears in Sanity Studio.
+            Below is a guide to each available section (including screenshots), listed by name as it appears in Sanity Studio.
           </p>
 
           {/* Article with Image */}
