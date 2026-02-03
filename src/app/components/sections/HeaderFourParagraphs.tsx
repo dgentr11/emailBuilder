@@ -99,7 +99,6 @@ export function HeaderFourParagraphs({
                         dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(item.paragraphItemSummaryHtml) }}
                       />
                     )}
-                  </div>
                 </Column>
               ))}
               {/* If odd number of items, add empty column to maintain layout */}
