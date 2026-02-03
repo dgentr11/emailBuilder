@@ -11,7 +11,7 @@ export function FooterDivider() {
                 <Img
                     src={footerDividerUrl}
                     alt={'Orange and White Checkerboard'}
-                    width="200"
+                    width="100%"
                     height="auto"
                     style={styles.footerDividerIcon}
                 />

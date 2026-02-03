@@ -14,7 +14,7 @@ export function SimpleImage({ imageUrl, imageAlt, imageLink }: Props) {
         <Img
           src={imageUrl}
           alt={imageAlt || ''}
-          width="100%"
+          width="auto"
           height="auto"
           style={styles.image}
         />
@@ -24,7 +24,7 @@ export function SimpleImage({ imageUrl, imageAlt, imageLink }: Props) {
       <Img
           src={imageUrl}
           alt={imageAlt || ''}
-          width="100%"
+          width="auto"
           height="auto"
           style={styles.image}
         />

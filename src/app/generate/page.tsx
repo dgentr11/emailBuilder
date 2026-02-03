@@ -32,17 +32,17 @@ export default async function GenerateIndexPage() {
   );
 
   const perType = await Promise.all(
-    visible.map(async (type) => ({ type, items: await getLatestByType(type, 12) }))
+    visible.map(async (type) => ({ type, items: await getLatestByType(type, 9) }))
   );
 
   return (
     <main className="mx-auto max-w-6xl px-6 py-12 mt-24">
       <header className="text-center">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-          Generate HTML from recent content
+          Preview HTML from recent content types
         </h1>
         <p className="mt-3 text-slate-600 dark:text-slate-300">
-          Pick from an email template type, then click <strong>Generate</strong>.
+          Pick from an email template type, then click <strong>Preview</strong>.
         </p>
       </header>
 
@@ -56,7 +56,8 @@ export default async function GenerateIndexPage() {
                 No recent content for this type.
               </p>
             ) : (
-              <ul className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <>
+              <ul className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((doc: Doc) => {
                  
                   const title = doc.title ?? `Issue #${doc.issueNumber ?? '—'}`;
@@ -108,13 +109,24 @@ export default async function GenerateIndexPage() {
                           href={`/generate/${encodeURIComponent(doc._id)}`}
                           className="inline-flex items-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-colors"
                         >
-                          Generate
+                          Preview
                         </Link>
                       </div>
                     </li>
                   );
                 })}
               </ul>
+              {items.length >= 9 && (
+                <div className="mb-12">
+                  <Link
+                    href={`/generate/by-type/${encodeURIComponent(type)}`}
+                    className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+                  >
+                    View all {TYPE_LABELS[type] ?? type}
+                  </Link>
+                </div>
+              )}
+              </>
             )}
           </div>
         ))}

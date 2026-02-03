@@ -9,7 +9,7 @@ import clsx from 'clsx';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/studio', label: 'Studio' },
-  { href: '/generate', label: 'Generate' },
+  { href: '/generate', label: 'Preview' },
 ];
 
 export function Nav() {

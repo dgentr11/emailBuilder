@@ -19,7 +19,7 @@ export default function HomePage() {
             <article className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow dark:border-slate-800 dark:bg-slate-900">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Studio</h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                Visually compose your email template content by email type using sections, subsections, images, and CTAs. <br />Publish or save as drafts.
+                Visually compose your email template content by email type using drag and drop sections. <br />Publish or save as drafts.
               </p>
               <div className="mt-4">
                <Link
@@ -30,15 +30,15 @@ export default function HomePage() {
                </div>
               </article>
               <article className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow dark:border-slate-800 dark:bg-slate-900">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Generate HTML</h3>
+                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Preview HTML</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  View a list of emails by template type, then preview in browser and copy or download the HTML for quick sends via your service of choice.
+                  View a list of emails by content type, then preview in browser and copy or download the HTML for quick sends via your service of choice.
                 </p>
                 <div className="mt-4">
                   <Link
                     href="/generate"
                     className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 transition-colors" >
-                   Generate HTML
+                   Preview HTML
                   </Link>
                </div>
               </article>

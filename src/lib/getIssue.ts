@@ -29,3 +29,9 @@ export async function getLatestByType(type: string, limit = 8) {
   `;
   return client.fetch(query, { type, limit });
 }
+
+const ALL_ITEMS_LIMIT = 2000;
+
+export async function getAllByType(type: string) {
+  return getLatestByType(type, ALL_ITEMS_LIMIT);
+}

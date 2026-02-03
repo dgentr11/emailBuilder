@@ -33,7 +33,8 @@ export function ListImageLeft({
 			<div key={index} >
 				<Row>
 					{item.itemImageUrl && !item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top' }} valign="top">
+							<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }}>
 							<Img
 								src={item.itemImageUrl}
 								alt={item.itemImageAlt || item.itemTitle || ''}
@@ -41,23 +42,27 @@ export function ListImageLeft({
 								height="auto"
 								style={styles.image}
 							/>
+						</div>
 						</Column>
 						
 					)}
 					{item.itemImageUrl && item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
-							<a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
-								<Img
-									src={item.itemImageUrl}
-									alt={item.itemImageAlt || item.itemTitle || ''}
-									width="100%"
-									height="auto"
-									style={styles.image}
-								/>
-							</a>
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top' }} valign="top">
+							<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }}>
+								<a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
+									<Img
+										src={item.itemImageUrl}
+										alt={item.itemImageAlt || item.itemTitle || ''}
+										width="100%"
+										height="auto"
+										style={styles.image}
+									/>
+								</a>
+							</div>
 						</Column>
 					)}
-					<Column width="75%" valign="top" style={{ width: '75%', verticalAlign: 'top', fontFamily: tokens.fonts.base, paddingRight: '12px', paddingBottom: '12px', paddingTop: '8px' }} >
+					<Column width="75%" valign="top" style={{ width: '75%', verticalAlign: 'top', fontFamily: tokens.fonts.base }} >
+						<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '8px' }}>
 							{item.itemTitle && (
 								<Text style={{...styles.h3NoMargin}}>
 									{item.itemTitle}
@@ -92,6 +97,7 @@ export function ListImageLeft({
 									</Column>
 								</Row>
 							)}
+						</div>
 					</Column>
 				</Row>
 				{item.itemDivider && (
