@@ -78,11 +78,11 @@ export default function WeeklyNewsletter({
                                         </Column>
                                     </Row>
                                 </Section>
+
+                                <FooterDivider />
+                                
                             </Column>
                         </Row>
-
-                        <FooterDivider />
-
                     </Container>
                     <Footer />
                 </Container>

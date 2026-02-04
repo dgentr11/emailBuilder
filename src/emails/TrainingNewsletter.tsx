@@ -82,10 +82,11 @@ export default function TrainingNewsletter({
                                     </Row>
 
                                 </Section>
+
+                                <FooterDivider />
+                                
                             </Column>
                         </Row>
-
-                        <FooterDivider />
                     </Container>
                     <FooterTraining />
                 </Container>
