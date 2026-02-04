@@ -101,11 +101,10 @@ export default async function Page(
     html = '<p>Failed to render email HTML.</p>';
   }
 
-   const formattedDate = formatDateMMDDYYYY()
 
   return (
     <main className="max-w-7xl mx-auto p-8 space-y-6">
-      <h1 className="text-2xl font-bold">Generated Email HTML</h1>
+      <h1 className="text-2xl font-bold">HTML Email Preview</h1>
 
       <div className="flex gap-3">
         <CopyButton html={html}  />
@@ -113,7 +112,7 @@ export default async function Page(
       </div>
 
       <section>
-        <h2 className="text-xl font-semibold mb-2">Preview</h2>
+        <h2 className="text-xl font-semibold mb-2 flex justify-between"><span>Preview: </span><span>{doc.title}</span></h2>
         <iframe
           title="preview"
           srcDoc={html}
@@ -123,13 +122,4 @@ export default async function Page(
       </section>
     </main>
   );
-}
-
-
-
-function formatDateMMDDYYYY(date: Date = new Date()): string {
-  const mm = String(date.getMonth() + 1).padStart(2, '0');
-  const dd = String(date.getDate()).padStart(2, '0');
-  const yyyy = date.getFullYear();
-  return `${mm}-${dd}-${yyyy}`;
 }
