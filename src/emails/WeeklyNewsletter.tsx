@@ -2,14 +2,14 @@
 import { styles } from './styles';
 import { Footer } from '@/app/components/Footer';
 import { FooterDivider } from '@/app/components/FooterDivider';
-import { Conditional } from 'jsx-email';
+import { Conditional, Section } from 'jsx-email';
 import {
     Html,
     Head,
     Preview,
     Body,
     Container,
-    Row, 
+    Row,
     Column
 } from '@react-email/components';
 import { Header } from '@/app/components/Header';
@@ -39,46 +39,50 @@ export default function WeeklyNewsletter({
                 <style>
                     {`body, table, td, p, h1, h2, h3, h4, h5, h6, ol, ul, li, a, div, span, b, strong, em, i { font-family: "Montserrat", Arial, sans-serif !important; } p, div, ol, li { font-size: 14px; line-height: 1.5; }`}
                 </style>
-               
+
             </Conditional>
-            
-           
+
+
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
-   
+
             <Body style={styles.body}>
 
                 <Container style={styles.container}>
 
-                    <Header 
+                    <Header
                         templateLogoAlt={templateLogoAlt}
                         templateLogoUrl={templateLogoUrl}
                     />
 
-                    <Container style={styles.innerContainer}>
+                    <Container>
                         <Row>
+                            <Column style={styles.innerContainer}>
+                                <Section>
+                                    <Row>
 
-                            <Column style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
-                            {sections && sections.length > 0 ? (
-                            <>
-                                {sections.map((section, i) => {
-                                    const isLastSection = i === sections.length - 1;
-                                    return (
-                                        <SectionRenderer
-                                            key={i}
-                                            section={section}
-                                            isLast={isLastSection}
-                                        />
-                                    );
-                                })}
-                            </>
-                        ) : null}
+                                        <Column style={{ paddingLeft: tokens.spacing.lg, paddingRight: tokens.spacing.lg }}>
+                                            {sections && sections.length > 0 ? (
+                                                <>
+                                                    {sections.map((section, i) => {
+                                                        const isLastSection = i === sections.length - 1;
+                                                        return (
+                                                            <SectionRenderer
+                                                                key={i}
+                                                                section={section}
+                                                                isLast={isLastSection}
+                                                            />
+                                                        );
+                                                    })}
+                                                </>
+                                            ) : null}
+                                        </Column>
+                                    </Row>
+                                </Section>
                             </Column>
                         </Row>
 
-                        
-
                         <FooterDivider />
-                        
+
                     </Container>
                     <Footer />
                 </Container>

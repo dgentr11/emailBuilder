@@ -14,7 +14,8 @@ import {
     Body,
     Container,
     Column,
-    Row
+    Row,
+    Section
 } from '@react-email/components';
 import { SectionRenderer } from '@/app/components/sections';
 import type { WeeklyNewsletterProps } from '@/lib/mapIssueToEmailProps';
@@ -43,10 +44,10 @@ export default function TrainingNewsletter({
                 </style>
 
             </Conditional>
-        
-           
+
+
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="" />
-   
+
             <Body style={styles.body}>
 
                 <Container style={styles.container}>
@@ -56,28 +57,35 @@ export default function TrainingNewsletter({
                         templateLogoUrl={templateLogoUrl}
                     />
 
-                    <Container style={styles.innerContainer}>
+                    <Container>
                         <Row>
-                            <Column className="content-td" style={{ paddingLeft: tokens.spacing.xl, paddingRight: tokens.spacing.xl }}>
+                            <Column style={styles.innerContainer}>
+                                <Section>
+                                    <Row>
+                                        <Column className="content-td" style={{ paddingLeft: tokens.spacing.xl, paddingRight: tokens.spacing.xl }}>
 
-                            {sections && sections.length > 0 ? (
-                                <>
-                                    {sections.map((section, i) => {
-                                        const isLastSection = i === sections.length - 1;
-                                        return (
-                                            <SectionRenderer
-                                                key={i}
-                                                section={section}
-                                                isLast={isLastSection}
-                                            />
-                                        );
-                                    })}
-                                </>
-                            ) : null}
+                                            {sections && sections.length > 0 ? (
+                                                <>
+                                                    {sections.map((section, i) => {
+                                                        const isLastSection = i === sections.length - 1;
+                                                        return (
+                                                            <SectionRenderer
+                                                                key={i}
+                                                                section={section}
+                                                                isLast={isLastSection}
+                                                            />
+                                                        );
+                                                    })}
+                                                </>
+                                            ) : null}
+                                        </Column>
+                                    </Row>
+
+                                </Section>
                             </Column>
-                            </Row>
+                        </Row>
 
-                            <FooterDivider />
+                        <FooterDivider />
                     </Container>
                     <FooterTraining />
                 </Container>
@@ -89,9 +97,9 @@ export default function TrainingNewsletter({
 /** ---- Helpers ---- **/
 
 function formatMonthDay(date?: string): string {
-  if (!date) return '—';
-  const d = new Date(date);
-  if (Number.isNaN(d.getTime())) return '—';
-  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+    if (!date) return '—';
+    const d = new Date(date);
+    if (Number.isNaN(d.getTime())) return '—';
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
 }
 

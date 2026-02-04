@@ -109,7 +109,7 @@ export default async function Page(
 
       <div className="flex gap-3">
         <CopyButton html={html}  />
-        <DownloadButton html={html} title={doc.title + '-' + (doc.publishDate ? doc.publishDate : formattedDate) } />
+        <DownloadButton html={html} title={doc.title} />
       </div>
 
       <section>

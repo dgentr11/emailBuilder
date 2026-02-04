@@ -11,7 +11,7 @@ export default function DownloadButton({ html, title }: { html: string; title?: 
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
-          a.download = `email-${title ?? 'html download'}.html`;
+          a.download = `${title ?? 'html download'}.html`;
           a.click();
           URL.revokeObjectURL(url);
         } catch (err) {
