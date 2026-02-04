@@ -24,13 +24,13 @@ export default function GuidePage() {
             It is written for nontechnical users and focuses on what each section is for and how to fill out the form fields, not how the code works.
           </p>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            In Sanity CMS, an Email document is made up of <strong>Sections</strong> that users can add, remove, and reorder. Each section has a specific layout and purpose, and together they form the final email that can be exported as HTML and sent via Outlook or any email tool that supports HTML email sends.
+            In Studio, an Email document is made up of <strong>Sections</strong> that users can add, remove, and reorder. Each section has a specific layout and purpose, and together they form the final email that can be exported as HTML and sent via Outlook or any email tool that supports HTML.
           </p>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            Users can rearrange sections at any time by dragging them up or down.
+            This document will walk users through creating and duplicating email content by types, as well as explaining the internal fields and section types.  Each section explanation should also have screenshots as a visual reference.
           </p>
           <p className="text-slate-700 dark:text-slate-300">
-            The final section walks users through setting up Outlook for attaching files as HTML (text) documents, which is vital for sending the HTML email.
+            Finally, the document instructs users on setting up Microsoft Outlook to send the HTML email.
           </p>
         </section>
 
@@ -53,7 +53,7 @@ export default function GuidePage() {
             <div className="text-slate-700 dark:text-slate-300 mb-2">
               <strong>How to use it:</strong>
               <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
-                <li>Click the <strong>New Document (+)</strong> button in the top left corner of the screen.
+                <li>Click the <strong>New Document (+)</strong> button in the top left corner of the Studio.
                   <img src="https://cdn.sanity.io/images/qzfk7kdf/production/1e56e5b856b81d6f4f776c8e06ce12fcf7fc7043-370x334.png" alt="New Document Button" className="w-1/2 mb-8" />
                 </li>
           
@@ -91,7 +91,7 @@ export default function GuidePage() {
               <strong>How to use it:</strong>
               <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
                 <li>Select the template or email document to duplicate from the list of available templates or email documents.</li>
-                <li>Click the Document Actions (three dots) menu item in the lower right hand corner, then click <strong>Duplicate</strong> to create a new email document with the same content as the template or email document selected.</li>
+                <li>Click the Document Actions (three dots) menu item in the lower right hand corner of the Studio, then click <strong>Duplicate</strong> to create a new email document with the same content as the template or email document selected.</li>
                 <img src="https://cdn.sanity.io/images/qzfk7kdf/production/b9df5afae91f9f8b5f935ba9501beec9e80595d2-1184x961.png" alt="Content Type Selection" className="w-full my-8" />
                 <li>Now, edit the new email document, replacinng content as needed.</li>
                 <li>Click <strong>Publish</strong> to save the new email document and make it available to export as HTML.</li>
@@ -562,6 +562,9 @@ export default function GuidePage() {
             </p>
             <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300">
               <li>Use sparingly to maintain readability</li>
+              <li>Use bold and italic sparingly to emphasize text.</li>
+              <li>Avoid using Headings (H1, H2, H3, etc.) and lists (ul, ol, li) as they are not supported in HTML emails.</li>
+              
             </ul>
           </div>
 
@@ -586,10 +589,48 @@ export default function GuidePage() {
         {/* Outlook Setup */}
         <section id="outlook-setup">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-            How to Set Up Developer Tab in Outlook Classic
+            How to send HTML emails from Outlook (new version)
           </h2>
           <p className="text-slate-700 dark:text-slate-300 mb-4">
-            The easiest way to send HTML emails from Microsoft Outlook is to enable the Classic version of the app and install a Ribbon that allows you to &quot;Insert as Text&quot;. This will allow you to select an HTML file, insert as text, which will format the HTML email properly.
+            To send HTML emails from Microsoft Outlook, you need to install an add-on that allows you to &quot;Insert as HTML&quot;. This will allow you to copy and paste the HTML email directly into the email body via the add-on.
+          </p>
+          <div className="p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg mb-6">
+            <p className="text-amber-800 dark:text-amber-200 font-medium mb-2">
+              Important: Make sure you are using Outlook (new version)
+            </p>
+            <p className="text-amber-700 dark:text-amber-300 text-sm">
+              This should be default unless you have opted into &quot;Classic Outlook&quot;. If not, there is a toggle in the upper right-hand corner of Outlook to switch to the new version, or see the next section for how to set up HTML email sending in Outlook Classic.
+            </p>
+          </div>
+
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+            Setup Steps (Windows):
+          </h3>
+          <ol className="list-decimal list-inside space-y-3 text-slate-700 dark:text-slate-300">
+              <li>In Outlook 365, click the <strong>More Apps</strong> button in the left side navigation bar, then click the <strong>Add apps</strong> button in the pop out window.</li>
+              <li>Search for <strong>Insert HTML by Designmodo</strong>. Click the add-on and install it.</li>
+              <li> Once installed, users can now copy and paste the HTML email directly into the email body via the add-on.</li>
+              <li>Click new email.</li>
+              <li>In the top ribbon, find the <strong>Enhance Outloock with apps</strong> button, click it, then select <strong>Insert HTML by Designmodo</strong></li>
+              <li>This will open a right sidebar with the HTML text area. Now, copy and paste your html email into the text area.</li>
+              <li>Click the <strong>Insert HTML</strong> button to view the HTML email in the email body.</li>
+          </ol>
+
+          <div className="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg mb-8">
+            <p className="text-green-800 dark:text-green-200">
+              <strong>Done!</strong> You should now be able to copy and paste the HTML email directly into the email body via the add-in, and send it as a HTML email.
+            </p>
+          </div>
+        </section>
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
+
+        {/* Outlook Setup */}
+        <section id="outlook-setup">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+            How to send HTML emails from Outlook Classic
+          </h2>
+          <p className="text-slate-700 dark:text-slate-300 mb-4">
+            The easiest way to send HTML emails from Microsoft Outlook (Classic) is to install a Ribbon that allows you to &quot;Insert as Text&quot;. This will allow you to select an HTML file, insert as text, which will format the HTML email properly.
           </p>
 
           <div className="p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg mb-6">
@@ -597,20 +638,20 @@ export default function GuidePage() {
               Important: Make sure you are using Outlook Classic
             </p>
             <p className="text-amber-700 dark:text-amber-300 text-sm">
-              This should be default unless you have opted into &quot;new Outlook&quot;. If not, there is a toggle in the upper right-hand corner of Outlook to switch back to the Classic experience.
+              If using the new version, there is a toggle in the upper right-hand corner of Outlook to switch back to the Classic experience, or see the previous section for how to set up HTML email sending in Outlook.
             </p>
           </div>
 
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
-            Setup Steps:
+            Setup Steps (Windows):
           </h3>
           <ol className="list-decimal list-inside space-y-3 text-slate-700 dark:text-slate-300">
             <li>Navigate to <strong>File → Options → Customize Ribbon</strong></li>
-            <li>From the Main Tabs dropdown, select <strong>&quot;Developer&quot;</strong> and add a new group titled <strong>&quot;html&quot;</strong></li>
-            <li>Select your newly added <strong>&quot;html&quot;</strong> group</li>
+            <li>From the Main Tabs dropdown, select <strong>Developer</strong> and add a new group titled <strong>html</strong></li>
+            <li>Select your newly added <strong>html</strong> group</li>
             <li>Choose Commands From: Select <strong>All Commands</strong></li>
-            <li>Find the <strong>&quot;Attach File&quot;</strong> command</li>
-            <li>Now <strong>&quot;Add&quot;</strong> the Attach File command to the &quot;html&quot; group</li>
+            <li>Find the <strong>Attach File</strong> command</li>
+            <li>Now <strong>Add</strong> the Attach File command to the html group</li>
             <li>Click <strong>OK</strong></li>
           </ol>
 
@@ -621,7 +662,7 @@ export default function GuidePage() {
           </div>
         </section>
         </div>
-      </div>
+        </div>
     </main>
   );
 }

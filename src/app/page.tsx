@@ -13,13 +13,13 @@ export default function HomePage() {
           <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
             Use the <span className="font-semibold">Studio</span> to build emails from existing email templates.<br />
             Then
-            <span className="font-semibold"> Generate</span> and download or copy HTML for your newsletter blast.
+            <span className="font-semibold"> Preview</span> and download or copy HTML for your newsletter blast.
           </p>
           <div className="mt-20 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <article className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow dark:border-slate-800 dark:bg-slate-900">
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Studio</h3>
               <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                Visually compose your email template content by email type using drag and drop sections. <br />Publish or save as drafts.
+                Visually compose your email by content type using drag and drop sections. Publish or save as drafts.
               </p>
               <div className="mt-4">
                <Link
@@ -32,7 +32,7 @@ export default function HomePage() {
               <article className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow dark:border-slate-800 dark:bg-slate-900">
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Preview HTML</h3>
                 <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                  View a list of emails by content type, then preview in browser and copy or download the HTML for quick sends via your service of choice.
+                  View a list of emails by content type, preview in browser, and copy or download the HTML email.
                 </p>
                 <div className="mt-4">
                   <Link

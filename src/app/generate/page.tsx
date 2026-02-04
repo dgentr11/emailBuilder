@@ -42,7 +42,7 @@ export default async function GenerateIndexPage() {
           Preview HTML from recent content types
         </h1>
         <p className="mt-3 text-slate-600 dark:text-slate-300">
-          Pick from an email template type, then click <strong>Preview</strong>.
+          Pick an email based on content type, then click <strong>Preview</strong> to view the HTML email.
         </p>
       </header>
 
