@@ -1,5 +1,5 @@
 import { styles } from "@/emails/styles";
-import { Img, Section} from "@react-email/components";
+import { Column, Img, Section, Row} from "@react-email/components";
 
  type HeaderProps = {
     templateLogoUrl?: string;
@@ -11,8 +11,10 @@ export function Header({ templateLogoUrl, templateLogoAlt, emailTitle } : Header
 
     return (
 
-        <>
-            <Section style={styles.header}>
+    
+    <Section >
+        <Row>
+            <Column style={styles.header}>
                 {templateLogoUrl &&
                     <Img
                         src={templateLogoUrl}
@@ -22,8 +24,11 @@ export function Header({ templateLogoUrl, templateLogoAlt, emailTitle } : Header
                         style={styles.templateLogo}
                     />
                 }
-            </Section>
+            </Column>
+        </Row>
+        
+    </Section>
            
-        </>
+  
     )
 }

@@ -1,4 +1,4 @@
-import { Section } from '@react-email/components';
+import { Section, Row, Column } from '@react-email/components';
 import { styles } from '@/emails/styles';
 import type { SectionView } from '@/lib/mapIssueToEmailProps';
 import { ArticleWithImage } from './ArticleWithImage';
@@ -63,12 +63,12 @@ export function SectionRenderer({ section, isLast, template }: SectionRendererPr
 
   // Divider doesn't need a Section wrapper
   if (section._type === 'divider') {
-    return <Section> {renderSectionContent()}</Section>;
+    return <Section><Row><Column>{renderSectionContent()} </Column></Row></Section>;
   }
 
   return (
-    <Section style={sectionStyle}>
-      {renderSectionContent()}
+    <Section >
+      <Row><Column style={sectionStyle}>{renderSectionContent()} </Column></Row>
     </Section>
   );
 }

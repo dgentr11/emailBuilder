@@ -20,7 +20,7 @@ export function FooterTraining({
 
         <Section style={{ backgroundColor: smokey }}>
 
-<table
+            <table
                 role="presentation"
                 align="center"
                 width="100%"
