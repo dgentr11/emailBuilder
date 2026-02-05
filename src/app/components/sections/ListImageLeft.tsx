@@ -87,7 +87,7 @@ export function ListImageLeft({
 											style={styles.listItemLink}
 										>{item.itemLinkText}
 											&nbsp;&nbsp;<Img
-												src={"https://facilities.utk.edu/wp-content/uploads/2026/01/Email-Arrow-Link.png"}
+												src={"https://cdn.sanity.io/images/qzfk7kdf/production/f5445009c8fb653a2a3415e62f424f99782431da-20x14.png"}
 												alt={'arrow'}
 												width="16px"
 												height="10px"

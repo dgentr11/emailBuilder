@@ -2,6 +2,7 @@ const FONT_STYLE =
   'font-family: \'Montserrat\', Arial, Helvetica, sans-serif';
 const BOLD_STYLE = `${FONT_STYLE}; font-size: 14px; font-weight: bold`;
 const ITALIC_STYLE = `${FONT_STYLE}; font-size: 14px; font-style: italic`;
+const ANCHOR_STYLE = `${FONT_STYLE}; color: #0078d4`;
 
 function replaceTagWithStyledSpan(
   html: string,
@@ -33,6 +34,25 @@ function addFontStyleToTag(html: string, tagName: string): string {
   });
 }
 
+function addStyleToTag(html: string, tagName: string, styleString: string): string {
+  const openTagRegex = new RegExp(
+    `<${tagName}(\\s[^>]*)?>`,
+    'gi'
+  );
+  return html.replace(openTagRegex, (match, rest = '') => {
+    const hasStyle = /style\s*=/i.test(rest);
+    if (hasStyle) {
+      const newRest = rest.replace(
+        /style\s*=\s*["']([^"']*)["']/i,
+        (_: string, existing: string) => `style="${styleString}; ${existing}"`
+      );
+      return `<${tagName}${newRest}>`;
+    }
+    const style = ` style="${styleString}"`;
+    return `<${tagName}${style}${rest}>`;
+  });
+}
+
 export function stripParagraphsToBr(html: string): string {
   if (!html?.trim()) return html;
   let result = html;
@@ -44,8 +64,10 @@ export function stripParagraphsToBr(html: string): string {
   // Replace <em> and <i> with <span> (fontFamily + fontStyle: italic)
   result = replaceTagWithStyledSpan(result, 'em', ITALIC_STYLE);
   result = replaceTagWithStyledSpan(result, 'i', ITALIC_STYLE);
+  // Add font-family and color to anchor tags
+  result = addStyleToTag(result, 'a', ANCHOR_STYLE);
   // Add font-family to remaining inner elements
-  const innerTags = ['a', 'ul', 'ol', 'li'];
+  const innerTags = ['ul', 'ol', 'li'];
   for (const tag of innerTags) {
     result = addFontStyleToTag(result, tag);
   }

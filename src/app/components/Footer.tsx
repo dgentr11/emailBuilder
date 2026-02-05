@@ -14,7 +14,7 @@ export function Footer({
     const templateLogoAlt =
         'The University of Tennessee Knoxville Facilities Services';
     const templateLogoReverseUrl =
-        'https://facilities.utk.edu/wp-content/uploads/2026/01/email-UTKF_Footer_logo.png';
+        'https://cdn.sanity.io/images/qzfk7kdf/production/679e0ef7388c7133f1f4386c3fe150bc6bab5e09-280x240.png';
 
     return (
 

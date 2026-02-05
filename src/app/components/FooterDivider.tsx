@@ -3,7 +3,7 @@ import { styles } from "@/emails/styles";
 
 export function FooterDivider() {
 
-    const footerDividerUrl = 'https://facilities.utk.edu/wp-content/uploads/2025/12/email-footer-divider.jpg';
+    const footerDividerUrl = 'https://cdn.sanity.io/images/qzfk7kdf/production/15d8137486f6a3b5c11acb6d8fe8b9507d31028b-284x18.jpg';
      
     return (
         <Section >
