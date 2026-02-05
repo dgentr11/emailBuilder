@@ -7,6 +7,7 @@ export default function GuidePage() {
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
           FS Email Builder Documentation
         </h1>
+        <p className="text-slate-700 dark:text-slate-300 mb-4"><a href="https://liveutk-my.sharepoint.com/:w:/r/personal/dgentr11_utk_edu/Documents/FS%20Sanity.io%20Email%20Builder%20Overview.docx?d=w7413ce98c42745c989cbc02ef55a51b4&csf=1&web=1&e=FKkFFR" target="_blank" rel="noopener noreferrer">Download this guide for Microsoft Word</a></p>
       </header>
 
       <div className="flex gap-12">
