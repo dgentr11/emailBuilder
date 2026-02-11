@@ -59,7 +59,7 @@ export const styles = {
     margin: '0 auto',
     backgroundColor: tokens.colors.white,
     paddingBottom: 0,
-    marginTop: tokens.spacing.xl,
+    marginTop: '0'
   }),
   innerContainer: withFont({
     paddingBottom: tokens.spacing.xl,
