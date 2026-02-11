@@ -54,7 +54,8 @@ export const DOC_BY_ID = `
         alt,
         imageLink,
         caption,
-        attribution
+        attribution,
+        attribution2
       }
     },
     
@@ -122,7 +123,8 @@ export const LATEST_SCHEDULED = `
         alt,
         imageLink,
         caption,
-        attribution
+        attribution,
+        attribution2
       }
     }
   },

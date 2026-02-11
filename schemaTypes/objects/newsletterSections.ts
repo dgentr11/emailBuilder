@@ -487,6 +487,7 @@ export default defineType({
 								defineField({name: 'imageLink', type: 'url', title: 'Image Link'}),
 								defineField({ name: 'caption', type: 'string', title: 'Caption' }),
 								defineField({ name: 'attribution', type: 'string', title: 'Attribution' }),
+								defineField({ name: 'attribution2', type: 'string', title: 'Attribution Line 2' }),
 							],
 						}),
 					  ], 
@@ -570,6 +571,35 @@ export default defineType({
 			  }
 			}
 		  }
+	  },
+	  {
+		type: 'object',
+		name: 'simpleCta',
+		title: 'Simple CTA',
+		fields: [
+			defineField({
+				name: 'url',
+				type: 'url',
+				title: 'Link',
+				validation: Rule => Rule.uri({
+					scheme: ['http', 'https', 'mailto', 'tel']
+				})
+			}),
+			defineField({
+				name: 'urlText',
+				type: 'string',
+				title: 'Link Text',
+			}),
+		],
+		preview: {
+			select: { urlText: 'urlText' },
+			prepare({ urlText }) {
+				return {
+					title: 'Simple CTA',
+					subtitle: urlText || '',
+				};
+			},
+		},
 	  },
 	  {
 		type: 'object',

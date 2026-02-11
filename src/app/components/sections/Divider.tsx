@@ -10,7 +10,7 @@ export function Divider({ dividerToggle = true }: Props) {
 
   return (
     <Section align="center" style={styles.dividerContainer}>
-      <Img width="100%" height="23" src={dividerImage} alt="Checkerboard Divider" style={styles.divider} />
+      <Img width="200" height="23" src={dividerImage} alt="Checkerboard Divider" style={styles.divider} />
     </Section>
   )
 }

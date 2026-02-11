@@ -5,6 +5,13 @@ import { stripParagraphsToBr } from '@/lib/stripParagraphsToBr';
 
 type Props = ImagesOnVerticalGridView;
 
+const columnStyle = {
+  width: '33.33%',
+  paddingRight: 8,
+  paddingLeft: 8,
+  verticalAlign: 'top' as const,
+};
+
 export function ImagesOnVerticalGrid({
   eyebrow,
   title,
@@ -12,50 +19,13 @@ export function ImagesOnVerticalGrid({
   postSummaryHtml,
   imageItems,
 }: Props) {
-  // Calculate column width and padding based on number of items
-  const itemCount = imageItems?.length || 0;
-  
-  const getColumnStyle = (index: number, total: number) => {
-    const isLast = index === total - 1;
-    const isFirst = index === 0;
-    
-    if (total === 1) {
-      return {
-        width: '100%',
-        paddingRight: 0,
-        paddingLeft: 0,
-      };
-    }
-    
-    if (total === 2) {
-      return {
-        width: '50%',
-        paddingRight:  12,
-        paddingLeft:  12,
-      };
-    }
-    
-    if (total === 3) {
-      return {
-        width: '33.33%',
-        paddingRight:  8,
-        paddingLeft:  8,
-      };
-    }
-    
-    // Fallback
-    return {
-      width: '33.33%',
-      paddingRight:  8,
-      paddingLeft:  8,
-    };
-  };
+  const items = imageItems ?? [];
 
   return (
     <>
       {eyebrow && (
         <Row>
-          <Column style={{paddingBottom: '16px'}}>
+          <Column style={{paddingBottom: '10px'}}>
             <Text style={styles.eyebrowCentered}>
               {eyebrow}
             </Text>
@@ -64,30 +34,37 @@ export function ImagesOnVerticalGrid({
       )}
 
       {title && (
-        <Text style={styles.h2Centered}>
-          {title}
-        </Text>
+        <Row>
+          <Column style={{paddingBottom: '10px'}}>
+            <Text style={styles.h2Centered}>
+              {title}
+            </Text>
+          </Column>
+        </Row>
       )}
 
       {summaryHtml && (
-        <div
-          dangerouslySetInnerHTML={{ __html: summaryHtml }}
-          style={styles.richTextCentered}
-        />
+        <Row>
+          <Column style={{paddingBottom: '10px'}}>
+            <div
+              dangerouslySetInnerHTML={{ __html: summaryHtml }}
+              style={styles.richTextCentered}
+            />
+        </Column>
+        </Row>
       )}
 
-      {imageItems && imageItems.length > 0 && (
-        <Row style={{ marginTop: 20 }}>
-          {imageItems.map((item, index) => (
+      {(imageItems?.length ?? 0) > 0 && (
+        <Row >
+          {[0, 1, 2].map((index) => {
+            const item = items[index];
+            return (
               <Column
                 key={index}
                 colSpan={1}
-                style={{
-                  ...getColumnStyle(index, itemCount),
-                  verticalAlign: 'top',
-                }}
+                style={columnStyle}
               >
-                {item.imageUrl && !item.imageLink && (
+                {item?.imageUrl && !item.imageLink && (
                   <Img
                     src={item.imageUrl}
                     alt={item.imageAlt || item.caption || ''}
@@ -96,7 +73,7 @@ export function ImagesOnVerticalGrid({
                     style={styles.image}
                   />
                 )}
-                {item.imageUrl && item.imageLink && (
+                {item?.imageUrl && item.imageLink && (
                   <a href={item.imageLink} target="_blank" rel="noopener noreferrer">
                     <Img
                       src={item.imageUrl}
@@ -107,18 +84,31 @@ export function ImagesOnVerticalGrid({
                     />
                   </a>
                 )}
-                {item.caption && (
-                  <Text style={{...styles.imageCaption, marginBottom: '0px', lineHeight: '12px'}}>
+                {item?.caption && (
+                <Row>
+                  <Column style={{...styles.imageCaption}}>
                     {item.caption}
-                  </Text>
+                  </Column>
+                </Row>
                 )}
-                {item.attribution && (
-                  <Text style={{...styles.imageAttribution, marginTop: '0px'}}>
-                    <em>{item.attribution}</em>
-                  </Text>
+                {item?.attribution && (
+                  <Row>
+                    <Column style={{...styles.imageAttribution}}>
+                      {item.attribution}
+                    </Column>
+                  </Row>
+                )}
+                {item?.attribution2 && (
+                  <Row> 
+                    <Column style={{...styles.imageAttribution}}>
+                      {item.attribution2}
+                    </Column>
+                  </Row>
+                  
                 )}
               </Column>
-          ))}
+            );
+          })}
         </Row>
       )}
       {postSummaryHtml && (

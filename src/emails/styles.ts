@@ -146,22 +146,21 @@ export const styles = {
     objectFit: 'cover'
   }),
   imageCaption: withFont({
-    fontSize: '14px',
-    lineHeight: '20px',
+    fontSize: '12px',
+    lineHeight: '16px',
     textAlign: 'center',
     fontWeight: 'bold',
     fontFamily: tokens.fonts.base,
-    marginBottom: '4px',
-    marginTop: '8px',
+    padding: '8px 0 2px 0',
     textTransform: 'uppercase'
   }), 
   imageAttribution: withFont({
-    fontSize: '13px',
-    lineHeight: '16px',
+    fontSize: '11px',
+    lineHeight: '14px',
     textAlign: 'center',
-    fontStyle: 'italic',
+    fontStyle: 'normal',
     fontFamily: tokens.fonts.base,
-    marginTop: '4px',
+    padding: '0px 0px 2px 0px',
     marginBottom: '0'
   }),
   h2: withFont({

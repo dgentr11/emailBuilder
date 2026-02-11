@@ -10,6 +10,7 @@ import { SimpleList } from './SimpleList';
 import { ImagesOnVerticalGrid } from './ImagesOnVerticalGrid';
 import { RichText } from './RichText';
 import { SimpleImage } from './SimpleImage';
+import { SimpleCta } from './SimpleCta';
 import { ImageSummaryTwoImages } from './ImageSummaryTwoImages';
 import { HeaderThreeParagraphs } from './HeaderThreeParagraphs';
 import { ImageSummaryWithAlternatingText } from './ImageSummaryWithAlternatingText';
@@ -49,6 +50,8 @@ export function SectionRenderer({ section, isLast, template }: SectionRendererPr
         return <RichText {...section} />;
       case 'simpleImage':
         return <SimpleImage {...section} />;
+      case 'simpleCta':
+        return <SimpleCta {...section} />;
       case 'imageSummaryTwoImages':
         return <ImageSummaryTwoImages {...section} />
       case 'imageSummaryAlternatingText':

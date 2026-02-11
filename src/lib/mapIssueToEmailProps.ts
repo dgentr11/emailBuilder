@@ -88,7 +88,7 @@ export type ImagesOnVerticalGridSection = {
   summary?: PTBlocks;
   postSummary?: PTBlocks;
   imageItems?: Array<{
-    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; imageLink?: string } | null;
+    image?: { asset?: { url?: string }; alt?: string; caption?: string; attribution?: string; attribution2?: string; imageLink?: string } | null;
   }>;
 };
 
@@ -100,6 +100,12 @@ export type RichTextSection = {
 export type SimpleImageSection = {
   _type: 'simpleImage';
   image?: { asset?: { url?: string }; alt?: string, imageLink?: string } | null;
+};
+
+export type SimpleCtaSection = {
+  _type: 'simpleCta';
+  url?: string;
+  urlText?: string;
 };
 
 export type ImageSummaryTwoImages = {
@@ -137,6 +143,7 @@ export type NewsletterSection =
   | ImagesOnVerticalGridSection
   | RichTextSection
   | SimpleImageSection
+  | SimpleCtaSection
   | ImageSummaryTwoImages
   | ImageSummaryAlternatingText;
 
@@ -245,6 +252,7 @@ export type ImagesOnVerticalGridView = {
     imageLink?: string;
     caption?: string;
     attribution?: string;
+    attribution2?: string;
   }>;
 };
 
@@ -258,6 +266,12 @@ export type SimpleImageView = {
   imageUrl?: string;
   imageAlt?: string;
   imageLink?: string;
+};
+
+export type SimpleCtaView = {
+  _type: 'simpleCta';
+  url?: string;
+  urlText?: string;
 };
 
 export type ImageSummaryTwoImagesView = {
@@ -303,6 +317,7 @@ export type SectionView =
   | ImagesOnVerticalGridView
   | RichTextView
   | SimpleImageView
+  | SimpleCtaView
   | ImageSummaryTwoImagesView
   | ImageSummaryAlternatingTextView;
 
@@ -438,6 +453,7 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
             imageLink: item.image?.imageLink,
             caption: item.image?.caption,
             attribution: item.image?.attribution,
+            attribution2: item.image?.attribution2,
           })),
         };
       }
@@ -452,6 +468,13 @@ export function toEmailProps(doc: IssueDoc): WeeklyNewsletterProps {
           _type: 'simpleImage',
           imageUrl: s.image?.asset?.url,
           imageAlt: s.image?.alt,
+        };
+      }
+      case 'simpleCta': {
+        return {
+          _type: 'simpleCta',
+          url: s.url ?? undefined,
+          urlText: s.urlText,
         };
       }
         case 'imageSummaryTwoImages': {
