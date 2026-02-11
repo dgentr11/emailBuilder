@@ -24,18 +24,26 @@ export function HeaderFourParagraphs({
 
   return (
     <>
-      {header && (
-        <Text style={{...styles.h2Centered, marginTop: 0}}>
-          {header}
-        </Text>
-      )}
-
+    {header && (
+      <Row>
+        <Column style={{paddingBottom: '16px'}}>
+          
+            <Text style={{...styles.h2Centered, marginTop: 0}}>
+              {header}
+            </Text>
+        </Column>
+      </Row>
+      )}  
       {summaryHtml && (
-        <div
-          dangerouslySetInnerHTML={{ __html: summaryHtml }}
-          style={styles.richTextCentered}
-        />
-      )}
+        <Row>
+          <Column style={{paddingBottom: '16px'}}>
+            <div
+                dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
+                style={styles.richTextCentered}
+              />
+            </Column>
+          </Row>
+        )}
 
       {itemPairs.length > 0 && (
         <>

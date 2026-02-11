@@ -11,9 +11,9 @@ export function RichText({ summaryHtml }: Props) {
   return (
     <Row>
       <Column>
-      <div
-      dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
-      style={styles.richText}  />
+        <div
+        dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
+        style={styles.richText}  />
       </Column>
     </Row>
   );

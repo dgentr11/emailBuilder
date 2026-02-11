@@ -28,18 +28,28 @@ export function SummaryWithImage({
         )}
 
       {title && (
-        <Text style={{...styles.h2Centered}}>
-          {title}
-        </Text>
+        <Row> 
+          <Column style={{paddingBottom: '16px'}}>
+            <Text style={{...styles.h2Centered, marginTop: 0}}>
+              {title}
+            </Text>
+          </Column>
+        </Row>
       )}
 
       {summaryHtml && (
-        <div
-          dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
-          style={styles.richTextCentered}
-        />
+        <Row>
+          <Column style={{paddingBottom: '16px'}}>
+            <div
+              dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
+              style={styles.richTextCentered}
+            />
+          </Column>
+        </Row>
       )}
        {imageUrl && !imageLink && (
+        <Row>
+          <Column style={{paddingBottom: '10px'}}>
           <Img
             src={imageUrl}
             alt={imageAlt || title || ''}
@@ -47,9 +57,13 @@ export function SummaryWithImage({
             height="auto"
             style={styles.image}
           />
+          </Column>
+        </Row>
       )}
       
       {imageUrl && imageLink && (
+        <Row>
+          <Column style={{paddingBottom: '10px'}}>      
         <a href={imageLink} target="_blank" rel="noopener noreferrer">
           <Img
             src={imageUrl}
@@ -59,7 +73,9 @@ export function SummaryWithImage({
             style={styles.image}
           />
         </a>
-      )}
+        </Column>
+        </Row>
+        )}
     </>
   );
 }

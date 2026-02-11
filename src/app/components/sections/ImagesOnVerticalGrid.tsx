@@ -35,7 +35,7 @@ export function ImagesOnVerticalGrid({
 
       {title && (
         <Row>
-          <Column style={{paddingBottom: '10px'}}>
+          <Column style={{paddingBottom: '16px'}}>
             <Text style={styles.h2Centered}>
               {title}
             </Text>
@@ -45,7 +45,7 @@ export function ImagesOnVerticalGrid({
 
       {summaryHtml && (
         <Row>
-          <Column style={{paddingBottom: '10px'}}>
+          <Column style={{paddingBottom: '16px'}}>
             <div
               dangerouslySetInnerHTML={{ __html: summaryHtml }}
               style={styles.richTextCentered}

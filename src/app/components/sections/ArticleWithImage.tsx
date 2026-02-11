@@ -20,7 +20,7 @@ export function ArticleWithImage({
 	<>
 		{imageUrl && (
 			 <Row>
-                <Column style={{paddingBottom: "16px"}}>
+                <Column style={{paddingBottom: "10px"}}>
 				   {imageLink && (
 					<a href={imageLink} target="_blank" rel="noopener noreferrer">
 					
@@ -56,15 +56,28 @@ export function ArticleWithImage({
 			   </Row>
 			)}
 
-			<Text style={headingToggle ? styles.h1CenteredUpper : styles.h2CenteredUpper}>
-				{title}
-			</Text>
+			{title && (
+				<Row>
+					<Column style={{paddingBottom: '16px'}}>
+						<Text style={headingToggle ? styles.h1CenteredUpper : styles.h2CenteredUpper}>
+							{title}
+						</Text>
+					</Column>
+				</Row>
+
+			)}
+
+			
 
 			{summaryHtml && (
-				<div
-					dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
-					style={styles.richTextCentered}
-				/>
+				<Row>	
+					<Column style={{paddingBottom: '16px'}}>
+						<div
+							dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
+							style={styles.richTextCentered}
+						/>
+					</Column>
+				</Row>
 			)}
 			{url && (
 

@@ -14,16 +14,24 @@ export function ListImageLeft({
   return (
 	<>
 	  {title && (
-		<Text style={styles.h2Centered}>
-		  {title}
-		</Text>
+		<Row>
+			<Column style={{paddingBottom: '16px'}}>
+				<Text style={{...styles.h2Centered, marginTop: 0}}>
+					{title}
+				</Text>
+			</Column>
+		</Row>
 	  )}
 
 	  {summaryHtml && (
-		<div
-		  dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
-		  style={styles.richTextCentered}
-		/>
+		<Row>
+			<Column style={{paddingBottom: '16px'}}>		
+				<div
+					dangerouslySetInnerHTML={{ __html: stripParagraphsToBr(summaryHtml) }}
+					style={styles.richTextCentered}
+				/>
+		</Column>
+		</Row>
 	  )}
 
 	  {listItems && listItems.length > 0 && (

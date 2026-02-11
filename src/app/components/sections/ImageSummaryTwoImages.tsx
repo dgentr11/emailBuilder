@@ -91,15 +91,23 @@ export function ImageSummaryTwoImages({
       )}
 
       {title && (
-        <Text style={styles.h2Centered}>
-          {title}
-        </Text>
+        <Row>
+          <Column style={{paddingBottom: '16px'}}>
+            <Text style={styles.h2Centered}>
+              {title}
+            </Text>
+          </Column>
+        </Row>
       )}
 
       {summary && (
-        <Text style={styles.richTextCentered}>
-          {summary}
-        </Text>
+        <Row>
+          <Column style={{paddingBottom: '16px'}}>
+            <Text style={styles.richTextCentered}>
+              {summary}
+            </Text>
+          </Column>
+        </Row>
       )}
 
       {imageItems && imageItems.length > 0 && (
