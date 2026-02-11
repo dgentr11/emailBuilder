@@ -20,7 +20,7 @@ export function ArticleWithImage({
 	<>
 		{imageUrl && (
 			 <Row>
-                <Column style={{paddingBottom: "10px"}}>
+                <Column style={{paddingBottom: "20px"}}>
 				   {imageLink && (
 					<a href={imageLink} target="_blank" rel="noopener noreferrer">
 					
