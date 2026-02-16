@@ -85,7 +85,8 @@ export const styles = {
   header: withFont({
     textAlign: 'center',
     paddingBottom: tokens.spacing.lg,
-    paddingTop: tokens.spacing.xxl
+    paddingTop: tokens.spacing.xxl,
+    color: tokens.colors.smokey
   }),
   headerImageContainer: withFont({
     fontSize: '0',
@@ -107,14 +108,16 @@ export const styles = {
     margin: '4px 0 4px',
     lineHeight: '36px',
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
    h1Left: withFont({
     fontSize: 30,
     margin: '4px 0 4px',
     lineHeight: '36px',
     textAlign: 'left',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
   section: withFont({
     paddingTop: tokens.spacing.lg,
@@ -152,7 +155,8 @@ export const styles = {
     fontWeight: 'bold',
     fontFamily: tokens.fonts.base,
     padding: '8px 0 2px 0',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    color: tokens.colors.smokey
   }), 
   imageAttribution: withFont({
     fontSize: '11px',
@@ -161,13 +165,15 @@ export const styles = {
     fontStyle: 'normal',
     fontFamily: tokens.fonts.base,
     padding: '0px 0px 2px 0px',
-    marginBottom: '0'
+    marginBottom: '0',
+    color: tokens.colors.smokey
   }),
   h2: withFont({
     fontSize: 24,
     margin: '0px 0px 0px 0px',
     lineHeight: '24px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
   h2Centered: withFont({
     fontSize: 24,
@@ -175,6 +181,7 @@ export const styles = {
     lineHeight: '24px',
     textAlign: 'center',
     fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
   h2CenteredUpper: withFont({
     fontSize: 24,
@@ -182,7 +189,8 @@ export const styles = {
     lineHeight: '24px',
     textAlign: 'center',
     fontWeight: 'bold',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    color: tokens.colors.smokey
   }),
   h1CenteredUpper: withFont({
     fontSize: 32,
@@ -190,18 +198,21 @@ export const styles = {
     lineHeight: '32px',
     textAlign: 'center',
     fontWeight: 'bold',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    color: tokens.colors.smokey
   }),
   richText: withFont({
     fontSize: 14,
     lineHeight: '21px',
     fontFamily: tokens.fonts.base,
+    color: tokens.colors.smokey
   }),
    richTextCentered: withFont({
     fontSize: 14,
     textAlign: 'center',
     lineHeight: '21px',
     fontFamily: tokens.fonts.base,
+    color: tokens.colors.smokey
   }),
   richTextLeft: withFont({
     fontSize: 14,
@@ -210,6 +221,7 @@ export const styles = {
     marginBottom: '0',
     lineHeight: '21px',
     fontFamily: tokens.fonts.base,
+    color: tokens.colors.smokey
   }),
   eyebrowCentered: withFont({
     fontSize: tokens.fontSizes.md,
@@ -239,20 +251,23 @@ export const styles = {
     fontSize: 16,
     margin: '8px 0 0px',
     lineHeight: '20px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
   h3NoMargin: withFont({
     fontSize: 16,
     margin: '0px 0px 0px 0px',
     lineHeight: '20px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: tokens.colors.smokey
   }),
   h4: withFont({
     fontSize: 14,
     margin: '8px 0 0px',
     lineHeight: '18px',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    color: tokens.colors.smokey
   }),
   secondaryButton: withFont({
     marginTop: tokens.spacing.xs,
@@ -310,7 +325,7 @@ export const styles = {
   itemDivider: withFont({
     marginTop: '10px',
     marginBottom: '10px',
-    borderTop: '1px solid #000000'
+    borderTop: '1px solid #4B4B4B'
   }),
   footerDivider: withFont({
     textAlign: 'center',
