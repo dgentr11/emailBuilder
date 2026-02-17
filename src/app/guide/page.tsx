@@ -576,13 +576,110 @@ export default function GuidePage() {
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
             General Best Practices
           </h2>
+          <p className="text-slate-700 dark:text-slate-300 mb-4">
+            OCM Brand guidelines should be followed when building emails.<br/><br />
+            <a href="https://brand.utk.edu/standards/email/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600 underline">View the brand guidelines&nbsp;&rarr;</a>
+          </p>
           <ul className="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-300">
             <li>Write for scanning: short paragraphs and clear headings</li>
             <li>Link to Training Hub or other web documents/pages for additional information</li>
             <li>Always include alt text for images</li>
+            <li>If images are stretched to full width, add whitespace around the image during design to achieve a smaller image appearance. Aws and Dave can help with this if needed.</li>
             <li>Avoid repeating the same section style too many times in one email</li>
-            <li>Preview the email layout before scheduling in the Generate tab, and in Outlook to make sure nothing appears broken</li>
+            <li>Avoid using Headings (H1, H2, H3, etc.) and lists (ul, ol, li) as they are not supported in HTML emails.</li>
+
+            <li>Use the QA Checklist for Email Creation and Sends to catch common issues</li>
           </ul>
+        </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
+
+        {/* QA Checklist for Email Creation and Sends */}
+        <section id="qa-checklist">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+            QA Checklist for Email Creation and Sends
+          </h2>
+          <p className="text-slate-700 dark:text-slate-300 mb-6">
+            Use this checklist before building and before sending to catch common issues.
+          </p>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+                Before building
+              </h3>
+              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Confirm subject line is clear and on-brand</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Gather all links, images, and copy (including alt text) in advance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Verify links point to correct URLs (Training Hub, docs, etc.)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Review OCM brand guidelines for tone and formatting</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+                Content and layout
+              </h3>
+              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Short paragraphs and scannable structure; no unsupported HTML (e.g. H1–H3, ul/ol)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Every image has descriptive alt text</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Section styles are not overused; variety in layout where appropriate</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Spelling and grammar checked; names and dates correct</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
+                Before sending
+              </h3>
+              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Preview in the Generate tab — layout and links look correct</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Preview in Outlook (new or Classic) — nothing broken or misaligned</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Test all links (buttons and inline links) — they open the right pages</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>Recipient list and send time/schedule confirmed</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-slate-400 dark:text-slate-500 mt-0.5">☐</span>
+                  <span>HTML inserted via add-in (Outlook new) or Insert as Text (Outlook Classic) before send</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <hr className="my-12 border-slate-200 dark:border-slate-400" />
