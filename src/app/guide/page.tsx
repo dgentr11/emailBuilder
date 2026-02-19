@@ -628,7 +628,7 @@ export default function GuidePage() {
               </ul>
             </div>
 
-            <div className="p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg mb-6">
+            <div>
               <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-3">
                 Content and layout
               </h3>
