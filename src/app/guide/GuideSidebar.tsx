@@ -10,6 +10,7 @@ const SECTIONS = [
   { id: 'adding-sections', label: 'Adding Sections' },
   { id: 'section-types', label: 'Section Types' },
   { id: 'general-best-practices', label: 'General Best Practices' },
+  { id: 'image-optimization', label: 'Image Optimization' },
   { id: 'outlook-setup', label: 'Outlook Setup for Sending' },
 ];
 

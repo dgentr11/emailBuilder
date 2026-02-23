@@ -594,6 +594,29 @@ export default function GuidePage() {
 
         <hr className="my-12 border-slate-200 dark:border-slate-400" />
 
+        {/* Image Optimization for Emails */}
+        <section id="image-optimization">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
+            Image Optimization for Emails
+          </h2>
+          <p className="text-slate-700 dark:text-slate-300 mb-4">
+            Properly sizing and formatting images keeps emails fast, reliable, and compatible across clients (including Outlook Classic).
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-slate-700 dark:text-slate-300 mb-4">
+            <li><strong>Width:</strong> Keep images no larger than <strong>600px wide</strong>. Images wider than 600px can break the template in older clients such as Outlook Classic.</li>
+            <li><strong>File size:</strong> Keep each image under <strong>1MB</strong> so messages load quickly and do not hit size limits.</li>
+            <li><strong>Format:</strong> Save images as <strong>JPG</strong> unless you need transparency, in which case use <strong>PNG</strong>.</li>
+            <li><strong>Avoid unsupported formats:</strong> Other formats such as .tif, .svg, .eps, and similar can break or not display in some email clients. Stick to JPG or PNG.</li>
+          </ul>
+          <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg">
+            <p className="text-amber-800 dark:text-amber-200 text-sm">
+              <strong>Summary:</strong> Use JPG (or PNG only when transparency is required), max 600px wide and under 1MB per image. Avoid TIF, SVG, EPS, and other formats in email.
+            </p>
+          </div>
+        </section>
+
+        <hr className="my-12 border-slate-200 dark:border-slate-400" />
+
         {/* QA Checklist for Email Creation and Sends */}
         <section id="qa-checklist">
           <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
