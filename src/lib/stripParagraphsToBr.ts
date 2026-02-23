@@ -53,6 +53,26 @@ function addStyleToTag(html: string, tagName: string, styleString: string): stri
   });
 }
 
+/** Restore mailto: and tel: in hrefs that lost the protocol (e.g. after portable text / sanitization). */
+function restoreMailtoAndTelHrefs(html: string): string {
+  return html.replace(
+    /href\s*=\s*(["'])([^"']*)\1/gi,
+    (_match, quote: string, url: string) => {
+      const u = url.trim();
+      if (!u) return `href=${quote}${u}${quote}`;
+      // Already has a safe protocol or hash
+      if (/^(https?:|mailto:|tel:|#)/i.test(u)) return `href=${quote}${u}${quote}`;
+      // Email-like: contains @ and no protocol → treat as mailto
+      if (u.includes('@')) return `href=${quote}mailto:${u}${quote}`;
+      // Phone-like: digits, spaces, + - ( ) . and at least 10 digits → treat as tel
+      if (/^[\d\s\-+().]+$/.test(u) && u.replace(/\D/g, '').length >= 10) {
+        return `href=${quote}tel:${u}${quote}`;
+      }
+      return `href=${quote}${u}${quote}`;
+    }
+  );
+}
+
 export function stripParagraphsToBr(html: string): string {
   if (!html?.trim()) return html;
   let result = html;
@@ -66,6 +86,8 @@ export function stripParagraphsToBr(html: string): string {
   result = replaceTagWithStyledSpan(result, 'i', ITALIC_STYLE);
   // Add font-family and color to anchor tags
   result = addStyleToTag(result, 'a', ANCHOR_STYLE);
+  // Restore mailto: and tel: in hrefs if they were stripped (e.g. by portable text / sanitization)
+  result = restoreMailtoAndTelHrefs(result);
   // Add font-family to remaining inner elements
   const innerTags = ['ul', 'ol', 'li'];
   for (const tag of innerTags) {
