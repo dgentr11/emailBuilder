@@ -15,7 +15,7 @@ export default function SiteLayout({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        <main style={{  margin: '0 auto', padding: '60px 16px 16px', maxWidth: '1920px' }}>{children}</main>
+        <main style={{  margin: '0 auto', padding: '60px 16px 16px', maxWidth: '1920px', height: '90vh' }}>{children}</main>
       </body>
     </html>
   );
