@@ -41,8 +41,8 @@ export function ListImageLeft({
 			<div key={index} >
 				<Row>
 					{item.itemImageUrl && !item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', verticalAlign: 'top' }} valign="top">
-							<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }}>
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
+							<div style={{  }}>
 							<Img
 								src={item.itemImageUrl}
 								alt={item.itemImageAlt || item.itemTitle || ''}
@@ -55,8 +55,8 @@ export function ListImageLeft({
 						
 					)}
 					{item.itemImageUrl && item.itemImageLink && (
-						<Column width="25%" style={{ width: '25%', verticalAlign: 'top' }} valign="top">
-							<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }}>
+						<Column width="25%" style={{ width: '25%', verticalAlign: 'top', paddingRight: '12px', paddingBottom: '12px', paddingTop: '12px' }} valign="top">
+							<div style={{  }}>
 								<a href={item.itemImageLink} target="_blank" rel="noopener noreferrer">
 									<Img
 										src={item.itemImageUrl}
@@ -69,8 +69,8 @@ export function ListImageLeft({
 							</div>
 						</Column>
 					)}
-					<Column width="75%" valign="top" style={{ width: '75%', verticalAlign: 'top', fontFamily: tokens.fonts.base }} >
-						<div style={{ paddingRight: '12px', paddingBottom: '12px', paddingTop: '8px' }}>
+					<Column width="75%" valign="top" style={{ width: '75%', verticalAlign: 'top', fontFamily: tokens.fonts.base, paddingRight: '12px', paddingBottom: '12px', paddingTop: '8px' }} >
+						<div style={{  }}>
 							{item.itemTitle && (
 								<Text style={{...styles.h3NoMargin}}>
 									{item.itemTitle}
