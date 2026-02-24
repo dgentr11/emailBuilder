@@ -18,6 +18,7 @@ export default defineType({
 		  name: 'image',
 		  title: 'Image',
 		  type: 'image',
+		  description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 		  options: { hotspot: true },
 		  fields: [
 			defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -101,6 +102,7 @@ export default defineType({
 						name: 'itemImage',
 						type: 'image',
 						title: 'List Item Image',
+						description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 						options: { hotspot: true },
 						fields: [
 						defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -171,7 +173,7 @@ export default defineType({
 			type: 'image',
 			title: 'Preview Image',
 			hidden: true,
-			description: 'Internal field for preview - references checkerboard divider image',
+			description: 'Internal field for preview - references checkerboard divider image.',
 			options: {
 				accept: 'image/*'
 			}
@@ -231,6 +233,7 @@ export default defineType({
 						  name: 'itemImage',
 						  type: 'image',
 						  title: 'Paragraph Item Image',
+						  description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 						  options: { hotspot: true },
 						  fields: [
 						  	defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -300,6 +303,7 @@ export default defineType({
 							  name: 'itemImage',
 							  type: 'image',
 							  title: 'Paragraph Item Image',
+							  description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 							  options: { hotspot: true },
 							  fields: [
 								  defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -363,6 +367,7 @@ export default defineType({
 				name: 'image',
 				title: 'Image',
 				type: 'image',
+				description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 				options: { hotspot: true },
 				fields: [
 				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -481,6 +486,7 @@ export default defineType({
 							name: 'image',
 							title: 'Image',
 							type: 'image',
+							description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 							options: { hotspot: true },
 							fields: [
 								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -554,6 +560,7 @@ export default defineType({
 				name: 'image',
 				title: 'Image',
 				type: 'image',
+				description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 				options: { hotspot: true },
 				fields: [
 				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -610,6 +617,7 @@ export default defineType({
 				name: 'image',
 				title: 'Image',
 				type: 'image',
+				description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 				options: { hotspot: true },
 				fields: [
 				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -641,6 +649,7 @@ export default defineType({
 							name: 'image',
 							title: 'Image',
 							type: 'image',
+							description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 							options: { hotspot: true },
 							fields: [
 								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -649,8 +658,8 @@ export default defineType({
 							
 						}),
 					  ], 
-						preview: {
-							select: {
+					  preview: {
+						select: {
 							image: 'image',
 							asset: 'image.asset',
 							title: 'image.alt'
@@ -693,6 +702,7 @@ export default defineType({
 				name: 'image',
 				title: 'Image',
 				type: 'image',
+				description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 				options: { hotspot: true },
 				fields: [
 				defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
@@ -729,6 +739,7 @@ export default defineType({
 							name: 'imageItem',
 							title: 'Image Item',
 							type: 'image',
+							description: 'Only upload JPG or PNG file types. Other formats (e.g. TIF, SVG, EPS) may break in some email clients.',
 							options: { hotspot: true },
 							fields: [
 								defineField({ name: 'alt', type: 'string', title: 'Alt text' }),
