@@ -32,7 +32,7 @@ export default function TrainingNewsletter({
     templateLogoUrl = 'https://cdn.sanity.io/images/qzfk7kdf/production/00658b9f07c7eecfdc4bdae6ef5f2d4582440527-280x240.jpg',
     templateLogoAlt = 'The University of Tennessee Knoxville Facilities Services',
 }: Props) {
-    const previewText = 'Facilities Services Newsletter';
+    const previewText = 'Facilities Services Training Newsletter';
 
     return (
         <Html>
