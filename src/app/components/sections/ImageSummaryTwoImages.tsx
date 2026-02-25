@@ -111,7 +111,7 @@ export function ImageSummaryTwoImages({
       )}
 
       {imageItems && imageItems.length > 0 && (
-        <Row style={{ marginTop: 20 }}>
+        <Row>
           {imageItems.map((item, index) => (
               <Column
                 align="center"

@@ -48,7 +48,7 @@ export function HeaderFourParagraphs({
       {itemPairs.length > 0 && (
         <>
           {itemPairs.map((pair, pairIndex) => (
-            <Row key={pairIndex} style={{ marginTop: pairIndex === 0 ? 16 : 16 }}>
+            <Row key={pairIndex} >
               {pair.map((item, itemIndex) => (
                 <Column
                   key={itemIndex}

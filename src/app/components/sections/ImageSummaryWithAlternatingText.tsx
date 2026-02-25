@@ -77,12 +77,12 @@ export function ImageSummaryWithAlternatingText({
 	  {alternatingTextItems && alternatingTextItems.length > 0 && (
 		<>
 		  {alternatingTextItems.map((item, index) => (
-			<Row key={index} style={{ marginTop: index === 0 ? 20 : 16 }}>
+			<Row key={index} >
 			  {!item.imageOnRight ? (
 				<>
 				  <Column
 					align="center"
-					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '0px 8px 0px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.imageItemUrl && !item.imageItemLink && (
 					  <Img
@@ -106,7 +106,7 @@ export function ImageSummaryWithAlternatingText({
 					)}
 				  </Column>
 				  <Column
-					style={{ width: '50%', verticalAlign: 'middle', padding: '8px 8px', fontFamily: tokens.fonts.base }}
+					style={{ width: '50%', verticalAlign: 'middle', padding: '0px 8px 0px 8px', fontFamily: tokens.fonts.base }}
 				  >
 					{item.textItem && (
 					  <div
